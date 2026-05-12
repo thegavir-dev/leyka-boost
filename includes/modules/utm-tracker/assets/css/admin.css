@@ -1,0 +1,264 @@
+/* Leyka UTM Tracker — admin styles */
+
+/* ── Stat cards grid ──────────────────────────────────────────── */
+.lutm-cards {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(160px, 1fr));
+    gap: 12px;
+    max-width: 1100px;
+    margin: 18px 0;
+}
+
+.lutm-card {
+    background: #fff;
+    border: 1px solid #dcdcde;
+    border-radius: 10px;
+    padding: 14px 16px;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, .04);
+}
+
+.lutm-card__label {
+    font-size: 12px;
+    color: #646970;
+    margin-bottom: 8px;
+}
+
+.lutm-card__value {
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+/* ── Clear-pending form ───────────────────────────────────────── */
+.lutm-clear-form {
+    margin: 16px 0;
+}
+
+/* ── Status badges ────────────────────────────────────────────── */
+.lutm-badge {
+    display: inline-block;
+    padding: 4px 10px;
+    border-radius: 999px;
+    color: #fff;
+    font-weight: 600;
+}
+
+.lutm-badge--success { background: #138a36; }
+.lutm-badge--pending { background: #d97706; }
+.lutm-badge--fail    { background: #b91c1c; }
+.lutm-badge--unknown { background: #6b7280; }
+
+/* ── UTM touch block ──────────────────────────────────────────── */
+.lutm-touch {
+    line-height: 1.45;
+}
+
+.lutm-touch__title {
+    font-weight: 600;
+    margin-bottom: 4px;
+}
+
+/* ── Pagination ───────────────────────────────────────────────── */
+.lutm-pagination {
+    margin-top: 16px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    flex-wrap: wrap;
+}
+
+.lutm-pagination .tablenav-pages {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.lutm-pagination .page-numbers {
+    display: inline-block;
+    min-width: 30px;
+    min-height: 30px;
+    padding: 0 8px;
+    border: 1px solid #c3c4c7;
+    border-radius: 3px;
+    background: #fff;
+    line-height: 28px;
+    text-align: center;
+    text-decoration: none;
+}
+
+.lutm-pagination .page-numbers.current {
+    background: #2271b1;
+    border-color: #2271b1;
+    color: #fff;
+}
+
+.lutm-pagination__info {
+    color: #646970;
+    font-size: 13px;
+}
+
+.lutm-pagination__ellipsis {
+    padding: 0 4px;
+}
+
+/* ── Log viewer ───────────────────────────────────────────────── */
+.lutm-log-wrap {
+    background: #fff;
+    border: 1px solid #dcdcde;
+    border-radius: 8px;
+    padding: 14px;
+    max-width: 1200px;
+}
+
+.lutm-log-pre {
+    white-space: pre-wrap;
+    word-break: break-word;
+    margin: 0;
+    font-family: Consolas, Monaco, monospace;
+    font-size: 12px;
+    line-height: 1.5;
+}
+
+/* Active page in pagination — disable pointer */
+.lutm-pagination__current {
+    cursor: default;
+}
+
+/* ── First/Last touch column widths ──────────────────────────── */
+.leyka-utm-table th:nth-child(3),
+.leyka-utm-table td:nth-child(3),
+.leyka-utm-table th:nth-child(4),
+.leyka-utm-table td:nth-child(4) {
+    width: 260px;
+    min-width: 260px;
+}
+
+/* ── UTM meta labels ─────────────────────────────────────────── */
+.leyka-utm-meta {
+    line-height: 1.6;
+    white-space: nowrap;
+}
+
+.leyka-utm-meta strong {
+    color: #555;
+    display: inline-block;
+    width: 80px;
+}
+
+/* ── Filters bar ─────────────────────────────────────────────── */
+.lutm-filters {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
+    margin: 16px 0;
+    max-width: 1100px;
+}
+
+.lutm-filters select,
+.lutm-filters input[type="date"] {
+    min-width: 140px;
+    max-width: 200px;
+}
+
+/* ── Actions bar ─────────────────────────────────────────────── */
+.lutm-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 16px 0;
+}
+
+/* ── Summary blocks grid ─────────────────────────────────────── */
+.lutm-summaries {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    max-width: 1100px;
+    margin: 24px 0;
+}
+
+.lutm-summary-block h3 {
+    margin: 0 0 10px;
+    font-size: 14px;
+}
+
+.lutm-summary-block h3 small {
+    font-weight: 400;
+    color: #646970;
+}
+
+.lutm-summary-block--full {
+    grid-column: 1 / -1;
+}
+
+/* ── Sticky table header ─────────────────────────────────────── */
+.leyka-utm-table thead th {
+    position: sticky;
+    top: 32px;
+    background: #f0f0f1;
+    z-index: 5;
+}
+
+/* ── Row hover ───────────────────────────────────────────────── */
+.leyka-utm-table tbody tr:hover {
+    background: #f0f6fc;
+}
+
+/* ── UTM Generator ───────────────────────────────────────────── */
+.lutm-generator {
+    max-width: 700px;
+    margin: 18px 0 24px;
+}
+
+.lutm-gen-form label {
+    display: block;
+    font-weight: 600;
+    margin: 12px 0 4px;
+}
+
+.lutm-gen-form .lutm-gen-input {
+    width: 100%;
+    max-width: 500px;
+}
+
+.lutm-gen-buttons {
+    margin: 16px 0 0;
+}
+
+.lutm-gen-result {
+    margin: 18px 0;
+    padding: 14px 16px;
+    background: #f0f6fc;
+    border: 1px solid #c3c4c7;
+    border-radius: 6px;
+}
+
+.lutm-gen-result label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 6px;
+}
+
+.lutm-gen-result input {
+    width: 100%;
+    max-width: 620px;
+    margin-bottom: 8px;
+}
+
+.lutm-gen-notice {
+    color: #00a32a;
+    font-weight: 600;
+    margin-left: 8px;
+}
+
+.lutm-gen-history-actions {
+    margin: 0 0 12px;
+}
+
+.lutm-gen-history-table td {
+    max-width: 300px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}

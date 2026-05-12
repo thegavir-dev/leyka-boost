@@ -1,0 +1,333 @@
+/**
+ * Frontend CSS для плагина Leyka Close Campaign
+ * Версия: 1.0.6
+ * 
+ * ИСПРАВЛЕНО в 1.0.6:
+ * - Удалена тёмная тема (сайт не поддерживает)
+ * - Убран !important у цвета тумблера (чтобы настройки из админки применялись)
+ * - Используются CSS переменные для рамки блока
+ * - Добавлена прозрачность для .swiper-item-inner (чтобы зелёный фон был виден)
+ * - НЕ переопределяем стили кнопок Leyka (рамки остаются как в Leyka)
+ */
+
+/* ============================================
+   ОБЩИЕ СТИЛИ ТУМБЛЕРА
+   ============================================ */
+
+.leyka-close-campaign-toggle-wrapper {
+    width: 100%;
+    margin: 20px 0;
+    padding: 20px;
+    background: #f8f9fa;
+    border-radius: 8px;
+    /* Цвет и толщина рамки задаются через CSS переменные из админки */
+    border-width: var(--leyka-close-border-width, 1px);
+    border-color: var(--leyka-close-border-color, #e9ecef);
+    border-style: solid;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Класс добавляется через JS когда рамка должна быть видна */
+.leyka-close-has-border {
+    /* Переменные уже установлены через JS */
+}
+
+.leyka-close-campaign-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+/* ============================================
+   ЛЕЙБЛ И ТЕКСТ
+   ============================================ */
+
+.leyka-close-campaign-label {
+    flex: 1;
+    min-width: 200px;
+}
+
+.leyka-close-campaign-label-inner {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: 500;
+    color: #333;
+    margin: 0;
+    line-height: 1.4;
+}
+
+.leyka-close-campaign-icon {
+    font-size: 18px;
+    line-height: 1;
+}
+
+.leyka-close-campaign-text {
+    line-height: 1.4;
+}
+
+/* ============================================
+   ТУМБЛЕР (SWITCH)
+   ============================================ */
+
+.leyka-close-campaign-switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+    flex-shrink: 0;
+}
+
+.leyka-close-campaign-checkbox {
+    opacity: 0;
+    width: 0;
+    height: 0;
+    position: absolute;
+}
+
+.leyka-close-campaign-slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #cccccc;
+    transition: background-color 0.3s ease;
+    border-radius: 34px;
+}
+
+.leyka-close-campaign-slider-dot {
+    position: absolute;
+    content: '';
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: transform 0.3s ease;
+    border-radius: 50%;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Активное состояние (включено) */
+/* ИСПРАВЛЕНО в 1.0.6: Убран !important чтобы цвет из настроек применялся */
+.leyka-close-campaign-checkbox:checked + .leyka-close-campaign-slider {
+    background-color: #43a047;
+}
+
+.leyka-close-campaign-checkbox:checked + .leyka-close-campaign-slider .leyka-close-campaign-slider-dot {
+    transform: translateX(26px);
+}
+
+/* ============================================
+   HOVER И FOCUS ЭФФЕКТЫ
+   ============================================ */
+
+.leyka-close-campaign-slider:hover {
+    background-color: #bbbbbb;
+}
+
+.leyka-close-campaign-checkbox:checked + .leyka-close-campaign-slider:hover {
+    background-color: #388e3c;
+}
+
+/* Фокус для доступности */
+.leyka-close-campaign-checkbox:focus + .leyka-close-campaign-slider {
+    box-shadow: 0 0 0 3px rgba(67, 160, 71, 0.4);
+}
+
+/* ============================================
+   ПОДСВЕТКА FLEX-AMOUNT-ITEM (ЗЕЛЁНАЯ РАМКА)
+   ИСПРАВЛЕНО в 1.0.6: Добавлена прозрачность для .swiper-item-inner
+   ============================================ */
+
+/**
+ * Класс добавляется через JS при активации тумблера
+ * !important чтобы перебить стили Leyka
+ */
+.leyka-close-active {
+    border-color: #43a047 !important;
+    border-width: 2px !important;
+    border-style: solid !important;
+    box-shadow: 0 0 0 4px rgba(67, 160, 71, 0.3) !important;
+    background-color: #e8f5e9 !important;
+    transition: all 0.3s ease;
+}
+
+/* ИСПРАВЛЕНО в 1.0.6: Делаем вложенные элементы прозрачными чтобы зелёный фон был виден */
+.leyka-close-active .swiper-item-inner,
+.leyka-close-active .swiper-item-inner input[type="number"] {
+    background-color: transparent !important;
+}
+
+/* ============================================
+   КНОПКИ LEYKA — НЕ ТРОГАЕМ!
+   ============================================ */
+
+/**
+ * ВАЖНО в 1.0.6: Мы НЕ переопределяем стили .swiper-item
+ * Leyka сама управляет рамками кнопок (активная = чёрная рамка)
+ * Это нормальное поведение, которое мы сохраняем.
+ */
+
+/* ============================================
+   ПОЛЕ СУММЫ (СКРЫТОЕ)
+   ============================================ */
+
+.leyka-close-campaign-amount {
+    display: none;
+}
+
+/* ============================================
+   ИНТЕГРАЦИЯ С LEYKA
+   ============================================ */
+
+/* Размещение перед личными данными */
+.leyka-donor-fields,
+.leyka-client-fields,
+[class*="donor"],
+[class*="personal"] {
+    margin-top: 20px;
+}
+
+/* Отступы в форме */
+.leyka-field {
+    margin-bottom: 15px;
+}
+
+/* ============================================
+   МОБИЛЬНАЯ ВЕРСИЯ
+   ============================================ */
+
+@media screen and (max-width: 768px) {
+    .leyka-close-campaign-toggle-wrapper {
+        padding: 15px;
+        margin: 15px 0;
+    }
+    
+    .leyka-close-campaign-toggle {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 15px;
+    }
+    
+    .leyka-close-campaign-label {
+        width: 100%;
+    }
+    
+    .leyka-close-campaign-label-inner {
+        font-size: 16px;
+        justify-content: center;
+        text-align: center;
+    }
+    
+    .leyka-close-campaign-switch {
+        margin: 0 auto;
+        transform: scale(1.1);
+    }
+    
+    .leyka-close-campaign-icon {
+        font-size: 20px;
+    }
+    
+    /* Мобильная версия подсветки */
+    .leyka-close-active {
+        border-color: #43a047 !important;
+        border-width: 2px !important;
+    }
+}
+
+/* ============================================
+   iOS SAFARI СПЕЦИФИКА
+   ============================================ */
+
+@supports (-webkit-touch-callout: none) {
+    .leyka-close-campaign-switch {
+        transform: translateZ(0);
+    }
+    
+    .leyka-close-campaign-slider,
+    .leyka-close-campaign-slider-dot {
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
+    }
+    
+    .leyka-close-campaign-slider {
+        touch-action: manipulation;
+    }
+    
+    .leyka-close-campaign-toggle-wrapper {
+        -webkit-tap-highlight-color: transparent;
+    }
+}
+
+/* ============================================
+   ДОСТУПНОСТЬ (ACCESSIBILITY)
+   ============================================ */
+
+@media (prefers-contrast: high) {
+    .leyka-close-campaign-toggle-wrapper {
+        border-width: 2px;
+    }
+    
+    .leyka-close-campaign-slider {
+        border: 2px solid #000;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .leyka-close-campaign-slider,
+    .leyka-close-campaign-slider-dot,
+    .leyka-close-campaign-toggle-wrapper,
+    .leyka-close-active {
+        transition: none;
+        animation: none;
+    }
+}
+
+/* ============================================
+   СОВМЕСТИМОСТЬ С ТЕМАМИ
+   ============================================ */
+
+.leyka-close-campaign-toggle-wrapper * {
+    box-sizing: border-box;
+}
+
+.leyka-close-campaign-toggle-wrapper {
+    overflow: visible;
+}
+
+/* ============================================
+   СОСТОЯНИЯ (STATES)
+   ============================================ */
+
+.leyka-close-campaign-toggle-wrapper.loading {
+    opacity: 0.6;
+    pointer-events: none;
+}
+
+.leyka-close-campaign-toggle-wrapper.error {
+    border-color: #d63638;
+    background: #fef0f0;
+}
+
+.leyka-close-campaign-toggle-wrapper.success {
+    border-color: #00a32a;
+    background: #f0f7f0;
+}
+
+/* ============================================
+   ПЕЧАТЬ (PRINT)
+   ============================================ */
+
+@media print {
+    .leyka-close-campaign-toggle-wrapper {
+        display: none;
+    }
+}

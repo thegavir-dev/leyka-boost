@@ -1,0 +1,997 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Leyka Boost 1.0.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-05-12 10:24+0500\n"
+"PO-Revision-Date: 2026-05-10 07:11+0000\n"
+"Last-Translator: Leyka Boost Team\n"
+"Language-Team: Leyka Boost\n"
+"Language: ru_RU\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Codex\n"
+"X-Domain: leyka-boost\n"
+
+#: for-github/leyka-boost/includes/class-admin-menu.php:36
+#: for-github/leyka-boost/includes/class-admin-menu.php:37
+#: for-github/leyka-boost/includes/class-admin-menu.php:124
+msgid "Leyka Boost"
+msgstr "Leyka Boost"
+
+#: for-github/leyka-boost/includes/class-admin-menu.php:47
+#: for-github/leyka-boost/includes/class-admin-menu.php:48
+#: for-github/leyka-boost/includes/class-admin-menu.php:216
+#: for-github/leyka-boost/includes/modules/close-campaign/class-admin.php:421
+#: for-github/leyka-boost/includes/modules/utm-tracker/class-admin.php:21
+#: for-github/leyka-boost/includes/modules/utm-tracker/class-admin.php:22
+#: for-github/leyka-boost/includes/modules/utm-tracker/class-admin.php:459
+msgid "Settings"
+msgstr "Настройки"
+
+#: for-github/leyka-boost/includes/class-admin-menu.php:56
+#: for-github/leyka-boost/includes/class-admin-menu.php:57
+#: for-github/leyka-boost/includes/class-admin-menu.php:139
+#: for-github/leyka-boost/includes/modules/utm-tracker/class-admin.php:479
+msgid "Event log"
+msgstr "Журнал событий"
+
+#: for-github/leyka-boost/includes/class-admin-menu.php:96
+msgid ""
+"Are you sure you want to clear the event log? This action cannot be undone."
+msgstr ""
+"Вы уверены, что хотите очистить журнал событий? Это действие невозможно "
+"отменить."
+
+#: for-github/leyka-boost/includes/class-admin-menu.php:108
+#: for-github/leyka-boost/includes/class-admin-menu.php:229
+#: for-github/leyka-boost/includes/class-admin-menu.php:320
+#: for-github/leyka-boost/includes/class-admin-menu.php:337
+#: for-github/leyka-boost/includes/class-admin-menu.php:362
+msgid "Access denied."
+msgstr "Доступ запрещён."
+
+#: for-github/leyka-boost/includes/class-admin-menu.php:127
+msgid "Modules"
+msgstr "Модули"
+
+#: for-github/leyka-boost/includes/class-admin-menu.php:130
+msgid "UTM Tracker v1.5.1"
+msgstr "UTM Tracker v1.5.1"
+
+#: for-github/leyka-boost/includes/class-admin-menu.php:131
+msgid "Toolkit v1.0.0"
+msgstr "Toolkit v1.0.0"
+
+#: for-github/leyka-boost/includes/class-admin-menu.php:132
+#: for-github/leyka-boost/includes/class-admin-menu.php:240
+#: for-github/leyka-boost/includes/class-admin-menu.php:433
+#: for-github/leyka-boost/includes/modules/close-campaign/class-admin.php:63
+#: for-github/leyka-boost/includes/modules/close-campaign/class-admin.php:64
+msgid "Close Campaign"
+msgstr "Закрыть сбор"
+
+#: for-github/leyka-boost/includes/class-admin-menu.php:136
+msgid "Logging"
+msgstr "Логирование"
+
+#: for-github/leyka-boost/includes/class-admin-menu.php:141
+#: for-github/leyka-boost/includes/class-admin-menu.php:215
+#: for-github/leyka-boost/includes/modules/close-campaign/class-admin.php:268
+#: for-github/leyka-boost/includes/modules/close-campaign/class-admin.php:370
+#: for-github/leyka-boost/includes/modules/close-campaign/class-admin.php:378
+#: for-github/leyka-boost/includes/modules/toolkit/class-toolkit.php:251
+#: for-github/leyka-boost/includes/modules/toolkit/class-toolkit.php:292
+#: for-github/leyka-boost/includes/modules/utm-tracker/class-admin.php:482
+msgid "Active"
+msgstr "Активен"
+
+#: for-github/leyka-boost/includes/class-admin-menu.php:142
+msgid "Writes Leyka Boost and module events to the shared event log."
+msgstr "Записывает события Leyka Boost и модулей в общий журнал."
+
+#: for-github/leyka-boost/includes/class-admin-menu.php:146
+#: for-github/leyka-boost/includes/class-admin-menu.php:282
+msgid "Level"
+msgstr "Уровень"
+
+#: for-github/leyka-boost/includes/class-admin-menu.php:153
+msgid ""
+"ERROR writes only errors, INFO adds regular events, DEBUG enables diagnostic "
+"entries."
+msgstr ""
+"ERROR записывает только ошибки, INFO добавляет обычные события, DEBUG "
+"включает диагностические записи."
+
+#: for-github/leyka-boost/includes/class-admin-menu.php:157
+msgid "Retention period"
+msgstr "Срок хранения"
+
+#: for-github/leyka-boost/includes/class-admin-menu.php:160
+msgid "Number of days after which old entries are removed during rotation."
+msgstr "Количество дней, после которого старые записи удаляются при ротации."
+
+#: for-github/leyka-boost/includes/class-admin-menu.php:165
+#: for-github/leyka-boost/includes/modules/close-campaign/class-admin.php:483
+#: for-github/leyka-boost/includes/modules/toolkit/class-toolkit.php:340
+#: for-github/leyka-boost/includes/modules/utm-tracker/class-admin.php:490
+msgid "Save settings"
+msgstr "Сохранить настройки"
+
+#: for-github/leyka-boost/includes/class-admin-menu.php:238
+#: for-github/leyka-boost/includes/class-admin-menu.php:431
+#: for-github/leyka-boost/includes/modules/utm-tracker/class-admin.php:12
+#: for-github/leyka-boost/includes/modules/utm-tracker/class-admin.php:13
+msgid "UTM Tracker"
+msgstr "UTM Tracker"
+
+#: for-github/leyka-boost/includes/class-admin-menu.php:239
+#: for-github/leyka-boost/includes/class-admin-menu.php:432
+#: for-github/leyka-boost/includes/modules/toolkit/class-toolkit.php:152
+#: for-github/leyka-boost/includes/modules/toolkit/class-toolkit.php:153
+msgid "Toolkit"
+msgstr "Toolkit"
+
+#: for-github/leyka-boost/includes/class-admin-menu.php:241
+#: for-github/leyka-boost/includes/class-admin-menu.php:434
+msgid "Core"
+msgstr "Core"
+
+#: for-github/leyka-boost/includes/class-admin-menu.php:245
+msgid "Leyka Boost event log"
+msgstr "Журнал событий Leyka Boost"
+
+#: for-github/leyka-boost/includes/class-admin-menu.php:249
+msgid "Total"
+msgstr "Всего"
+
+#: for-github/leyka-boost/includes/class-admin-menu.php:256
+msgid "Search by message"
+msgstr "Поиск по сообщению"
+
+#: for-github/leyka-boost/includes/class-admin-menu.php:258
+msgid "All modules"
+msgstr "Все модули"
+
+#: for-github/leyka-boost/includes/class-admin-menu.php:264
+msgid "All levels"
+msgstr "Все уровни"
+
+#: for-github/leyka-boost/includes/class-admin-menu.php:269
+msgid "Clear event log"
+msgstr "Очистить журнал событий"
+
+#: for-github/leyka-boost/includes/class-admin-menu.php:270
+msgid "Download log"
+msgstr "Скачать лог"
+
+#: for-github/leyka-boost/includes/class-admin-menu.php:274
+#, php-format
+msgid "Showing the latest 500 entries out of %d."
+msgstr "Показаны последние 500 записей из %d."
+
+#: for-github/leyka-boost/includes/class-admin-menu.php:281
+msgid "Time"
+msgstr "Время"
+
+#: for-github/leyka-boost/includes/class-admin-menu.php:283
+msgid "Module"
+msgstr "Модуль"
+
+#: for-github/leyka-boost/includes/class-admin-menu.php:284
+msgid "Message"
+msgstr "Сообщение"
+
+#: for-github/leyka-boost/includes/class-admin-menu.php:289
+msgid "The event log is empty."
+msgstr "Журнал событий пуст."
+
+#: for-github/leyka-boost/includes/class-admin-menu.php:289
+msgid "Entries will appear here as the plugin runs."
+msgstr "Записи появятся здесь по мере работы плагина."
+
+#: for-github/leyka-boost/includes/class-admin-menu.php:301
+msgid "No entries found for the selected filters."
+msgstr "По заданным фильтрам записей не найдено."
+
+#: for-github/leyka-boost/includes/class-admin-menu.php:350
+#: for-github/leyka-boost/includes/modules/utm-tracker/class-admin.php:452
+msgid "Settings saved."
+msgstr "Настройки сохранены."
+
+#: for-github/leyka-boost/includes/class-admin-menu.php:368
+msgid "Log file does not exist."
+msgstr "Файл журнала не существует."
+
+#: for-github/leyka-boost/includes/class-admin-menu.php:435
+msgid "Logger"
+msgstr "Logger"
+
+#: for-github/leyka-boost/includes/class-admin-menu.php:436
+msgid "Admin UI"
+msgstr "Admin UI"
+
+#: for-github/leyka-boost/includes/modules/close-campaign/class-admin.php:84
+msgid "Main settings"
+msgstr "Основные настройки"
+
+#: for-github/leyka-boost/includes/modules/close-campaign/class-admin.php:92
+msgid "Design"
+msgstr "Дизайн"
+
+#: for-github/leyka-boost/includes/modules/close-campaign/class-admin.php:100
+msgid "Block border settings"
+msgstr "Настройки рамки блока"
+
+#: for-github/leyka-boost/includes/modules/close-campaign/class-admin.php:110
+msgid "Module status"
+msgstr "Статус модуля"
+
+#: for-github/leyka-boost/includes/modules/close-campaign/class-admin.php:118
+msgid "Minimum amount to show (₽)"
+msgstr "Мин. сумма для показа (₽)"
+
+#: for-github/leyka-boost/includes/modules/close-campaign/class-admin.php:126
+msgid "Auto-enable threshold (₽)"
+msgstr "Порог авто-включения (₽)"
+
+#: for-github/leyka-boost/includes/modules/close-campaign/class-admin.php:135
+msgid "Active color"
+msgstr "Цвет активного"
+
+#: for-github/leyka-boost/includes/modules/close-campaign/class-admin.php:143
+msgid "Inactive color"
+msgstr "Цвет неактивного"
+
+#: for-github/leyka-boost/includes/modules/close-campaign/class-admin.php:151
+msgid "Button text"
+msgstr "Текст кнопки"
+
+#: for-github/leyka-boost/includes/modules/close-campaign/class-admin.php:159
+#: for-github/leyka-boost/includes/modules/close-campaign/class-admin.php:315
+msgid "Show icon"
+msgstr "Показывать иконку"
+
+#: for-github/leyka-boost/includes/modules/close-campaign/class-admin.php:168
+msgid "Border color"
+msgstr "Цвет рамки"
+
+#: for-github/leyka-boost/includes/modules/close-campaign/class-admin.php:176
+msgid "Border width (px)"
+msgstr "Толщина рамки (px)"
+
+#: for-github/leyka-boost/includes/modules/close-campaign/class-admin.php:198
+#: for-github/leyka-boost/includes/modules/close-campaign/class-admin.php:230
+#: for-github/leyka-boost/includes/modules/close-campaign/class-admin.php:301
+#: for-github/leyka-boost/includes/modules/close-campaign/class-frontend.php:84
+#: for-github/leyka-boost/includes/modules/close-campaign/class-frontend.php:193
+#: for-github/leyka-boost/includes/modules/close-campaign/class-module.php:64
+msgid "Close the whole campaign: {sum} ₽"
+msgstr "Закрыть весь сбор: {sum} ₽"
+
+#: for-github/leyka-boost/includes/modules/close-campaign/class-admin.php:242
+msgid "Main plugin behavior settings."
+msgstr "Основные параметры работы плагина."
+
+#: for-github/leyka-boost/includes/modules/close-campaign/class-admin.php:246
+msgid "Toggle appearance."
+msgstr "Внешний вид переключателя."
+
+#: for-github/leyka-boost/includes/modules/close-campaign/class-admin.php:250
+msgid "Configure the Close Campaign block border."
+msgstr "Настройте внешний вид рамки блока «Закрыть сбор»."
+
+#: for-github/leyka-boost/includes/modules/close-campaign/class-admin.php:275
+msgid "Hide the toggle when the remaining amount is less than this value."
+msgstr "Скрывать переключатель, если остаток меньше этой суммы."
+
+#: for-github/leyka-boost/includes/modules/close-campaign/class-admin.php:282
+msgid ""
+"Automatically select the toggle when the remaining amount is less than this "
+"value."
+msgstr "Автоматически отмечать переключатель, если осталось меньше этой суммы."
+
+#: for-github/leyka-boost/includes/modules/close-campaign/class-admin.php:289
+msgid "Active toggle color."
+msgstr "Цвет активного переключателя."
+
+#: for-github/leyka-boost/includes/modules/close-campaign/class-admin.php:296
+msgid "Inactive toggle color."
+msgstr "Цвет неактивного переключателя."
+
+#: for-github/leyka-boost/includes/modules/close-campaign/class-admin.php:303
+msgid "Use <code>{sum}</code> to insert the amount."
+msgstr "Используйте <code>{sum}</code> для подстановки суммы."
+
+#: for-github/leyka-boost/includes/modules/close-campaign/class-admin.php:323
+msgid "Close Campaign block border color."
+msgstr "Цвет рамки блока «Закрыть сбор»."
+
+#: for-github/leyka-boost/includes/modules/close-campaign/class-admin.php:330
+msgid "Border width in pixels (0 = no border)."
+msgstr "Толщина рамки в пикселях (0 = без рамки)."
+
+#: for-github/leyka-boost/includes/modules/close-campaign/class-admin.php:353
+msgid "Never"
+msgstr "Никогда"
+
+#: for-github/leyka-boost/includes/modules/close-campaign/class-admin.php:360
+msgid "Close Campaign dashboard"
+msgstr "Закрыть сбор — Главная"
+
+#: for-github/leyka-boost/includes/modules/close-campaign/class-admin.php:364
+msgid "System status"
+msgstr "Состояние системы"
+
+#: for-github/leyka-boost/includes/modules/close-campaign/class-admin.php:367
+msgid "Plugin:"
+msgstr "Плагин:"
+
+#: for-github/leyka-boost/includes/modules/close-campaign/class-admin.php:370
+msgid "Inactive"
+msgstr "Неактивен"
+
+#: for-github/leyka-boost/includes/modules/close-campaign/class-admin.php:378
+msgid "Not found"
+msgstr "Не найден"
+
+#: for-github/leyka-boost/includes/modules/close-campaign/class-admin.php:383
+msgid "Log folder:"
+msgstr "Папка журнала:"
+
+#: for-github/leyka-boost/includes/modules/close-campaign/class-admin.php:386
+msgid "Writable"
+msgstr "Запись разрешена"
+
+#: for-github/leyka-boost/includes/modules/close-campaign/class-admin.php:386
+msgid "Not writable"
+msgstr "Нет прав на запись"
+
+#: for-github/leyka-boost/includes/modules/close-campaign/class-admin.php:395
+msgid "Statistics"
+msgstr "Статистика"
+
+#: for-github/leyka-boost/includes/modules/close-campaign/class-admin.php:398
+msgid "Total toggles:"
+msgstr "Всего нажатий:"
+
+#: for-github/leyka-boost/includes/modules/close-campaign/class-admin.php:402
+msgid "Activations:"
+msgstr "Активаций:"
+
+#: for-github/leyka-boost/includes/modules/close-campaign/class-admin.php:406
+msgid "Deactivations:"
+msgstr "Деактиваций:"
+
+#: for-github/leyka-boost/includes/modules/close-campaign/class-admin.php:410
+msgid "Campaigns with statistics:"
+msgstr "Кампаний со статистикой:"
+
+#: for-github/leyka-boost/includes/modules/close-campaign/class-admin.php:414
+msgid "Last reset:"
+msgstr "Последний сброс:"
+
+#: for-github/leyka-boost/includes/modules/close-campaign/class-admin.php:422
+msgid ""
+"Are you sure you want to reset close statistics? This action cannot be "
+"undone."
+msgstr ""
+"Вы уверены, что хотите сбросить статистику закрытий? Это действие невозможно "
+"отменить."
+
+#: for-github/leyka-boost/includes/modules/close-campaign/class-admin.php:425
+msgid "Reset statistics"
+msgstr "Сбросить статистику"
+
+#: for-github/leyka-boost/includes/modules/close-campaign/class-admin.php:433
+msgid "Top campaigns"
+msgstr "Топ кампаний"
+
+#: for-github/leyka-boost/includes/modules/close-campaign/class-admin.php:437
+#: for-github/leyka-boost/includes/modules/utm-tracker/class-admin.php:225
+msgid "Campaign"
+msgstr "Кампания"
+
+#: for-github/leyka-boost/includes/modules/close-campaign/class-admin.php:438
+msgid "Toggles"
+msgstr "Нажатия"
+
+#: for-github/leyka-boost/includes/modules/close-campaign/class-admin.php:439
+msgid "Activations"
+msgstr "Активации"
+
+#: for-github/leyka-boost/includes/modules/close-campaign/class-admin.php:440
+msgid "Deactivations"
+msgstr "Деактивации"
+
+#: for-github/leyka-boost/includes/modules/close-campaign/class-admin.php:450
+#, php-format
+msgid "Campaign #%d"
+msgstr "Кампания #%d"
+
+#: for-github/leyka-boost/includes/modules/close-campaign/class-admin.php:478
+msgid "Close Campaign settings"
+msgstr "Закрыть сбор — Настройки"
+
+#: for-github/leyka-boost/includes/modules/close-campaign/class-admin.php:488
+msgid "Help"
+msgstr "Справка"
+
+#: for-github/leyka-boost/includes/modules/close-campaign/class-admin.php:490
+msgid ""
+"<strong>Minimum amount to show:</strong> if the remaining amount is lower, "
+"the toggle is hidden."
+msgstr ""
+"<strong>Мин. сумма для показа:</strong> если остаток меньше, переключатель "
+"не показывается."
+
+#: for-github/leyka-boost/includes/modules/close-campaign/class-admin.php:491
+msgid ""
+"<strong>Auto-enable threshold:</strong> if the remaining amount is lower, "
+"the toggle is selected automatically."
+msgstr ""
+"<strong>Порог автоактивации:</strong> если осталось меньше, переключатель "
+"отмечается автоматически."
+
+#: for-github/leyka-boost/includes/modules/close-campaign/class-admin.php:492
+msgid ""
+"<strong>Button text:</strong> use <code>{sum}</code> to insert the amount."
+msgstr ""
+"<strong>Текст кнопки:</strong> используйте <code>{sum}</code> для "
+"подстановки суммы."
+
+#: for-github/leyka-boost/includes/modules/close-campaign/class-admin.php:511
+msgid "Insufficient permissions."
+msgstr "Недостаточно прав."
+
+#: for-github/leyka-boost/includes/modules/close-campaign/class-admin.php:524
+msgid "Statistics reset from admin."
+msgstr "Статистика сброшена через админку."
+
+#: for-github/leyka-boost/includes/modules/close-campaign/class-admin.php:569
+msgid ""
+"Are you sure? All statistics will be permanently deleted. This action cannot "
+"be undone."
+msgstr ""
+"Вы уверены? Вся статистика будет безвозвратно удалена. Это действие нельзя "
+"отменить."
+
+#: for-github/leyka-boost/includes/modules/close-campaign/class-admin.php:570
+msgid "Are you sure? All logs will be deleted. This action cannot be undone."
+msgstr "Вы уверены? Все логи будут удалены. Это действие нельзя отменить."
+
+#: for-github/leyka-boost/includes/modules/close-campaign/class-admin.php:571
+msgid "Statistics reset successfully."
+msgstr "Статистика успешно сброшена."
+
+#: for-github/leyka-boost/includes/modules/close-campaign/class-admin.php:572
+msgid "Logs cleared successfully."
+msgstr "Логи успешно очищены."
+
+#: for-github/leyka-boost/includes/modules/close-campaign/class-admin.php:573
+msgid "Preview"
+msgstr "Предпросмотр"
+
+#: for-github/leyka-boost/includes/modules/close-campaign/class-admin.php:574
+#, php-format
+msgid ""
+"Warning! Auto-enable threshold (%1$s ₽) is lower than the minimum amount to "
+"show (%2$s ₽). This means auto-enable will never trigger. Continue?"
+msgstr ""
+"Внимание! Порог авто-включения (%1$s ₽) меньше минимальной суммы для показа "
+"(%2$s ₽). Это означает, что авто-включение никогда не сработает. Продолжить?"
+
+#: for-github/leyka-boost/includes/modules/close-campaign/class-admin.php:575
+msgid "Error"
+msgstr "Ошибка"
+
+#: for-github/leyka-boost/includes/modules/close-campaign/class-admin.php:576
+msgid "Unknown error"
+msgstr "Неизвестная ошибка"
+
+#: for-github/leyka-boost/includes/modules/close-campaign/class-admin.php:577
+msgid "Connection error"
+msgstr "Ошибка соединения"
+
+#: for-github/leyka-boost/includes/modules/close-campaign/class-ajax.php:42
+#: for-github/leyka-boost/includes/modules/close-campaign/class-ajax.php:117
+msgid "Invalid nonce."
+msgstr "Неверный nonce."
+
+#: for-github/leyka-boost/includes/modules/close-campaign/class-ajax.php:49
+#: for-github/leyka-boost/includes/modules/close-campaign/class-ajax.php:126
+msgid "Campaign ID is missing."
+msgstr "Не указан ID кампании."
+
+#: for-github/leyka-boost/includes/modules/close-campaign/class-ajax.php:56
+msgid "Campaign not found."
+msgstr "Кампания не найдена."
+
+#: for-github/leyka-boost/includes/modules/close-campaign/class-ajax.php:63
+msgid "The campaign has no target amount."
+msgstr "У кампании нет целевой суммы."
+
+#: for-github/leyka-boost/includes/modules/close-campaign/class-ajax.php:130
+msgid "Invalid action."
+msgstr "Неверное действие."
+
+#: for-github/leyka-boost/includes/modules/toolkit/class-toolkit.php:35
+#, php-format
+msgid "Leyka Toolkit requires PHP %s or higher."
+msgstr "Leyka Toolkit требует PHP %s или выше."
+
+#: for-github/leyka-boost/includes/modules/toolkit/class-toolkit.php:36
+#: for-github/leyka-boost/includes/modules/toolkit/class-toolkit.php:45
+#: for-github/leyka-boost/includes/modules/toolkit/class-toolkit.php:54
+#: for-github/leyka-boost/includes/modules/toolkit/class-toolkit.php:63
+msgid "Leyka Toolkit activation error"
+msgstr "Ошибка активации Leyka Toolkit"
+
+#: for-github/leyka-boost/includes/modules/toolkit/class-toolkit.php:44
+#, php-format
+msgid "Leyka Toolkit requires WordPress %s or higher."
+msgstr "Leyka Toolkit требует WordPress %s или выше."
+
+#: for-github/leyka-boost/includes/modules/toolkit/class-toolkit.php:53
+msgid "Leyka Toolkit requires the Leyka plugin to be installed and active."
+msgstr "Leyka Toolkit требует установленный и активный плагин Leyka."
+
+#: for-github/leyka-boost/includes/modules/toolkit/class-toolkit.php:62
+#, php-format
+msgid "Leyka Toolkit requires Leyka %s or higher."
+msgstr "Leyka Toolkit требует Leyka %s или выше."
+
+#: for-github/leyka-boost/includes/modules/toolkit/class-toolkit.php:79
+msgid "Subscribe to news"
+msgstr "Подписаться на новости"
+
+#: for-github/leyka-boost/includes/modules/toolkit/class-toolkit.php:84
+msgid "I agree to automatic monthly charges"
+msgstr "Я согласен на автоматические ежемесячные списания"
+
+#: for-github/leyka-boost/includes/modules/toolkit/class-toolkit.php:85
+msgid "You can cancel the recurring donation at any time"
+msgstr "Вы можете отменить рекуррентное пожертвование в любое время"
+
+#: for-github/leyka-boost/includes/modules/toolkit/class-toolkit.php:174
+msgid "Leyka Toolkit is inactive because the Leyka plugin is not active."
+msgstr "Leyka Toolkit неактивен, потому что плагин Leyka не активен."
+
+#: for-github/leyka-boost/includes/modules/toolkit/class-toolkit.php:177
+#, php-format
+msgid ""
+"Leyka Toolkit requires Leyka %1$s or higher. Current Leyka version: %2$s."
+msgstr "Leyka Toolkit требует Leyka %1$s или выше. Текущая версия Leyka: %2$s."
+
+#: for-github/leyka-boost/includes/modules/toolkit/class-toolkit.php:236
+msgid "Leyka Toolkit"
+msgstr "Leyka Toolkit"
+
+#: for-github/leyka-boost/includes/modules/toolkit/class-toolkit.php:237
+#, php-format
+msgid "Version %s"
+msgstr "Версия %s"
+
+#: for-github/leyka-boost/includes/modules/toolkit/class-toolkit.php:242
+msgid "Newsletter subscription"
+msgstr "Подписка на новости"
+
+#: for-github/leyka-boost/includes/modules/toolkit/class-toolkit.php:247
+msgid "Subscription checkbox"
+msgstr "Чекбокс подписки"
+
+#: for-github/leyka-boost/includes/modules/toolkit/class-toolkit.php:257
+#: for-github/leyka-boost/includes/modules/toolkit/class-toolkit.php:309
+msgid "Checkbox text"
+msgstr "Текст чекбокса"
+
+#: for-github/leyka-boost/includes/modules/toolkit/class-toolkit.php:264
+msgid "Checked by default"
+msgstr "Отмечен по умолчанию"
+
+#: for-github/leyka-boost/includes/modules/toolkit/class-toolkit.php:268
+#: for-github/leyka-boost/includes/modules/toolkit/class-toolkit.php:302
+msgid "Yes"
+msgstr "Да"
+
+#: for-github/leyka-boost/includes/modules/toolkit/class-toolkit.php:274
+#: for-github/leyka-boost/includes/modules/toolkit/class-toolkit.php:331
+msgid "Donor tag"
+msgstr "Метка донора"
+
+#: for-github/leyka-boost/includes/modules/toolkit/class-toolkit.php:277
+msgid ""
+"Added to the donor after a successful donation with the checkbox selected."
+msgstr ""
+"Добавляется донору после успешного пожертвования с отмеченным чекбоксом."
+
+#: for-github/leyka-boost/includes/modules/toolkit/class-toolkit.php:283
+msgid "Monthly charge consent"
+msgstr "Согласие на ежемесячное списание"
+
+#: for-github/leyka-boost/includes/modules/toolkit/class-toolkit.php:288
+msgid "Consent checkbox"
+msgstr "Чекбокс согласия"
+
+#: for-github/leyka-boost/includes/modules/toolkit/class-toolkit.php:298
+msgid "Required checkbox"
+msgstr "Обязательный чекбокс"
+
+#: for-github/leyka-boost/includes/modules/toolkit/class-toolkit.php:304
+msgid ""
+"If the checkbox is required, the donor cannot submit a recurring donation "
+"form without consent."
+msgstr ""
+"Если чекбокс обязателен, донор не сможет отправить форму рекуррентного "
+"пожертвования без согласия."
+
+#: for-github/leyka-boost/includes/modules/toolkit/class-toolkit.php:316
+msgid "Hint text"
+msgstr "Текст подсказки"
+
+#: for-github/leyka-boost/includes/modules/toolkit/class-toolkit.php:323
+msgid "Cancellation link"
+msgstr "Ссылка на отмену"
+
+#: for-github/leyka-boost/includes/modules/toolkit/class-toolkit.php:326
+msgid "Leave the field empty to hide the link."
+msgstr "Оставьте поле пустым, чтобы скрыть ссылку."
+
+#: for-github/leyka-boost/includes/modules/toolkit/class-toolkit.php:334
+msgid ""
+"Added to the donor after a successful donation with recurring charge consent."
+msgstr ""
+"Добавляется донору после успешного пожертвования с согласием на рекуррентное "
+"списание."
+
+#: for-github/leyka-boost/includes/modules/toolkit/class-toolkit.php:389
+msgid "learn more"
+msgstr "подробнее"
+
+#: for-github/leyka-boost/includes/modules/toolkit/class-toolkit.php:656
+msgid "Consent is required."
+msgstr "Необходимо согласие."
+
+#: for-github/leyka-boost/includes/modules/utm-tracker/class-admin.php:30
+#: for-github/leyka-boost/includes/modules/utm-tracker/class-admin.php:31
+msgid "Generator"
+msgstr "Генератор ссылок"
+
+#: for-github/leyka-boost/includes/modules/utm-tracker/class-admin.php:71
+msgid "Enter a URL"
+msgstr "Введите URL"
+
+#: for-github/leyka-boost/includes/modules/utm-tracker/class-admin.php:72
+msgid "Invalid URL"
+msgstr "Некорректный URL"
+
+#: for-github/leyka-boost/includes/modules/utm-tracker/class-admin.php:73
+msgid "Enter utm_source"
+msgstr "Введите utm_source"
+
+#: for-github/leyka-boost/includes/modules/utm-tracker/class-admin.php:74
+msgid ""
+"Are you sure you want to clear the generator history? This action cannot be "
+"undone."
+msgstr ""
+"Вы уверены, что хотите очистить историю генератора? Это действие невозможно "
+"отменить."
+
+#: for-github/leyka-boost/includes/modules/utm-tracker/class-admin.php:75
+msgid "History is empty."
+msgstr "История пуста."
+
+#: for-github/leyka-boost/includes/modules/utm-tracker/class-admin.php:76
+#: for-github/leyka-boost/includes/modules/utm-tracker/class-generator.php:61
+msgid "Copy"
+msgstr "Копировать"
+
+#: for-github/leyka-boost/includes/modules/utm-tracker/class-admin.php:77
+msgid "Load"
+msgstr "В форму"
+
+#: for-github/leyka-boost/includes/modules/utm-tracker/class-admin.php:95
+#: for-github/leyka-boost/includes/modules/utm-tracker/class-admin.php:179
+msgid "Success"
+msgstr "Успешно"
+
+#: for-github/leyka-boost/includes/modules/utm-tracker/class-admin.php:96
+#: for-github/leyka-boost/includes/modules/utm-tracker/class-admin.php:180
+msgid "Pending"
+msgstr "В процессе"
+
+#: for-github/leyka-boost/includes/modules/utm-tracker/class-admin.php:97
+#: for-github/leyka-boost/includes/modules/utm-tracker/class-admin.php:181
+msgid "Fail"
+msgstr "Ошибка"
+
+#: for-github/leyka-boost/includes/modules/utm-tracker/class-admin.php:123
+msgid "Source:"
+msgstr "Источник:"
+
+#: for-github/leyka-boost/includes/modules/utm-tracker/class-admin.php:124
+msgid "Medium:"
+msgstr "Канал:"
+
+#: for-github/leyka-boost/includes/modules/utm-tracker/class-admin.php:125
+msgid "Campaign:"
+msgstr "Кампания:"
+
+#: for-github/leyka-boost/includes/modules/utm-tracker/class-admin.php:157
+msgid "All sources"
+msgstr "Все источники"
+
+#: for-github/leyka-boost/includes/modules/utm-tracker/class-admin.php:164
+msgid "All mediums"
+msgstr "Все каналы"
+
+#: for-github/leyka-boost/includes/modules/utm-tracker/class-admin.php:171
+msgid "All campaigns"
+msgstr "Все кампании"
+
+#: for-github/leyka-boost/includes/modules/utm-tracker/class-admin.php:178
+msgid "All statuses"
+msgstr "Все статусы"
+
+#: for-github/leyka-boost/includes/modules/utm-tracker/class-admin.php:184
+msgid "Date from"
+msgstr "Дата от"
+
+#: for-github/leyka-boost/includes/modules/utm-tracker/class-admin.php:185
+msgid "Date to"
+msgstr "Дата до"
+
+#: for-github/leyka-boost/includes/modules/utm-tracker/class-admin.php:187
+msgid "Apply"
+msgstr "Применить"
+
+#: for-github/leyka-boost/includes/modules/utm-tracker/class-admin.php:190
+msgid "Reset"
+msgstr "Сбросить"
+
+#: for-github/leyka-boost/includes/modules/utm-tracker/class-admin.php:203
+msgid "Export CSV"
+msgstr "Экспорт CSV"
+
+#: for-github/leyka-boost/includes/modules/utm-tracker/class-admin.php:208
+msgid "last touch"
+msgstr "последнее касание"
+
+#: for-github/leyka-boost/includes/modules/utm-tracker/class-admin.php:209
+msgid "first touch"
+msgstr "первое касание"
+
+#: for-github/leyka-boost/includes/modules/utm-tracker/class-admin.php:214
+msgid "Traffic sources"
+msgstr "Источники трафика"
+
+#: for-github/leyka-boost/includes/modules/utm-tracker/class-admin.php:216
+msgid "Source"
+msgstr "Источник"
+
+#: for-github/leyka-boost/includes/modules/utm-tracker/class-admin.php:216
+#: for-github/leyka-boost/includes/modules/utm-tracker/class-admin.php:225
+#: for-github/leyka-boost/includes/modules/utm-tracker/class-admin.php:240
+msgid "Donations"
+msgstr "Донатов"
+
+#: for-github/leyka-boost/includes/modules/utm-tracker/class-admin.php:216
+#: for-github/leyka-boost/includes/modules/utm-tracker/class-admin.php:225
+#: for-github/leyka-boost/includes/modules/utm-tracker/class-admin.php:241
+#: for-github/leyka-boost/includes/modules/utm-tracker/class-admin.php:366
+msgid "Amount"
+msgstr "Сумма"
+
+#: for-github/leyka-boost/includes/modules/utm-tracker/class-admin.php:223
+msgid "Campaigns"
+msgstr "Кампании"
+
+#: for-github/leyka-boost/includes/modules/utm-tracker/class-admin.php:235
+msgid "Path: First → Last touch"
+msgstr "Путь: Первое → Последнее касание"
+
+#: for-github/leyka-boost/includes/modules/utm-tracker/class-admin.php:238
+msgid "First source"
+msgstr "Первый источник"
+
+#: for-github/leyka-boost/includes/modules/utm-tracker/class-admin.php:239
+msgid "Last source"
+msgstr "Последний источник"
+
+#: for-github/leyka-boost/includes/modules/utm-tracker/class-admin.php:265
+msgid "No data"
+msgstr "Нет данных"
+
+#: for-github/leyka-boost/includes/modules/utm-tracker/class-admin.php:306
+#, php-format
+msgid "Deleted pending attempts: %d"
+msgstr "Удалено попыток: %d"
+
+#: for-github/leyka-boost/includes/modules/utm-tracker/class-admin.php:336
+msgid "Total donations"
+msgstr "Всего пожертвований"
+
+#: for-github/leyka-boost/includes/modules/utm-tracker/class-admin.php:337
+msgid "Successful"
+msgstr "Успешных"
+
+#: for-github/leyka-boost/includes/modules/utm-tracker/class-admin.php:338
+msgid "Attempts"
+msgstr "Попытка"
+
+#: for-github/leyka-boost/includes/modules/utm-tracker/class-admin.php:339
+msgid "Successful amount"
+msgstr "Сумма успешных"
+
+#: for-github/leyka-boost/includes/modules/utm-tracker/class-admin.php:340
+msgid "Conversion"
+msgstr "Конверсия"
+
+#: for-github/leyka-boost/includes/modules/utm-tracker/class-admin.php:348
+msgid ""
+"Are you sure you want to clear pending donation attempts? This action cannot "
+"be undone."
+msgstr ""
+"Вы уверены, что хотите очистить попытки пожертвований? Это действие "
+"невозможно отменить."
+
+#: for-github/leyka-boost/includes/modules/utm-tracker/class-admin.php:350
+msgid "Clear pending"
+msgstr "Очистить попытки"
+
+#: for-github/leyka-boost/includes/modules/utm-tracker/class-admin.php:359
+msgid "All donations"
+msgstr "Все пожертвования"
+
+#: for-github/leyka-boost/includes/modules/utm-tracker/class-admin.php:363
+msgid "ID"
+msgstr "ID"
+
+#: for-github/leyka-boost/includes/modules/utm-tracker/class-admin.php:364
+#: for-github/leyka-boost/includes/modules/utm-tracker/class-admin.php:382
+msgid "First touch"
+msgstr "Первое касание"
+
+#: for-github/leyka-boost/includes/modules/utm-tracker/class-admin.php:365
+#: for-github/leyka-boost/includes/modules/utm-tracker/class-admin.php:388
+#: for-github/leyka-boost/includes/modules/utm-tracker/class-admin.php:472
+msgid "Last touch"
+msgstr "Последнее касание"
+
+#: for-github/leyka-boost/includes/modules/utm-tracker/class-admin.php:367
+msgid "Status"
+msgstr "Статус"
+
+#: for-github/leyka-boost/includes/modules/utm-tracker/class-admin.php:368
+#: for-github/leyka-boost/includes/modules/utm-tracker/class-generator.php:81
+msgid "Date"
+msgstr "Дата"
+
+#: for-github/leyka-boost/includes/modules/utm-tracker/class-admin.php:372
+msgid ""
+"UTM data is empty. Data will appear after the first donation with UTM marks."
+msgstr ""
+"UTM-данные отсутствуют. Данные появятся после первого пожертвования с UTM-"
+"метками."
+
+#: for-github/leyka-boost/includes/modules/utm-tracker/class-admin.php:411
+msgid "Prev"
+msgstr "Назад"
+
+#: for-github/leyka-boost/includes/modules/utm-tracker/class-admin.php:412
+msgid "Next"
+msgstr "Вперёд"
+
+#: for-github/leyka-boost/includes/modules/utm-tracker/class-admin.php:419
+#, php-format
+msgid "%d entries"
+msgstr "%d записей"
+
+#: for-github/leyka-boost/includes/modules/utm-tracker/class-admin.php:425
+#, php-format
+msgid "Page %1$d of %2$d"
+msgstr "Страница %1$d из %2$d"
+
+#: for-github/leyka-boost/includes/modules/utm-tracker/class-admin.php:466
+msgid "Analytics by"
+msgstr "Аналитика по"
+
+#: for-github/leyka-boost/includes/modules/utm-tracker/class-admin.php:469
+msgid "First touch (recommended)"
+msgstr "Первое касание (рекомендуется)"
+
+#: for-github/leyka-boost/includes/modules/utm-tracker/class-admin.php:474
+msgid "Determines which touch is used for summaries and filters."
+msgstr "Определяет, по какому касанию строится сводка и работают фильтры."
+
+#: for-github/leyka-boost/includes/modules/utm-tracker/class-admin.php:484
+msgid "Inactive by default. Use only for diagnostics."
+msgstr "По умолчанию неактивно. Используйте только для диагностики."
+
+#: for-github/leyka-boost/includes/modules/utm-tracker/class-admin.php:499
+msgid "Insufficient permissions"
+msgstr "Недостаточно прав"
+
+#: for-github/leyka-boost/includes/modules/utm-tracker/class-generator.php:20
+msgid "UTM Link Generator"
+msgstr "Генератор UTM-ссылок"
+
+#: for-github/leyka-boost/includes/modules/utm-tracker/class-generator.php:27
+msgid "Base URL *"
+msgstr "Базовый URL *"
+
+#: for-github/leyka-boost/includes/modules/utm-tracker/class-generator.php:30
+msgid "utm_source *"
+msgstr "utm_source *"
+
+#: for-github/leyka-boost/includes/modules/utm-tracker/class-generator.php:47
+msgid "Only source, medium and campaign are tracked by the plugin."
+msgstr "Отслеживаются плагином только source, medium и campaign."
+
+#: for-github/leyka-boost/includes/modules/utm-tracker/class-generator.php:51
+msgid "Generate link"
+msgstr "Сгенерировать ссылку"
+
+#: for-github/leyka-boost/includes/modules/utm-tracker/class-generator.php:52
+msgid "Clear"
+msgstr "Очистить"
+
+#: for-github/leyka-boost/includes/modules/utm-tracker/class-generator.php:59
+msgid "Result"
+msgstr "Результат"
+
+#: for-github/leyka-boost/includes/modules/utm-tracker/class-generator.php:62
+msgid "Copied!"
+msgstr "Скопировано!"
+
+#: for-github/leyka-boost/includes/modules/utm-tracker/class-generator.php:68
+msgid "Link history"
+msgstr "История ссылок"
+
+#: for-github/leyka-boost/includes/modules/utm-tracker/class-generator.php:71
+msgid "Clear history"
+msgstr "Очистить историю"
+
+#: for-github/leyka-boost/includes/modules/utm-tracker/class-generator.php:76
+msgid "Link"
+msgstr "Ссылка"
+
+#: for-github/leyka-boost/includes/modules/utm-tracker/class-generator.php:80
+msgid "Author"
+msgstr "Автор"
+
+#: for-github/leyka-boost/includes/modules/utm-tracker/class-generator.php:82
+msgid "Actions"
+msgstr "Действия"
+
+#: for-github/leyka-boost/includes/modules/utm-tracker/class-generator.php:85
+msgid "Loading…"
+msgstr "Загрузка…"
+
+#: for-github/leyka-boost/includes/class-core.php:214
+msgid "Leyka Boost requires the Leyka plugin to be active."
+msgstr "Leyka Boost требует активный плагин Leyka."
+
+#: for-github/leyka-boost/includes/class-core.php:239
+#, php-format
+msgid ""
+"Leyka Boost detected active original plugins: %s. Disable them after "
+"verifying Leyka Boost migration to avoid duplicated behavior."
+msgstr ""
+"Leyka Boost обнаружил активные оригинальные плагины: %s. Отключите их после "
+"проверки миграции на Leyka Boost, чтобы избежать дублирования поведения."
+
+#: for-github/leyka-boost/includes/class-core.php:256
+msgid "LeykaBoost_Core cannot be unserialized."
+msgstr "LeykaBoost_Core нельзя десериализовать."
+
+#: for-github/leyka-boost/includes/class-core.php:286
+#: for-github/leyka-boost/includes/class-core.php:294
+#: for-github/leyka-boost/includes/class-core.php:302
+#: for-github/leyka-boost/includes/class-core.php:312
+msgid "Leyka Boost activation error"
+msgstr "Ошибка активации Leyka Boost"
+
+#: for-github/leyka-boost/includes/class-core.php:301
+msgid "Leyka Boost requires the Leyka plugin to be installed and active."
+msgstr "Leyka Boost требует установленный и активный плагин Leyka."
