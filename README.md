@@ -4,8 +4,6 @@
 
 **Leyka Boost** — объединённый WordPress-плагин для **Leyka**. Плагин включает три модуля: **UTM Tracker**, **Toolkit** и **Close Campaign**, а также общую страницу настроек и общий **Logger**.
 
-Основная выходная папка плагина: `leyka-boost/`.
-
 ## Модули
 
 ### UTM Tracker
