@@ -71,8 +71,8 @@ if (!class_exists('LeykaUTMTrackerTracker')) {
             global $wpdb;
             $table = LeykaUTMTrackerDB::get_table_name();
 
-            return $wpdb->get_row(
-                $wpdb->prepare("SELECT * FROM {$table} WHERE donation_id = %d", (int) $donation_id),
+            return $wpdb->get_row( // phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching, PluginCheck.Security.DirectDB.UnescapedDBParameter -- Table name from wpdb prefix, safe. Read-only lookup.
+                $wpdb->prepare("SELECT * FROM %i WHERE donation_id = %d", $table, (int) $donation_id),
                 ARRAY_A
             );
         }
@@ -136,7 +136,7 @@ if (!class_exists('LeykaUTMTrackerTracker')) {
             $utm = self::build_utm_payload(is_array($existing) ? $existing : array());
 
             $sql = $wpdb->prepare(
-                "INSERT INTO {$table}
+                "INSERT INTO %i
                     (donation_id, utm_source, utm_medium, utm_campaign,
                      utm_first_source, utm_first_medium, utm_first_campaign,
                      utm_last_source, utm_last_medium, utm_last_campaign,
@@ -156,6 +156,7 @@ if (!class_exists('LeykaUTMTrackerTracker')) {
                     status = VALUES(status),
                     amount = VALUES(amount),
                     updated_at = VALUES(updated_at)",
+                $table,
                 (int) $donation_id,
                 $utm['utm_source'],
                 $utm['utm_medium'],
@@ -172,7 +173,7 @@ if (!class_exists('LeykaUTMTrackerTracker')) {
                 current_time('mysql')
             );
 
-            $result = $wpdb->query($sql);
+            $result = $wpdb->query($sql); // phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching, WordPress.DB.PreparedSQL.NotPrepared, PluginCheck.Security.DirectDB.UnescapedDBParameter -- SQL built via wpdb->prepare() above, table name from wpdb prefix.
 
             if ($result === false) {
                 leyka_boost_utm_log('DB ERROR: ' . $wpdb->last_error, 'ERROR');

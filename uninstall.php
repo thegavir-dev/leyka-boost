@@ -11,7 +11,7 @@ if ( ! defined( 'ABSPATH' ) || ! defined( 'WP_UNINSTALL_PLUGIN' ) ) {
 
 global $wpdb;
 
-$option_names = array(
+$leyka_boost_option_names = array(
 	'leyka_boost_settings',
 	'leyka_boost_log_hash',
 	'leyka_boost_log_last_rotation',
@@ -20,33 +20,34 @@ $option_names = array(
 	'leyka_close_stats',
 );
 
-foreach ( $option_names as $option_name ) {
-	delete_option( $option_name );
-	delete_site_option( $option_name );
+foreach ( $leyka_boost_option_names as $leyka_boost_option_name ) {
+	delete_option( $leyka_boost_option_name );
+	delete_site_option( $leyka_boost_option_name );
 }
 
-$like = $wpdb->esc_like( 'leyka_utm_tracker_' ) . '%';
-$wpdb->query( $wpdb->prepare( "DELETE FROM {$wpdb->options} WHERE option_name LIKE %s", $like ) ); // phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching
+$leyka_boost_like = $wpdb->esc_like( 'leyka_utm_tracker_' ) . '%';
+$wpdb->query( $wpdb->prepare( "DELETE FROM {$wpdb->options} WHERE option_name LIKE %s", $leyka_boost_like ) ); // phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching
 
-$table_name = $wpdb->prefix . 'leyka_utm_tracker';
-$wpdb->query( "DROP TABLE IF EXISTS {$table_name}" ); // phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching, WordPress.DB.PreparedSQL.InterpolatedNotPrepared
+$leyka_boost_table_name = $wpdb->prefix . 'leyka_utm_tracker';
+// phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching, WordPress.DB.PreparedSQL.InterpolatedNotPrepared, PluginCheck.Security.DirectDB.UnescapedDBParameter, WordPress.DB.DirectDatabaseQuery.SchemaChange -- Cleanup on uninstall, table name from wpdb prefix, safe.
+$wpdb->query( "DROP TABLE IF EXISTS {$leyka_boost_table_name}" );
 
-$upload_dir = wp_upload_dir();
-$logs_dir   = trailingslashit( $upload_dir['basedir'] ) . 'leyka-boost/logs/';
+$leyka_boost_upload_dir = wp_upload_dir();
+$leyka_boost_logs_dir   = trailingslashit( $leyka_boost_upload_dir['basedir'] ) . 'leyka-boost/logs/';
 
-if ( is_dir( $logs_dir ) ) {
-	$iterator = new RecursiveIteratorIterator(
-		new RecursiveDirectoryIterator( $logs_dir, RecursiveDirectoryIterator::SKIP_DOTS ),
+if ( is_dir( $leyka_boost_logs_dir ) ) {
+	$leyka_boost_iterator = new RecursiveIteratorIterator(
+		new RecursiveDirectoryIterator( $leyka_boost_logs_dir, RecursiveDirectoryIterator::SKIP_DOTS ),
 		RecursiveIteratorIterator::CHILD_FIRST
 	);
 
-	foreach ( $iterator as $item ) {
-		if ( $item->isDir() ) {
-			rmdir( $item->getPathname() ); // phpcs:ignore WordPress.WP.AlternativeFunctions.file_system_operations_rmdir
+	foreach ( $leyka_boost_iterator as $leyka_boost_item ) {
+		if ( $leyka_boost_item->isDir() ) {
+			rmdir( $leyka_boost_item->getPathname() ); // phpcs:ignore WordPress.WP.AlternativeFunctions.file_system_operations_rmdir
 		} else {
-			unlink( $item->getPathname() ); // phpcs:ignore WordPress.WP.AlternativeFunctions.unlink_unlink
+			unlink( $leyka_boost_item->getPathname() ); // phpcs:ignore WordPress.WP.AlternativeFunctions.unlink_unlink
 		}
 	}
 
-	rmdir( $logs_dir ); // phpcs:ignore WordPress.WP.AlternativeFunctions.file_system_operations_rmdir
+	rmdir( $leyka_boost_logs_dir ); // phpcs:ignore WordPress.WP.AlternativeFunctions.file_system_operations_rmdir
 }

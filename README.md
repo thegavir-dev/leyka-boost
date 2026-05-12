@@ -1,51 +1,54 @@
 # Leyka Boost
 
-Leyka Boost is a WordPress plugin that adds extra tools for the [Leyka](https://wordpress.org/plugins/leyka/) donation plugin: UTM tracking, donation form improvements, campaign controls, and a shared event log.
+## Описание
 
-## Requirements
+**Leyka Boost** — объединённый WordPress-плагин для **Leyka**. Плагин включает три модуля: **UTM Tracker**, **Toolkit** и **Close Campaign**, а также общую страницу настроек и общий **Logger**.
 
-- WordPress 6.4 or higher
-- PHP 7.4 or higher
-- Leyka 3.20 or higher installed and active
+Основная выходная папка плагина: `leyka-boost/`.
 
-## Modules
+## Модули
 
 ### UTM Tracker
 
-Captures UTM marks for Leyka donations, stores them in the `{prefix}leyka_utm_tracker` table, shows analytics, supports CSV export, and includes a UTM link generator.
+Трекинг UTM-меток пожертвований Leyka: захват UTM, таблица пожертвований с фильтрами и пагинацией по 25 записей, аналитика, экспорт CSV и генератор UTM-ссылок. Таблица БД сохраняет имя `{prefix}leyka_utm_tracker`.
 
 ### Toolkit
 
-Adds donation form improvements, including newsletter subscription and recurring donation consent controls.
+UI-улучшения форм Leyka: чекбокс подписки на новости и согласие на рекуррентные списания. Настройки сохраняются в `leyka_toolkit_settings`.
 
 ### Close Campaign
 
-Adds a frontend control for closing a campaign by the remaining amount and stores module statistics in `leyka_close_settings` / `leyka_close_stats`.
+Управление закрытием сборов Leyka: фронтенд-тумблер закрытия суммы сбора, админ-страницы настроек и статистика. Настройки сохраняются в `leyka_close_settings`.
 
-## Admin Pages
+## Установка
 
-- `Leyka Boost > Settings`: module toggles and global event log settings.
-- `Leyka Boost > Event log`: shared event log with filters, statistics, pagination, clear, and download actions.
-- `UTM Tracker`: analytics, donation table, settings, and link generator.
-- `Toolkit`: form improvement settings.
-- `Close Campaign`: campaign control settings.
+Устанавливать нужно папку `leyka-boost/` как обычный WordPress-плагин. Требования: WordPress 6.4+, PHP 7.4+, активная Leyka 3.20+.
 
-## Localization
+## Настройки
 
-Text Domain: `leyka-boost`
+Страница **Leyka Boost / Settings** управляет включением модулей и общими настройками логирования: включено/выключено, уровень `ERROR` / `INFO` / `DEBUG`, срок хранения логов.
 
-Translations are stored in `languages/`:
+## Локализация
 
-- `leyka-boost-ru_RU.po` / `leyka-boost-ru_RU.mo`
-- `leyka-boost-en_US.po` / `leyka-boost-en_US.mo`
+Плагин использует Text Domain `leyka-boost`. Переводы лежат в `leyka-boost/languages/`: русский `leyka-boost-ru_RU.po/.mo` и английский fallback `leyka-boost-en_US.po/.mo`. Исходные строки в коде пишутся на английском и переводятся через WordPress по `get_locale()`.
 
-## Installation
+## Использование
 
-1. Upload the `leyka-boost` folder to `/wp-content/plugins/`.
-2. Make sure Leyka is installed and active.
-3. Activate Leyka Boost in WordPress.
-4. Open `Leyka Boost` in the admin menu and configure modules.
+- **Leyka Boost / Logs** показывает общий лог с карточками статистики, фильтрами по тексту, модулю и уровню, пагинацией по 50 записей, очисткой и скачиванием файла.
+- **UTM Tracker** добавляет страницы аналитики, настроек и генератора UTM-ссылок в меню Leyka Boost.
+- **Toolkit** добавляет страницу настроек чекбоксов формы.
+- **Close Campaign** в русской админке отображается как **Закрыть сбор** и добавляет страницу настроек модуля.
 
-## License
+## Хуки / Интеграции
 
-GPLv2 or later. See `license.txt`.
+- Activation hook проверяет PHP, WordPress и Leyka.
+- Deactivation hook сбрасывает rewrite rules.
+- Runtime-проверка выводит admin notice, если Leyka выключена.
+- Logger пишет в `wp-content/uploads/leyka-boost/logs/`.
+- `uninstall.php` удаляет опции Leyka Boost и модулей, таблицу `{prefix}leyka_utm_tracker` и папку логов.
+
+## Ограничения / Примечания
+
+- Фазы 1–8 из `PLAN.md` реализованы; следующая фаза — ручное тестирование в WordPress.
+- Правила проекта описаны в `AGENTS.md`.
+- Техническое задание находится в `leyka-boost-tz.md`.

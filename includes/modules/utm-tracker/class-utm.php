@@ -32,9 +32,11 @@ if (!class_exists('LeykaUTMTrackerUTM')) {
                 return;
             }
 
+            // phpcs:disable WordPress.Security.NonceVerification.Recommended -- Read-only UTM parameters, sanitized via sanitize_text_field().
             $source   = !empty($_GET['utm_source']) ? sanitize_text_field(wp_unslash($_GET['utm_source'])) : '';
             $medium   = !empty($_GET['utm_medium']) ? sanitize_text_field(wp_unslash($_GET['utm_medium'])) : '';
             $campaign = !empty($_GET['utm_campaign']) ? sanitize_text_field(wp_unslash($_GET['utm_campaign'])) : '';
+            // phpcs:enable WordPress.Security.NonceVerification.Recommended
 
             // FIRST touch: set all three cookies atomically on the first UTM visit.
             // We use leyka_utm_first_source as the single gate — once it is set,

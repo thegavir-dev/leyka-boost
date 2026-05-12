@@ -132,7 +132,11 @@ class Leyka_Close_Frontend {
      * @return bool
      */
     private function is_ios() {
-        return preg_match('/iPad|iPhone|iPod/', $_SERVER['HTTP_USER_AGENT'] ?? '');
+        $user_agent = isset($_SERVER['HTTP_USER_AGENT'])
+            ? sanitize_text_field(wp_unslash($_SERVER['HTTP_USER_AGENT']))
+            : '';
+
+        return preg_match('/iPad|iPhone|iPod/', $user_agent);
     }
     
     // ============================================
@@ -218,14 +222,18 @@ class Leyka_Close_Frontend {
             // ============================================
             // ФУНКЦИЯ ЛОГИРОВАНИЯ (отключаемая)
             // ============================================
-            const consoleLogging = <?php echo $console_logging; ?>;
+            const consoleLogging = <?php echo esc_js($console_logging); ?>;
             
             function log() {
-                return consoleLogging && arguments.length;
+                if (consoleLogging) {
+                    console.log('🟢 Leyka Close:', ...arguments);
+                }
             }
             
             function logError() {
-                return consoleLogging && arguments.length;
+                if (consoleLogging) {
+                    console.error('🔴 Leyka Close:', ...arguments);
+                }
             }
             
             function logWarn() {
@@ -300,7 +308,7 @@ class Leyka_Close_Frontend {
                     <div class="leyka-close-campaign-toggle">
                         <div class="leyka-close-campaign-label">
                             <label for="leyka-close-toggle-<?php echo esc_attr($campaign_id); ?>" class="leyka-close-campaign-label-inner">
-                                <span class="leyka-close-campaign-icon"><?php echo $icon; ?></span>
+                                <span class="leyka-close-campaign-icon"><?php echo wp_kses_post($icon); ?></span>
                                 <span class="leyka-close-campaign-text"><?php echo esc_html($button_text); ?></span>
                             </label>
                         </div>
@@ -498,7 +506,7 @@ class Leyka_Close_Frontend {
                             }
                             
                             deactivateToggle(form);
-                            recordAction(parseInt(form.dataset.leykaCloseCampaignId || '<?php echo $campaign_id; ?>'), 'deactivation', 0);
+                            recordAction(parseInt(form.dataset.leykaCloseCampaignId || '<?php echo (int) $campaign_id; ?>'), 'deactivation', 0);
                         }
                     });
                 });
@@ -531,7 +539,7 @@ class Leyka_Close_Frontend {
                         }
                         
                         deactivateToggle(form);
-                        recordAction(parseInt(form.dataset.leykaCloseCampaignId || '<?php echo $campaign_id; ?>'), 'deactivation', 0);
+                        recordAction(parseInt(form.dataset.leykaCloseCampaignId || '<?php echo (int) $campaign_id; ?>'), 'deactivation', 0);
                     }
                 });
             }
@@ -540,8 +548,8 @@ class Leyka_Close_Frontend {
              * Записать статистику
              */
             function recordAction(campaignId, actionType, amount) {
-                const ajaxUrl = '<?php echo admin_url('admin-ajax.php'); ?>';
-                const nonce = '<?php echo wp_create_nonce('leyka_close_nonce'); ?>';
+                const ajaxUrl = '<?php echo esc_url(admin_url('admin-ajax.php')); ?>';
+                const nonce = '<?php echo esc_attr(wp_create_nonce('leyka_close_nonce')); ?>';
                 
                 if (!ajaxUrl || !nonce) {
                     logWarn('AJAX не настроен');
@@ -643,11 +651,12 @@ class Leyka_Close_Frontend {
             global $wpdb;
             $table = $wpdb->prefix . 'leyka_donations';
             
-            $collected = $wpdb->get_var($wpdb->prepare(
+            $collected = $wpdb->get_var($wpdb->prepare( // phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching, PluginCheck.Security.DirectDB.UnescapedDBParameter -- Leyka donations table, table name from wpdb prefix, safe.
                 "SELECT SUM(amount) 
-                 FROM $table 
+                 FROM %i
                  WHERE campaign_id = %d 
                  AND status IN ('funded', 'paid')",
+                $table,
                 $campaign_id
             ));
             

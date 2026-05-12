@@ -354,7 +354,12 @@ class Leyka_Close_Admin {
         
         $plugin_enabled = isset($settings['enabled']) ? $settings['enabled'] : true;
         $leyka_active = class_exists('Leyka');
-        $logs_writable = is_writable(LEYKA_CLOSE_LOGS_DIR);
+        global $wp_filesystem;
+        if (!function_exists('WP_Filesystem')) {
+            require_once ABSPATH . 'wp-admin/includes/file.php';
+        }
+        WP_Filesystem();
+        $logs_writable = is_object($wp_filesystem) && $wp_filesystem->is_writable(LEYKA_CLOSE_LOGS_DIR);
         ?>
         <div class="wrap leyka-close-admin">
             <h1><?php esc_html_e('Close Campaign dashboard', 'leyka-boost'); ?></h1>
@@ -408,11 +413,11 @@ class Leyka_Close_Admin {
                     </tr>
                     <tr>
                         <td style="padding: 10px;"><strong><?php esc_html_e('Campaigns with statistics:', 'leyka-boost'); ?></strong></td>
-                        <td style="padding: 10px;"><?php echo $campaigns_count; ?></td>
+                        <td style="padding: 10px;"><?php echo (int) $campaigns_count; ?></td>
                     </tr>
                     <tr>
                         <td style="padding: 10px;"><strong><?php esc_html_e('Last reset:', 'leyka-boost'); ?></strong></td>
-                        <td style="padding: 10px;"><?php echo $last_reset; ?></td>
+                        <td style="padding: 10px;"><?php echo esc_html($last_reset); ?></td>
                     </tr>
                 </table>
                 
@@ -447,6 +452,7 @@ class Leyka_Close_Admin {
                             $top_campaigns = $stats_class->get_top_campaigns(10);
                             foreach ($top_campaigns as $campaign_id => $data) {
                                 $campaign = leyka_get_validated_campaign($campaign_id);
+                                /* translators: %d: campaign ID */
                                 $campaign_name = $campaign ? $campaign->title : sprintf(__('Campaign #%d', 'leyka-boost'), $campaign_id);
                                 ?>
                                 <tr>
@@ -490,6 +496,7 @@ class Leyka_Close_Admin {
                     <li><?php echo wp_kses_post(__('<strong>Minimum amount to show:</strong> if the remaining amount is lower, the toggle is hidden.', 'leyka-boost')); ?></li>
                     <li><?php echo wp_kses_post(__('<strong>Auto-enable threshold:</strong> if the remaining amount is lower, the toggle is selected automatically.', 'leyka-boost')); ?></li>
                     <li><?php echo wp_kses_post(__('<strong>Button text:</strong> use <code>{sum}</code> to insert the amount.', 'leyka-boost')); ?></li>
+                    <li><?php echo wp_kses_post(__('<strong>Browser console:</strong> use only for debugging problems.', 'leyka-boost')); ?></li>
                 </ul>
             </div>
         </div>
@@ -524,7 +531,7 @@ class Leyka_Close_Admin {
         LeykaBoost_Logger::info('close-campaign', '[admin] ' . __('Statistics reset from admin.', 'leyka-boost'));
         
         // Редирект обратно
-        wp_redirect(admin_url('admin.php?page=leyka-close-campaign&reset=success'));
+        wp_safe_redirect(admin_url('admin.php?page=leyka-close-campaign&reset=success'));
         exit;
     }
     
@@ -571,6 +578,7 @@ class Leyka_Close_Admin {
                 'statsReset' => __('Statistics reset successfully.', 'leyka-boost'),
                 'logsCleared' => __('Logs cleared successfully.', 'leyka-boost'),
                 'preview' => __('Preview', 'leyka-boost'),
+                /* translators: 1: auto-enable threshold amount, 2: minimum amount to show */
                 'autoThresholdWarning' => __('Warning! Auto-enable threshold (%1$s ₽) is lower than the minimum amount to show (%2$s ₽). This means auto-enable will never trigger. Continue?', 'leyka-boost'),
                 'error' => __('Error', 'leyka-boost'),
                 'unknownError' => __('Unknown error', 'leyka-boost'),

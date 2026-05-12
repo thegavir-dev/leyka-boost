@@ -103,25 +103,15 @@ final class LeykaBoost_Core {
 	private function __construct() {
 		require_once LEYKA_BOOST_PATH . 'includes/class-logger.php';
 
-		add_action( 'plugins_loaded', array( $this, 'load_textdomain' ) );
-		add_action( 'plugins_loaded', array( $this, 'runtime_check_leyka' ), 20 );
+			add_action( 'plugins_loaded', array( $this, 'runtime_check_leyka' ), 20 );
 		add_action( 'plugins_loaded', array( $this, 'load_modules' ), 30 );
 		add_action( 'admin_notices', array( $this, 'show_original_plugins_notice' ) );
 
 		$this->init_admin_menu();
 	}
 
-	/**
-	 * Load translations.
-	 *
-	 * @return void
-	 */
-	public function load_textdomain() {
-		load_plugin_textdomain( 'leyka-boost', false, dirname( LEYKA_BOOST_BASENAME ) . '/languages' );
-	}
-
-	/**
-	 * Show runtime warning when Leyka is unavailable.
+		/**
+		 * Show runtime warning when Leyka is unavailable.
 	 *
 	 * @return void
 	 */
@@ -252,9 +242,9 @@ final class LeykaBoost_Core {
 	 *
 	 * @return void
 	 */
-	public function __wakeup() {
-		_doing_it_wrong( __METHOD__, esc_html__( 'LeykaBoost_Core cannot be unserialized.', 'leyka-boost' ), LEYKA_BOOST_VERSION );
-	}
+		public function __wakeup() {
+			_doing_it_wrong( __METHOD__, esc_html__( 'LeykaBoost_Core cannot be unserialized.', 'leyka-boost' ), esc_html( LEYKA_BOOST_VERSION ) );
+		}
 
 	/**
 	 * Default settings.

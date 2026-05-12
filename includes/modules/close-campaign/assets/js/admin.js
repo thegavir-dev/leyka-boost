@@ -18,7 +18,9 @@
     const ADMIN_CONSOLE_LOGGING = !!ADMIN_CONFIG.consoleLogging;
 
     function adminLog(...args) {
-        return ADMIN_CONSOLE_LOGGING && args.length;
+        if (ADMIN_CONSOLE_LOGGING) {
+            console.log('🟢 Leyka Close Admin:', ...args);
+        }
     }
 
     $(document).ready(function() {

@@ -7,57 +7,60 @@ if (!class_exists('LeykaUTMTrackerAnalytics')) {
     class LeykaUTMTrackerAnalytics {
 
         /**
-         * Build a WHERE clause from filter parameters.
-         * Returns array('sql' => '...', 'values' => array(...)).
+         * Build WHERE conditions as array of literal strings with placeholders.
+         * Column names are internal constants, not user input.
+         * Returns array('conditions' => array(...), 'values' => array(...)).
          */
-        public static function build_where($filters = array()) {
-            global $wpdb;
-            $table = LeykaUTMTrackerDB::get_table_name();
-
-            $clauses = array();
-            $values  = array();
-
-            $touch = self::get_touch_preference();
+        private static function build_where_parts($filters = array()) {
+            $conditions = array();
+            $values     = array();
+            $touch      = self::get_touch_preference();
 
             if (!empty($filters['utm_source'])) {
-                $col = $touch === 'last' ? 'utm_last_source' : 'utm_first_source';
-                $clauses[] = "{$col} = %s";
-                $values[]  = sanitize_text_field($filters['utm_source']);
+                $conditions[] = $touch === 'last' ? '`utm_last_source` = %s' : '`utm_first_source` = %s';
+                $values[]     = sanitize_text_field($filters['utm_source']);
             }
 
             if (!empty($filters['utm_medium'])) {
-                $col = $touch === 'last' ? 'utm_last_medium' : 'utm_first_medium';
-                $clauses[] = "{$col} = %s";
-                $values[]  = sanitize_text_field($filters['utm_medium']);
+                $conditions[] = $touch === 'last' ? '`utm_last_medium` = %s' : '`utm_first_medium` = %s';
+                $values[]     = sanitize_text_field($filters['utm_medium']);
             }
 
             if (!empty($filters['utm_campaign'])) {
-                $col = $touch === 'last' ? 'utm_last_campaign' : 'utm_first_campaign';
-                $clauses[] = "{$col} = %s";
-                $values[]  = sanitize_text_field($filters['utm_campaign']);
+                $conditions[] = $touch === 'last' ? '`utm_last_campaign` = %s' : '`utm_first_campaign` = %s';
+                $values[]     = sanitize_text_field($filters['utm_campaign']);
             }
 
             if (!empty($filters['status'])) {
-                $clauses[] = 'status = %s';
-                $values[]  = sanitize_text_field($filters['status']);
+                $conditions[] = '`status` = %s';
+                $values[]     = sanitize_text_field($filters['status']);
             }
 
             if (!empty($filters['date_from'])) {
-                $clauses[] = 'created_at >= %s';
-                $values[]  = sanitize_text_field($filters['date_from']) . ' 00:00:00';
+                $conditions[] = '`created_at` >= %s';
+                $values[]     = sanitize_text_field($filters['date_from']) . ' 00:00:00';
             }
 
             if (!empty($filters['date_to'])) {
-                $clauses[] = 'created_at <= %s';
-                $values[]  = sanitize_text_field($filters['date_to']) . ' 23:59:59';
+                $conditions[] = '`created_at` <= %s';
+                $values[]     = sanitize_text_field($filters['date_to']) . ' 23:59:59';
             }
 
-            if (empty($clauses)) {
-                return array('sql' => '', 'values' => array());
+            return array(
+                'conditions' => $conditions,
+                'values'     => $values,
+            );
+        }
+
+        /**
+         * Build WHERE SQL string from array of literal condition strings.
+         */
+        private static function build_where_sql(array $conditions) {
+            if (empty($conditions)) {
+                return '';
             }
 
-            $sql = ' WHERE ' . implode(' AND ', $clauses);
-            return array('sql' => $sql, 'values' => $values);
+            return ' WHERE ' . implode(' AND ', $conditions);
         }
 
         /**
@@ -80,20 +83,36 @@ if (!class_exists('LeykaUTMTrackerAnalytics')) {
         public static function get_counts($filters = array()) {
             global $wpdb;
             $table = LeykaUTMTrackerDB::get_table_name();
-            $where = self::build_where($filters);
+            $parts = self::build_where_parts($filters);
+            $where = self::build_where_sql($parts['conditions']);
 
-            $base_sql = "SELECT
-                COUNT(*) AS total,
-                SUM(CASE WHEN status = 'success' THEN 1 ELSE 0 END) AS success_count,
-                SUM(CASE WHEN status = 'pending' THEN 1 ELSE 0 END) AS pending_count,
-                SUM(CASE WHEN status = 'fail' THEN 1 ELSE 0 END) AS fail_count,
-                COALESCE(SUM(CASE WHEN status = 'success' THEN amount ELSE 0 END), 0) AS sum_success
-                FROM {$table}";
-
-            if (!empty($where['values'])) {
-                $row = $wpdb->get_row($wpdb->prepare($base_sql . $where['sql'], ...$where['values']));
+            if (!empty($parts['values'])) {
+                $values = array_merge(array($table), $parts['values']);
+                $row = $wpdb->get_row( // phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching, PluginCheck.Security.DirectDB.UnescapedDBParameter -- Custom table query, SQL built via wpdb->prepare(), table name from wpdb prefix.
+                    $wpdb->prepare(
+                        "SELECT
+                        COUNT(*) AS total,
+                        SUM(CASE WHEN status = 'success' THEN 1 ELSE 0 END) AS success_count,
+                        SUM(CASE WHEN status = 'pending' THEN 1 ELSE 0 END) AS pending_count,
+                        SUM(CASE WHEN status = 'fail' THEN 1 ELSE 0 END) AS fail_count,
+                        COALESCE(SUM(CASE WHEN status = 'success' THEN amount ELSE 0 END), 0) AS sum_success
+                        FROM %i" . $where, // phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared -- $where is built from literal condition strings defined in build_where_parts(), no user input.
+                        ...$values
+                    )
+                );
             } else {
-                $row = $wpdb->get_row($base_sql);
+                $row = $wpdb->get_row( // phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching, PluginCheck.Security.DirectDB.UnescapedDBParameter -- Custom table query, table name from wpdb prefix.
+                    $wpdb->prepare(
+                        "SELECT
+                        COUNT(*) AS total,
+                        SUM(CASE WHEN status = 'success' THEN 1 ELSE 0 END) AS success_count,
+                        SUM(CASE WHEN status = 'pending' THEN 1 ELSE 0 END) AS pending_count,
+                        SUM(CASE WHEN status = 'fail' THEN 1 ELSE 0 END) AS fail_count,
+                        COALESCE(SUM(CASE WHEN status = 'success' THEN amount ELSE 0 END), 0) AS sum_success
+                        FROM %i",
+                        $table
+                    )
+                );
             }
 
             return array(
@@ -124,25 +143,28 @@ if (!class_exists('LeykaUTMTrackerAnalytics')) {
             $table  = LeykaUTMTrackerDB::get_table_name();
             $prefix = self::get_touch_prefix();
             $col    = $prefix . '_source';
-            $where  = self::build_where($filters);
+            $parts  = self::build_where_parts($filters);
+            $where  = self::build_where_sql($parts['conditions']);
 
-            $status_clause = " AND status = 'success'";
-
-            $sql = "SELECT
-                {$col} AS source_name,
-                COUNT(*) AS donations,
-                COALESCE(SUM(amount), 0) AS total_amount
-                FROM {$table}";
-
-            if (!empty($where['values'])) {
-                $sql .= $where['sql'] . $status_clause;
-                $sql .= " GROUP BY {$col} ORDER BY total_amount DESC LIMIT %d";
-                $values = array_merge($where['values'], array($limit));
-                return $wpdb->get_results($wpdb->prepare($sql, ...$values));
+            if (!empty($parts['values'])) {
+                $values = array_merge(array($col, $table), $parts['values'], array($col, $limit));
+                return $wpdb->get_results($wpdb->prepare( // phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching, PluginCheck.Security.DirectDB.UnescapedDBParameter -- Custom table query, SQL built via wpdb->prepare(), table name from wpdb prefix.
+                    "SELECT %i AS source_name, COUNT(*) AS donations, COALESCE(SUM(amount), 0) AS total_amount FROM %i" . $where . " AND status = 'success' GROUP BY %i ORDER BY total_amount DESC LIMIT %d", // phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared -- $where is built from literal condition strings defined in build_where_parts(), no user input.
+                    ...$values
+                ));
             } else {
-                $sql .= " WHERE status = 'success'";
-                $sql .= " GROUP BY {$col} ORDER BY total_amount DESC LIMIT %d";
-                return $wpdb->get_results($wpdb->prepare($sql, $limit));
+                return $wpdb->get_results($wpdb->prepare( // phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching, PluginCheck.Security.DirectDB.UnescapedDBParameter -- Custom table query, SQL built via wpdb->prepare(), table name from wpdb prefix.
+                    "SELECT %i AS source_name,
+                    COUNT(*) AS donations,
+                    COALESCE(SUM(amount), 0) AS total_amount
+                    FROM %i
+                    WHERE status = 'success'
+                    GROUP BY %i ORDER BY total_amount DESC LIMIT %d",
+                    $col,
+                    $table,
+                    $col,
+                    $limit
+                ));
             }
         }
 
@@ -154,25 +176,28 @@ if (!class_exists('LeykaUTMTrackerAnalytics')) {
             $table  = LeykaUTMTrackerDB::get_table_name();
             $prefix = self::get_touch_prefix();
             $col    = $prefix . '_campaign';
-            $where  = self::build_where($filters);
+            $parts  = self::build_where_parts($filters);
+            $where  = self::build_where_sql($parts['conditions']);
 
-            $status_clause = " AND status = 'success'";
-
-            $sql = "SELECT
-                {$col} AS campaign_name,
-                COUNT(*) AS donations,
-                COALESCE(SUM(amount), 0) AS total_amount
-                FROM {$table}";
-
-            if (!empty($where['values'])) {
-                $sql .= $where['sql'] . $status_clause;
-                $sql .= " GROUP BY {$col} ORDER BY total_amount DESC LIMIT %d";
-                $values = array_merge($where['values'], array($limit));
-                return $wpdb->get_results($wpdb->prepare($sql, ...$values));
+            if (!empty($parts['values'])) {
+                $values = array_merge(array($col, $table), $parts['values'], array($col, $limit));
+                return $wpdb->get_results($wpdb->prepare( // phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching, PluginCheck.Security.DirectDB.UnescapedDBParameter -- Custom table query, SQL built via wpdb->prepare(), table name from wpdb prefix.
+                    "SELECT %i AS campaign_name, COUNT(*) AS donations, COALESCE(SUM(amount), 0) AS total_amount FROM %i" . $where . " AND status = 'success' GROUP BY %i ORDER BY total_amount DESC LIMIT %d", // phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared -- $where is built from literal condition strings defined in build_where_parts(), no user input.
+                    ...$values
+                ));
             } else {
-                $sql .= " WHERE status = 'success'";
-                $sql .= " GROUP BY {$col} ORDER BY total_amount DESC LIMIT %d";
-                return $wpdb->get_results($wpdb->prepare($sql, $limit));
+                return $wpdb->get_results($wpdb->prepare( // phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching, PluginCheck.Security.DirectDB.UnescapedDBParameter -- Custom table query, SQL built via wpdb->prepare(), table name from wpdb prefix.
+                    "SELECT %i AS campaign_name,
+                    COUNT(*) AS donations,
+                    COALESCE(SUM(amount), 0) AS total_amount
+                    FROM %i
+                    WHERE status = 'success'
+                    GROUP BY %i ORDER BY total_amount DESC LIMIT %d",
+                    $col,
+                    $table,
+                    $col,
+                    $limit
+                ));
             }
         }
 
@@ -182,26 +207,28 @@ if (!class_exists('LeykaUTMTrackerAnalytics')) {
         public static function get_first_last_paths($filters = array(), $limit = 10) {
             global $wpdb;
             $table = LeykaUTMTrackerDB::get_table_name();
-            $where = self::build_where($filters);
+            $parts = self::build_where_parts($filters);
+            $where = self::build_where_sql($parts['conditions']);
 
-            $status_clause = " AND status = 'success'";
-
-            $sql = "SELECT
-                utm_first_source AS first_source,
-                utm_last_source AS last_source,
-                COUNT(*) AS donations,
-                COALESCE(SUM(amount), 0) AS total_amount
-                FROM {$table}";
-
-            if (!empty($where['values'])) {
-                $sql .= $where['sql'] . $status_clause;
-                $sql .= " GROUP BY utm_first_source, utm_last_source ORDER BY total_amount DESC LIMIT %d";
-                $values = array_merge($where['values'], array($limit));
-                return $wpdb->get_results($wpdb->prepare($sql, ...$values));
+            if (!empty($parts['values'])) {
+                $values = array_merge(array($table), $parts['values'], array($limit));
+                return $wpdb->get_results($wpdb->prepare( // phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching, PluginCheck.Security.DirectDB.UnescapedDBParameter -- Custom table query, SQL built via wpdb->prepare(), table name from wpdb prefix.
+                    "SELECT utm_first_source AS first_source, utm_last_source AS last_source, COUNT(*) AS donations, COALESCE(SUM(amount), 0) AS total_amount FROM %i" . $where . " AND status = 'success' GROUP BY utm_first_source, utm_last_source ORDER BY total_amount DESC LIMIT %d", // phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared -- $where is built from literal condition strings defined in build_where_parts(), no user input.
+                    ...$values
+                ));
             } else {
-                $sql .= " WHERE status = 'success'";
-                $sql .= " GROUP BY utm_first_source, utm_last_source ORDER BY total_amount DESC LIMIT %d";
-                return $wpdb->get_results($wpdb->prepare($sql, $limit));
+                return $wpdb->get_results($wpdb->prepare( // phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching, WordPress.DB.PreparedSQL.NotPrepared, PluginCheck.Security.DirectDB.UnescapedDBParameter -- Custom table query, SQL built via wpdb->prepare(), table name from wpdb prefix.
+                    "SELECT
+                    utm_first_source AS first_source,
+                    utm_last_source AS last_source,
+                    COUNT(*) AS donations,
+                    COALESCE(SUM(amount), 0) AS total_amount
+                    FROM %i
+                    WHERE status = 'success'
+                    GROUP BY utm_first_source, utm_last_source ORDER BY total_amount DESC LIMIT %d",
+                    $table,
+                    $limit
+                ));
             }
         }
 
@@ -213,9 +240,9 @@ if (!class_exists('LeykaUTMTrackerAnalytics')) {
             $table  = LeykaUTMTrackerDB::get_table_name();
             $prefix = self::get_touch_prefix();
 
-            $sources   = $wpdb->get_col("SELECT DISTINCT {$prefix}_source FROM {$table} WHERE {$prefix}_source != '' ORDER BY {$prefix}_source");
-            $mediums   = $wpdb->get_col("SELECT DISTINCT {$prefix}_medium FROM {$table} WHERE {$prefix}_medium != '' ORDER BY {$prefix}_medium");
-            $campaigns = $wpdb->get_col("SELECT DISTINCT {$prefix}_campaign FROM {$table} WHERE {$prefix}_campaign != '' ORDER BY {$prefix}_campaign");
+            $sources   = $wpdb->get_col($wpdb->prepare("SELECT DISTINCT {$prefix}_source FROM %i WHERE {$prefix}_source != '' ORDER BY {$prefix}_source", $table)); // phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching, WordPress.DB.PreparedSQL.InterpolatedNotPrepared, PluginCheck.Security.DirectDB.UnescapedDBParameter -- Column prefix and table name are internal values from wpdb prefix, safe.
+            $mediums   = $wpdb->get_col($wpdb->prepare("SELECT DISTINCT {$prefix}_medium FROM %i WHERE {$prefix}_medium != '' ORDER BY {$prefix}_medium", $table)); // phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching, WordPress.DB.PreparedSQL.InterpolatedNotPrepared, PluginCheck.Security.DirectDB.UnescapedDBParameter -- Column prefix and table name are internal values from wpdb prefix, safe.
+            $campaigns = $wpdb->get_col($wpdb->prepare("SELECT DISTINCT {$prefix}_campaign FROM %i WHERE {$prefix}_campaign != '' ORDER BY {$prefix}_campaign", $table)); // phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching, WordPress.DB.PreparedSQL.InterpolatedNotPrepared, PluginCheck.Security.DirectDB.UnescapedDBParameter -- Column prefix and table name are internal values from wpdb prefix, safe.
 
             return array(
                 'sources'   => is_array($sources) ? $sources : array(),
@@ -230,24 +257,32 @@ if (!class_exists('LeykaUTMTrackerAnalytics')) {
         public static function get_rows($filters = array(), $per_page = 50, $current_page = 1) {
             global $wpdb;
             $table  = LeykaUTMTrackerDB::get_table_name();
-            $where  = self::build_where($filters);
+            $parts  = self::build_where_parts($filters);
+            $where  = self::build_where_sql($parts['conditions']);
             $offset = ($current_page - 1) * $per_page;
 
-            $count_sql = "SELECT COUNT(*) FROM {$table}";
-            $rows_sql  = "SELECT * FROM {$table}";
-
-            if (!empty($where['values'])) {
-                $total = (int) $wpdb->get_var($wpdb->prepare($count_sql . $where['sql'], ...$where['values']));
-                $rows_sql .= $where['sql'] . " ORDER BY id DESC LIMIT %d OFFSET %d";
-                $values = array_merge($where['values'], array($per_page, $offset));
-                $rows = $wpdb->get_results($wpdb->prepare($rows_sql, ...$values));
+            if (!empty($parts['values'])) {
+                $count_values = array_merge(array($table), $parts['values']);
+                $total = (int) $wpdb->get_var( // phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching, PluginCheck.Security.DirectDB.UnescapedDBParameter -- Custom table query, SQL built via wpdb->prepare(), table name from wpdb prefix.
+                    $wpdb->prepare(
+                        "SELECT COUNT(*) FROM %i" . $where, // phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared -- $where is built from literal condition strings defined in build_where_parts(), no user input.
+                        ...$count_values
+                    )
+                );
+                $values = array_merge(array($table), $parts['values'], array($per_page, $offset));
+                $rows = $wpdb->get_results( // phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching, PluginCheck.Security.DirectDB.UnescapedDBParameter -- Custom table query, SQL built via wpdb->prepare(), table name from wpdb prefix.
+                    $wpdb->prepare(
+                        "SELECT * FROM %i" . $where . " ORDER BY id DESC LIMIT %d OFFSET %d", // phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared -- $where is built from literal condition strings defined in build_where_parts(), no user input.
+                        ...$values
+                    )
+                );
             } else {
-                $total = (int) $wpdb->get_var($count_sql);
-                $rows = $wpdb->get_results($wpdb->prepare(
-                    $rows_sql . " ORDER BY id DESC LIMIT %d OFFSET %d",
-                    $per_page,
-                    $offset
-                ));
+                $total = (int) $wpdb->get_var( // phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching, PluginCheck.Security.DirectDB.UnescapedDBParameter -- Custom table query, table name from wpdb prefix.
+                    $wpdb->prepare("SELECT COUNT(*) FROM %i", $table)
+                );
+                $rows = $wpdb->get_results( // phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching, WordPress.DB.PreparedSQL.NotPrepared, PluginCheck.Security.DirectDB.UnescapedDBParameter -- Custom table query, SQL built via wpdb->prepare(), table name from wpdb prefix.
+                    $wpdb->prepare("SELECT * FROM %i ORDER BY id DESC LIMIT %d OFFSET %d", $table, $per_page, $offset)
+                );
             }
 
             return array(
@@ -262,16 +297,24 @@ if (!class_exists('LeykaUTMTrackerAnalytics')) {
         public static function get_export_rows($filters = array()) {
             global $wpdb;
             $table = LeykaUTMTrackerDB::get_table_name();
-            $where = self::build_where($filters);
+            $parts = self::build_where_parts($filters);
+            $where = self::build_where_sql($parts['conditions']);
 
-            $sql = "SELECT * FROM {$table}";
-
-            if (!empty($where['values'])) {
-                $sql .= $where['sql'] . " ORDER BY id DESC";
-                return $wpdb->get_results($wpdb->prepare($sql, ...$where['values']), ARRAY_A);
+            if (!empty($parts['values'])) {
+                $values = array_merge(array($table), $parts['values']);
+                return $wpdb->get_results( // phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching, PluginCheck.Security.DirectDB.UnescapedDBParameter -- Custom table query, SQL built via wpdb->prepare(), table name from wpdb prefix.
+                    $wpdb->prepare(
+                        "SELECT * FROM %i" . $where . " ORDER BY id DESC", // phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared -- $where is built from literal condition strings defined in build_where_parts(), no user input.
+                        ...$values
+                    ),
+                    ARRAY_A
+                );
             }
 
-            return $wpdb->get_results($sql . " ORDER BY id DESC", ARRAY_A);
+            return $wpdb->get_results( // phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching, PluginCheck.Security.DirectDB.UnescapedDBParameter -- Custom table query, table name from wpdb prefix.
+                $wpdb->prepare("SELECT * FROM %i ORDER BY id DESC", $table),
+                ARRAY_A
+            );
         }
     }
 }

@@ -32,11 +32,15 @@
      * Логирование в консоль (отключаемое)
      */
     function log(...args) {
-        return CONSOLE_LOGGING && args.length;
+        if (CONSOLE_LOGGING) {
+            console.log('🟢 Leyka Close:', ...args);
+        }
     }
     
     function logError(...args) {
-        return CONSOLE_LOGGING && args.length;
+        if (CONSOLE_LOGGING) {
+            console.error('🔴 Leyka Close:', ...args);
+        }
     }
     
     function logWarn(...args) {

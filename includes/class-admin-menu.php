@@ -270,9 +270,10 @@ class LeykaBoost_AdminMenu {
 				<a class="button" href="<?php echo esc_url( wp_nonce_url( admin_url( 'admin-post.php?action=leyka_boost_download_log' ), 'leyka_boost_download_log' ) ); ?>"><?php esc_html_e( 'Download log', 'leyka-boost' ); ?></a>
 			</div>
 
-			<?php if ( $truncated ) : ?>
-				<p class="description"><?php echo esc_html( sprintf( __( 'Showing the latest 500 entries out of %d.', 'leyka-boost' ), $total ) ); ?></p>
-			<?php endif; ?>
+				<?php if ( $truncated ) : ?>
+					<?php /* translators: %d: total number of log entries */ ?>
+					<p class="description"><?php echo esc_html( sprintf( __( 'Showing the latest 500 entries out of %d.', 'leyka-boost' ), $total ) ); ?></p>
+				<?php endif; ?>
 
 			<table class="widefat striped leyka-boost-log-table">
 				<thead>
@@ -343,7 +344,7 @@ class LeykaBoost_AdminMenu {
 			'module_close'       => ! empty( $_POST['module_close'] ),
 			'log_enabled'        => ! empty( $_POST['log_enabled'] ),
 			'log_level'          => in_array( strtoupper( sanitize_text_field( wp_unslash( $_POST['log_level'] ?? 'INFO' ) ) ), array( 'ERROR', 'INFO', 'DEBUG' ), true ) ? strtoupper( sanitize_text_field( wp_unslash( $_POST['log_level'] ) ) ) : 'INFO',
-			'log_retention_days' => max( 1, absint( wp_unslash( $_POST['log_retention_days'] ?? 30 ) ) ),
+			'log_retention_days' => max( 1, absint( $_POST['log_retention_days'] ?? 30 ) ),
 		);
 
 		update_option( LeykaBoost_Core::OPTION_KEY, $settings );

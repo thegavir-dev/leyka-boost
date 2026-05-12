@@ -192,11 +192,12 @@ class Leyka_Close_Ajax {
             global $wpdb;
             $table = $wpdb->prefix . 'leyka_donations';
             
-            $collected = $wpdb->get_var($wpdb->prepare(
+            $collected = $wpdb->get_var($wpdb->prepare( // phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching, PluginCheck.Security.DirectDB.UnescapedDBParameter -- Leyka donations table, table name from wpdb prefix, safe.
                 "SELECT SUM(amount) 
-                 FROM $table 
+                 FROM %i
                  WHERE campaign_id = %d 
                  AND status IN ('funded', 'paid')",
+                $table,
                 $campaign_id
             ));
             

@@ -9,21 +9,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-if ( ! function_exists( 'lutm_t' ) ) {
-	/**
-	 * Return a translated UTM Tracker UI string.
-	 *
-	 * @param string $ru Russian text.
-	 * @param string $en English text.
-	 * @return string
-	 */
-	function lutm_t( $ru, $en ) {
-		unset( $ru );
-
-		return __( $en, 'leyka-boost' );
-	}
-}
-
 if ( ! defined( 'LEYKA_UTM_TRACKER_VERSION' ) ) {
 	define( 'LEYKA_UTM_TRACKER_VERSION', '1.5.1' );
 	define( 'LEYKA_UTM_TRACKER_FILE', LEYKA_BOOST_FILE );

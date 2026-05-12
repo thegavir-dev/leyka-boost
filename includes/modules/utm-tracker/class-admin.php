@@ -18,8 +18,8 @@ if (!class_exists('LeykaUTMTrackerAdmin')) {
 
             add_submenu_page(
                 'leyka-boost',
-                lutm_t('Настройки', 'Settings'),
-                lutm_t('Настройки', 'Settings'),
+                __('Settings', 'leyka-boost'),
+                __('Settings', 'leyka-boost'),
                 'manage_options',
                 'leyka-utm-settings',
                 array(__CLASS__, 'settings_page')
@@ -27,8 +27,8 @@ if (!class_exists('LeykaUTMTrackerAdmin')) {
 
             add_submenu_page(
                 'leyka-boost',
-                lutm_t('Генератор ссылок', 'Generator'),
-                lutm_t('Генератор ссылок', 'Generator'),
+                __('Generator', 'leyka-boost'),
+                __('Generator', 'leyka-boost'),
                 'manage_options',
                 'leyka-utm-generator',
                 array('LeykaUTMTrackerGenerator', 'page')
@@ -68,13 +68,13 @@ if (!class_exists('LeykaUTMTrackerAdmin')) {
                     'ajaxUrl' => admin_url('admin-ajax.php'),
                     'nonce'   => wp_create_nonce('lutm_generator_nonce'),
                     'i18n'    => array(
-                        'errorUrlEmpty'   => lutm_t('Введите URL', 'Enter a URL'),
-                        'errorUrlInvalid' => lutm_t('Некорректный URL', 'Invalid URL'),
-                        'errorSourceEmpty' => lutm_t('Введите utm_source', 'Enter utm_source'),
-                        'confirmClear'    => lutm_t('Вы уверены, что хотите очистить историю генератора? Это действие невозможно отменить.', 'Are you sure you want to clear the generator history? This action cannot be undone.'),
-                        'noHistory'       => lutm_t('История пуста.', 'History is empty.'),
-                        'copy'            => lutm_t('Копировать', 'Copy'),
-                        'load'            => lutm_t('В форму', 'Load'),
+                        'errorUrlEmpty'   => __('Enter a URL', 'leyka-boost'),
+                        'errorUrlInvalid' => __('Invalid URL', 'leyka-boost'),
+                        'errorSourceEmpty' => __('Enter utm_source', 'leyka-boost'),
+                        'confirmClear'    => __('Are you sure you want to clear the generator history? This action cannot be undone.', 'leyka-boost'),
+                        'noHistory'       => __('History is empty.', 'leyka-boost'),
+                        'copy'            => __('Copy', 'leyka-boost'),
+                        'load'            => __('Load', 'leyka-boost'),
                     ),
                 ));
             }
@@ -92,9 +92,9 @@ if (!class_exists('LeykaUTMTrackerAdmin')) {
 
         protected static function badge($status) {
             $map = array(
-                'success' => array('success', lutm_t('Успешно', 'Success')),
-                'pending' => array('pending', lutm_t('В процессе', 'Pending')),
-                'fail'    => array('fail',    lutm_t('Ошибка', 'Fail')),
+                'success' => array('success', __('Success', 'leyka-boost')),
+                'pending' => array('pending', __('Pending', 'leyka-boost')),
+                'fail'    => array('fail',    __('Fail', 'leyka-boost')),
             );
 
             $item  = isset($map[$status]) ? $map[$status] : array('unknown', esc_html($status));
@@ -120,23 +120,27 @@ if (!class_exists('LeykaUTMTrackerAdmin')) {
             $campaign = $campaign !== '' ? $campaign : '—';
 
             return '<div class="leyka-utm-meta">'
-                . '<strong>' . esc_html(lutm_t('Источник:', 'Source:')) . '</strong> ' . esc_html($source) . '<br>'
-                . '<strong>' . esc_html(lutm_t('Канал:', 'Medium:')) . '</strong> ' . esc_html($medium) . '<br>'
-                . '<strong>' . esc_html(lutm_t('Кампания:', 'Campaign:')) . '</strong> ' . esc_html($campaign)
+                . '<strong>' . esc_html__('Source:', 'leyka-boost') . '</strong> ' . esc_html($source) . '<br>'
+                . '<strong>' . esc_html__('Medium:', 'leyka-boost') . '</strong> ' . esc_html($medium) . '<br>'
+                . '<strong>' . esc_html__('Campaign:', 'leyka-boost') . '</strong> ' . esc_html($campaign)
                 . '</div>';
         }
 
         // ── Filter helpers ────────────────────────────────────────────
 
         protected static function get_current_filters() {
-            return array(
+            // phpcs:disable WordPress.Security.NonceVerification.Recommended -- Read-only filter parameters, sanitized via sanitize_text_field().
+            $filters = array(
                 'utm_source'   => isset($_GET['utm_source'])   ? sanitize_text_field(wp_unslash($_GET['utm_source']))   : '',
-                'utm_medium'   => isset($_GET['utm_medium'])   ? sanitize_text_field(wp_unslash($_GET['utm_medium']))   : '',
-                'utm_campaign' => isset($_GET['utm_campaign']) ? sanitize_text_field(wp_unslash($_GET['utm_campaign'])) : '',
-                'status'       => isset($_GET['status'])       ? sanitize_text_field(wp_unslash($_GET['status']))       : '',
-                'date_from'    => isset($_GET['date_from'])    ? sanitize_text_field(wp_unslash($_GET['date_from']))    : '',
-                'date_to'      => isset($_GET['date_to'])      ? sanitize_text_field(wp_unslash($_GET['date_to']))      : '',
+                'utm_medium'   => isset($_GET['utm_medium'])    ? sanitize_text_field(wp_unslash($_GET['utm_medium']))   : '',
+                'utm_campaign' => isset($_GET['utm_campaign'])  ? sanitize_text_field(wp_unslash($_GET['utm_campaign'])) : '',
+                'status'       => isset($_GET['status'])        ? sanitize_text_field(wp_unslash($_GET['status']))       : '',
+                'date_from'    => isset($_GET['date_from'])     ? sanitize_text_field(wp_unslash($_GET['date_from']))    : '',
+                'date_to'      => isset($_GET['date_to'])       ? sanitize_text_field(wp_unslash($_GET['date_to']))      : '',
             );
+            // phpcs:enable WordPress.Security.NonceVerification.Recommended
+
+            return $filters;
         }
 
         protected static function has_active_filters($filters) {
@@ -154,40 +158,40 @@ if (!class_exists('LeykaUTMTrackerAdmin')) {
             echo '<input type="hidden" name="page" value="leyka-utm-tracker">';
 
             echo '<select name="utm_source">';
-            echo '<option value="">' . esc_html(lutm_t('Все источники', 'All sources')) . '</option>';
+            echo '<option value="">' . esc_html__('All sources', 'leyka-boost') . '</option>';
             foreach ($options['sources'] as $src) {
                 echo '<option value="' . esc_attr($src) . '"' . selected($filters['utm_source'], $src, false) . '>' . esc_html($src) . '</option>';
             }
             echo '</select>';
 
             echo '<select name="utm_medium">';
-            echo '<option value="">' . esc_html(lutm_t('Все каналы', 'All mediums')) . '</option>';
+            echo '<option value="">' . esc_html__('All mediums', 'leyka-boost') . '</option>';
             foreach ($options['mediums'] as $med) {
                 echo '<option value="' . esc_attr($med) . '"' . selected($filters['utm_medium'], $med, false) . '>' . esc_html($med) . '</option>';
             }
             echo '</select>';
 
             echo '<select name="utm_campaign">';
-            echo '<option value="">' . esc_html(lutm_t('Все кампании', 'All campaigns')) . '</option>';
+            echo '<option value="">' . esc_html__('All campaigns', 'leyka-boost') . '</option>';
             foreach ($options['campaigns'] as $cmp) {
                 echo '<option value="' . esc_attr($cmp) . '"' . selected($filters['utm_campaign'], $cmp, false) . '>' . esc_html($cmp) . '</option>';
             }
             echo '</select>';
 
             echo '<select name="status">';
-            echo '<option value="">' . esc_html(lutm_t('Все статусы', 'All statuses')) . '</option>';
-            echo '<option value="success"' . selected($filters['status'], 'success', false) . '>' . esc_html(lutm_t('Успешно', 'Success')) . '</option>';
-            echo '<option value="pending"' . selected($filters['status'], 'pending', false) . '>' . esc_html(lutm_t('В процессе', 'Pending')) . '</option>';
-            echo '<option value="fail"' . selected($filters['status'], 'fail', false) . '>' . esc_html(lutm_t('Ошибка', 'Fail')) . '</option>';
+            echo '<option value="">' . esc_html__('All statuses', 'leyka-boost') . '</option>';
+            echo '<option value="success"' . selected($filters['status'], 'success', false) . '>' . esc_html__('Success', 'leyka-boost') . '</option>';
+            echo '<option value="pending"' . selected($filters['status'], 'pending', false) . '>' . esc_html__('Pending', 'leyka-boost') . '</option>';
+            echo '<option value="fail"' . selected($filters['status'], 'fail', false) . '>' . esc_html__('Fail', 'leyka-boost') . '</option>';
             echo '</select>';
 
-            echo '<input type="date" name="date_from" value="' . esc_attr($filters['date_from']) . '" placeholder="' . esc_attr(lutm_t('Дата от', 'Date from')) . '">';
-            echo '<input type="date" name="date_to" value="' . esc_attr($filters['date_to']) . '" placeholder="' . esc_attr(lutm_t('Дата до', 'Date to')) . '">';
+            echo '<input type="date" name="date_from" value="' . esc_attr($filters['date_from']) . '" placeholder="' . esc_attr__('Date from', 'leyka-boost') . '">';
+            echo '<input type="date" name="date_to" value="' . esc_attr($filters['date_to']) . '" placeholder="' . esc_attr__('Date to', 'leyka-boost') . '">';
 
-            submit_button(lutm_t('Применить', 'Apply'), 'primary', '', false);
+            submit_button(__('Apply', 'leyka-boost'), 'primary', '', false);
 
             if (self::has_active_filters($filters)) {
-                echo ' <a class="button" href="' . esc_url(admin_url('admin.php?page=leyka-utm-tracker')) . '">' . esc_html(lutm_t('Сбросить', 'Reset')) . '</a>';
+                echo ' <a class="button" href="' . esc_url(admin_url('admin.php?page=leyka-utm-tracker')) . '">' . esc_html__('Reset', 'leyka-boost') . '</a>';
             }
 
             echo '</form>';
@@ -200,29 +204,29 @@ if (!class_exists('LeykaUTMTrackerAdmin')) {
                     $url = add_query_arg($key, $value, $url);
                 }
             }
-            echo '<a class="button" href="' . esc_url($url) . '">' . esc_html(lutm_t('Экспорт CSV', 'Export CSV')) . '</a>';
+            echo '<a class="button" href="' . esc_url($url) . '">' . esc_html__('Export CSV', 'leyka-boost') . '</a>';
         }
 
         protected static function render_summaries($top_sources, $top_campaigns, $paths) {
             $touch_label = LeykaUTMTrackerAnalytics::get_touch_preference() === 'last'
-                ? lutm_t('последнее касание', 'last touch')
-                : lutm_t('первое касание', 'first touch');
+                ? __('last touch', 'leyka-boost')
+                : __('first touch', 'leyka-boost');
 
             echo '<div class="lutm-summaries">';
 
             echo '<div class="lutm-summary-block">';
-            echo '<h3>' . esc_html(lutm_t('Источники трафика', 'Traffic sources')) . ' <small>(' . esc_html($touch_label) . ')</small></h3>';
+            echo '<h3>' . esc_html__('Traffic sources', 'leyka-boost') . ' <small>(' . esc_html($touch_label) . ')</small></h3>';
             self::render_summary_table(
-                array(lutm_t('Источник', 'Source'), lutm_t('Донатов', 'Donations'), lutm_t('Сумма', 'Amount')),
+                array(__('Source', 'leyka-boost'), __('Donations', 'leyka-boost'), __('Amount', 'leyka-boost')),
                 $top_sources,
                 'source_name'
             );
             echo '</div>';
 
             echo '<div class="lutm-summary-block">';
-            echo '<h3>' . esc_html(lutm_t('Кампании', 'Campaigns')) . ' <small>(' . esc_html($touch_label) . ')</small></h3>';
+            echo '<h3>' . esc_html__('Campaigns', 'leyka-boost') . ' <small>(' . esc_html($touch_label) . ')</small></h3>';
             self::render_summary_table(
-                array(lutm_t('Кампания', 'Campaign'), lutm_t('Донатов', 'Donations'), lutm_t('Сумма', 'Amount')),
+                array(__('Campaign', 'leyka-boost'), __('Donations', 'leyka-boost'), __('Amount', 'leyka-boost')),
                 $top_campaigns,
                 'campaign_name'
             );
@@ -232,13 +236,13 @@ if (!class_exists('LeykaUTMTrackerAdmin')) {
 
             if (!empty($paths)) {
                 echo '<div class="lutm-summary-block lutm-summary-block--full">';
-                echo '<h3>' . esc_html(lutm_t('Путь: Первое → Последнее касание', 'Path: First → Last touch')) . '</h3>';
+                echo '<h3>' . esc_html__('Path: First -> Last touch', 'leyka-boost') . '</h3>';
                 echo '<table class="widefat striped">';
                 echo '<thead><tr>';
-                echo '<th>' . esc_html(lutm_t('Первый источник', 'First source')) . '</th>';
-                echo '<th>' . esc_html(lutm_t('Последний источник', 'Last source')) . '</th>';
-                echo '<th>' . esc_html(lutm_t('Донатов', 'Donations')) . '</th>';
-                echo '<th>' . esc_html(lutm_t('Сумма', 'Amount')) . '</th>';
+                echo '<th>' . esc_html__('First source', 'leyka-boost') . '</th>';
+                echo '<th>' . esc_html__('Last source', 'leyka-boost') . '</th>';
+                echo '<th>' . esc_html__('Donations', 'leyka-boost') . '</th>';
+                echo '<th>' . esc_html__('Amount', 'leyka-boost') . '</th>';
                 echo '</tr></thead><tbody>';
                 foreach ($paths as $path) {
                     echo '<tr>';
@@ -262,7 +266,7 @@ if (!class_exists('LeykaUTMTrackerAdmin')) {
             echo '</tr></thead><tbody>';
 
             if (empty($rows)) {
-                echo '<tr><td colspan="' . count($headers) . '">' . esc_html(lutm_t('Нет данных', 'No data')) . '</td></tr>';
+                echo '<tr><td colspan="' . count($headers) . '">' . esc_html__('No data', 'leyka-boost') . '</td></tr>';
             } else {
                 foreach ($rows as $row) {
                     $name = $row->$name_key;
@@ -302,8 +306,10 @@ if (!class_exists('LeykaUTMTrackerAdmin')) {
                 isset($_POST['lutm_clear_pending']) &&
                 check_admin_referer('lutm_clear_pending_action', 'lutm_clear_pending_nonce')
             ) {
+                // phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching, WordPress.DB.PreparedSQL.InterpolatedNotPrepared, PluginCheck.Security.DirectDB.UnescapedDBParameter -- Table name from wpdb prefix, safe.
                 $deleted = $wpdb->query("DELETE FROM {$table} WHERE status = 'pending'");
-                self::notice(sprintf(lutm_t('Удалено попыток: %d', 'Deleted pending attempts: %d'), (int) $deleted));
+                /* translators: %d: number of deleted pending donation attempts */
+                self::notice(sprintf(__('Deleted pending attempts: %d', 'leyka-boost'), (int) $deleted));
             }
 
             // ── Collect filters ─────────────────────────────────────
@@ -317,6 +323,7 @@ if (!class_exists('LeykaUTMTrackerAdmin')) {
             // ── Pagination ──────────────────────────────────────────
             $per_page     = 25;
             $total_pages  = max(1, (int) ceil($counts['total'] / $per_page));
+            // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- Read-only pagination parameter.
             $current_page = min($total_pages, max(1, isset($_GET['paged']) ? absint(wp_unslash($_GET['paged'])) : 1));
 
             $result = LeykaUTMTrackerAnalytics::get_rows($filters, $per_page, $current_page);
@@ -333,11 +340,11 @@ if (!class_exists('LeykaUTMTrackerAdmin')) {
 
             // ── Cards ───────────────────────────────────────────────
             echo '<div class="lutm-cards">';
-            self::stat_card(lutm_t('Всего пожертвований', 'Total donations'), $counts['total']);
-            self::stat_card(lutm_t('Успешных', 'Successful'), $counts['success_count']);
-            self::stat_card(lutm_t('Попытка', 'Attempts'), $counts['pending_count']);
-            self::stat_card(lutm_t('Сумма успешных', 'Successful amount'), number_format_i18n($counts['sum_success'], 2));
-            self::stat_card(lutm_t('Конверсия', 'Conversion'), $conversion . '%');
+            self::stat_card(__('Total donations', 'leyka-boost'), $counts['total']);
+            self::stat_card(__('Successful', 'leyka-boost'), $counts['success_count']);
+            self::stat_card(__('Attempts', 'leyka-boost'), $counts['pending_count']);
+            self::stat_card(__('Successful amount', 'leyka-boost'), number_format_i18n($counts['sum_success'], 2));
+            self::stat_card(__('Conversion', 'leyka-boost'), $conversion . '%');
             echo '</div>';
 
             // ── Filters ─────────────────────────────────────────────
@@ -345,9 +352,9 @@ if (!class_exists('LeykaUTMTrackerAdmin')) {
 
             // ── Actions ─────────────────────────────────────────────
             echo '<div class="lutm-actions">';
-            echo '<form class="lutm-clear-form" method="post" style="display:inline-block" onsubmit="return confirm(\'' . esc_js(lutm_t('Вы уверены, что хотите очистить попытки пожертвований? Это действие невозможно отменить.', 'Are you sure you want to clear pending donation attempts? This action cannot be undone.')) . '\');">';
+            echo '<form class="lutm-clear-form" method="post" style="display:inline-block" onsubmit="return confirm(\'' . esc_js(__('Are you sure you want to clear pending donation attempts? This action cannot be undone.', 'leyka-boost')) . '\');">';
             wp_nonce_field('lutm_clear_pending_action', 'lutm_clear_pending_nonce');
-            submit_button(lutm_t('Очистить попытки', 'Clear pending'), 'secondary', 'lutm_clear_pending', false);
+            submit_button(__('Clear pending', 'leyka-boost'), 'secondary', 'lutm_clear_pending', false);
             echo '</form> ';
             self::render_csv_button($filters);
             echo '</div>';
@@ -356,20 +363,20 @@ if (!class_exists('LeykaUTMTrackerAdmin')) {
             self::render_summaries($top_sources, $top_campaigns, $paths);
 
             // ── Main table ──────────────────────────────────────────
-            echo '<h2>' . esc_html(lutm_t('Все пожертвования', 'All donations')) . '</h2>';
+            echo '<h2>' . esc_html__('All donations', 'leyka-boost') . '</h2>';
             echo '<table class="widefat striped leyka-utm-table">';
             echo '<thead><tr>';
             echo '<th>' . esc_html('#') . '</th>';
-            echo '<th>' . esc_html(lutm_t('ID', 'ID')) . '</th>';
-            echo '<th>' . esc_html(lutm_t('Первое касание', 'First touch')) . '</th>';
-            echo '<th>' . esc_html(lutm_t('Последнее касание', 'Last touch')) . '</th>';
-            echo '<th>' . esc_html(lutm_t('Сумма', 'Amount')) . '</th>';
-            echo '<th>' . esc_html(lutm_t('Статус', 'Status')) . '</th>';
-            echo '<th>' . esc_html(lutm_t('Дата', 'Date')) . '</th>';
+            echo '<th>' . esc_html__('ID', 'leyka-boost') . '</th>';
+            echo '<th>' . esc_html__('First touch', 'leyka-boost') . '</th>';
+            echo '<th>' . esc_html__('Last touch', 'leyka-boost') . '</th>';
+            echo '<th>' . esc_html__('Amount', 'leyka-boost') . '</th>';
+            echo '<th>' . esc_html__('Status', 'leyka-boost') . '</th>';
+            echo '<th>' . esc_html__('Date', 'leyka-boost') . '</th>';
             echo '</tr></thead><tbody>';
 
             if (empty($rows)) {
-                echo '<tr><td colspan="7">' . esc_html(lutm_t('UTM-данные отсутствуют. Данные появятся после первого пожертвования с UTM-метками.', 'UTM data is empty. Data will appear after the first donation with UTM marks.')) . '</td></tr>';
+                echo '<tr><td colspan="7">' . esc_html__('UTM data is empty. Data will appear after the first donation with UTM marks.', 'leyka-boost') . '</td></tr>';
             } else {
                 foreach ($rows as $index => $row) {
                     $link = admin_url('admin.php?page=leyka_donation_info&donation=' . (int) $row->donation_id);
@@ -378,20 +385,20 @@ if (!class_exists('LeykaUTMTrackerAdmin')) {
                     echo '<tr>';
                     echo '<td>' . (int) $row_number . '</td>';
                     echo '<td><a href="' . esc_url($link) . '"><strong>' . (int) $row->donation_id . '</strong></a></td>';
-                    echo '<td>' . self::utm_block(
-                        lutm_t('Первое касание', 'First touch'),
+                    echo '<td>' . wp_kses_post( self::utm_block(
+                        __('First touch', 'leyka-boost'),
                         $row->utm_first_source,
                         $row->utm_first_medium,
                         $row->utm_first_campaign
-                    ) . '</td>';
-                    echo '<td>' . self::utm_block(
-                        lutm_t('Последнее касание', 'Last touch'),
+                    ) ) . '</td>';
+                    echo '<td>' . wp_kses_post( self::utm_block(
+                        __('Last touch', 'leyka-boost'),
                         $row->utm_last_source,
                         $row->utm_last_medium,
                         $row->utm_last_campaign
-                    ) . '</td>';
+                    ) ) . '</td>';
                     echo '<td>' . esc_html(number_format_i18n((float) $row->amount, 2)) . '</td>';
-                    echo '<td>' . self::badge($row->status) . '</td>';
+                    echo '<td>' . wp_kses_post( self::badge($row->status) ) . '</td>';
                     echo '<td>' . esc_html($row->updated_at) . '</td>';
                     echo '</tr>';
                 }
@@ -408,21 +415,23 @@ if (!class_exists('LeykaUTMTrackerAdmin')) {
                     'format'    => '',
                     'current'   => $current_page,
                     'total'     => $total_pages,
-                    'prev_text' => '&laquo; ' . lutm_t('Назад', 'Prev'),
-                    'next_text' => lutm_t('Вперёд', 'Next') . ' &raquo;',
+                    'prev_text' => '&laquo; ' . __('Prev', 'leyka-boost'),
+                    'next_text' => __('Next', 'leyka-boost') . ' &raquo;',
                     'type'      => 'array',
                 ));
 
                 if (!empty($links)) {
                     echo '<div class="tablenav bottom lutm-pagination">';
                     echo '<div class="tablenav-pages">';
-                    echo '<span class="displaying-num">' . esc_html(sprintf(lutm_t('%d записей', '%d entries'), (int) $result['total'])) . '</span>';
+                    /* translators: %d: total number of UTM entries */
+                    echo '<span class="displaying-num">' . esc_html(sprintf(__('%d entries', 'leyka-boost'), (int) $result['total'])) . '</span>';
                     foreach ($links as $link) {
                         echo wp_kses_post($link);
                     }
                     echo '<span class="lutm-pagination__info">';
                     printf(
-                        esc_html(lutm_t('Страница %1$d из %2$d', 'Page %1$d of %2$d')),
+                        /* translators: 1: current page number, 2: total pages */
+                        esc_html__('Page %1$d of %2$d', 'leyka-boost'),
                         (int) $current_page,
                         (int) $total_pages
                     );
@@ -447,47 +456,47 @@ if (!class_exists('LeykaUTMTrackerAdmin')) {
                 check_admin_referer('lutm_save_settings_action', 'lutm_settings_nonce')
             ) {
                 update_option('leyka_utm_logging_enabled', !empty($_POST['leyka_utm_logging_enabled']) ? 1 : 0);
-                $touch = isset($_POST['leyka_utm_touch_preference']) && wp_unslash($_POST['leyka_utm_touch_preference']) === 'last' ? 'last' : 'first';
+                $touch = isset($_POST['leyka_utm_touch_preference']) && 'last' === sanitize_text_field(wp_unslash($_POST['leyka_utm_touch_preference'])) ? 'last' : 'first';
                 update_option('leyka_utm_touch_preference', $touch);
-                self::notice(lutm_t('Настройки сохранены.', 'Settings saved.'));
+                self::notice(__('Settings saved.', 'leyka-boost'));
             }
 
             $enabled = (bool) get_option('leyka_utm_logging_enabled', false);
             $touch   = get_option('leyka_utm_touch_preference', 'first');
 
             echo '<div class="wrap">';
-            echo '<h1>' . esc_html(lutm_t('Настройки', 'Settings')) . '</h1>';
+            echo '<h1>' . esc_html__('Settings', 'leyka-boost') . '</h1>';
             echo '<form method="post">';
             wp_nonce_field('lutm_save_settings_action', 'lutm_settings_nonce');
 
             echo '<table class="form-table" role="presentation"><tbody>';
 
             echo '<tr>';
-            echo '<th scope="row">' . esc_html(lutm_t('Аналитика по', 'Analytics by')) . '</th>';
+            echo '<th scope="row">' . esc_html__('Analytics by', 'leyka-boost') . '</th>';
             echo '<td>';
             echo '<label><input type="radio" name="leyka_utm_touch_preference" value="first" ' . checked($touch, 'first', false) . '> ';
-            echo esc_html(lutm_t('Первое касание (рекомендуется)', 'First touch (recommended)'));
+            echo esc_html__('First touch (recommended)', 'leyka-boost');
             echo '</label><br>';
             echo '<label><input type="radio" name="leyka_utm_touch_preference" value="last" ' . checked($touch, 'last', false) . '> ';
-            echo esc_html(lutm_t('Последнее касание', 'Last touch'));
+            echo esc_html__('Last touch', 'leyka-boost');
             echo '</label>';
-            echo '<p class="description">' . esc_html(lutm_t('Определяет, по какому касанию строится сводка и работают фильтры.', 'Determines which touch is used for summaries and filters.')) . '</p>';
+            echo '<p class="description">' . esc_html__('Determines which touch is used for summaries and filters.', 'leyka-boost') . '</p>';
             echo '</td>';
             echo '</tr>';
 
             echo '<tr>';
-            echo '<th scope="row">' . esc_html(lutm_t('Журнал событий', 'Event log')) . '</th>';
+            echo '<th scope="row">' . esc_html__('Event log', 'leyka-boost') . '</th>';
             echo '<td>';
             echo '<label><input type="checkbox" name="leyka_utm_logging_enabled" value="1" ' . checked($enabled, true, false) . '> ';
-            echo esc_html(lutm_t('Активен', 'Active'));
+            echo esc_html__('Active', 'leyka-boost');
             echo '</label>';
-            echo '<p class="description">' . esc_html(lutm_t('По умолчанию неактивно. Используйте только для диагностики.', 'Inactive by default. Use only for diagnostics.')) . '</p>';
+            echo '<p class="description">' . esc_html__('Inactive by default. Use only for diagnostics.', 'leyka-boost') . '</p>';
             echo '</td>';
             echo '</tr>';
 
             echo '</tbody></table>';
 
-            submit_button(lutm_t('Сохранить настройки', 'Save settings'), 'primary', 'lutm_save_settings');
+            submit_button(__('Save settings', 'leyka-boost'), 'primary', 'lutm_save_settings');
             echo '</form>';
             echo '</div>';
         }
@@ -496,19 +505,21 @@ if (!class_exists('LeykaUTMTrackerAdmin')) {
 
         public static function handle_csv_export() {
             if (!current_user_can('manage_options')) {
-                wp_die(lutm_t('Недостаточно прав', 'Insufficient permissions'));
+                wp_die(esc_html__('Insufficient permissions', 'leyka-boost'));
             }
 
             check_admin_referer('lutm_export_csv');
 
+            // phpcs:disable WordPress.Security.NonceVerification.Recommended -- Read-only export filter parameters, sanitized via sanitize_text_field().
             $filters = array(
                 'utm_source'   => isset($_GET['utm_source'])   ? sanitize_text_field(wp_unslash($_GET['utm_source']))   : '',
-                'utm_medium'   => isset($_GET['utm_medium'])   ? sanitize_text_field(wp_unslash($_GET['utm_medium']))   : '',
-                'utm_campaign' => isset($_GET['utm_campaign']) ? sanitize_text_field(wp_unslash($_GET['utm_campaign'])) : '',
-                'status'       => isset($_GET['status'])       ? sanitize_text_field(wp_unslash($_GET['status']))       : '',
-                'date_from'    => isset($_GET['date_from'])    ? sanitize_text_field(wp_unslash($_GET['date_from']))    : '',
-                'date_to'      => isset($_GET['date_to'])      ? sanitize_text_field(wp_unslash($_GET['date_to']))      : '',
+                'utm_medium'   => isset($_GET['utm_medium'])    ? sanitize_text_field(wp_unslash($_GET['utm_medium']))   : '',
+                'utm_campaign' => isset($_GET['utm_campaign'])  ? sanitize_text_field(wp_unslash($_GET['utm_campaign'])) : '',
+                'status'       => isset($_GET['status'])        ? sanitize_text_field(wp_unslash($_GET['status']))       : '',
+                'date_from'    => isset($_GET['date_from'])     ? sanitize_text_field(wp_unslash($_GET['date_from']))    : '',
+                'date_to'      => isset($_GET['date_to'])       ? sanitize_text_field(wp_unslash($_GET['date_to']))      : '',
             );
+            // phpcs:enable WordPress.Security.NonceVerification.Recommended
 
             $rows = LeykaUTMTrackerAnalytics::get_export_rows($filters);
 
@@ -522,6 +533,7 @@ if (!class_exists('LeykaUTMTrackerAdmin')) {
             $output = fopen('php://output', 'w');
 
             // BOM for Excel UTF-8
+            // phpcs:ignore WordPress.WP.AlternativeFunctions.file_system_operations_fwrite -- Streaming CSV to browser output, not a disk file operation.
             fwrite($output, "\xEF\xBB\xBF");
 
             fputcsv($output, array(
@@ -546,6 +558,7 @@ if (!class_exists('LeykaUTMTrackerAdmin')) {
                 ));
             }
 
+            // phpcs:ignore WordPress.WP.AlternativeFunctions.file_system_operations_fclose -- Closing browser output stream, not a disk file.
             fclose($output);
             exit;
         }

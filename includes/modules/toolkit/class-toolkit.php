@@ -18,10 +18,6 @@ class Leyka_Toolkit {
         return self::$instance;
     }
 
-    public static function load_textdomain() {
-        load_plugin_textdomain('leyka-boost', false, dirname(LEYKA_BOOST_BASENAME) . '/languages');
-    }
-
     public static function is_leyka_compatible() {
         return defined('LEYKA_VERSION') && version_compare(LEYKA_VERSION, LEYKA_TOOLKIT_MIN_LEYKA_VERSION, '>=');
     }
@@ -32,6 +28,7 @@ class Leyka_Toolkit {
         if (version_compare(PHP_VERSION, LEYKA_TOOLKIT_MIN_PHP_VERSION, '<')) {
             deactivate_plugins(plugin_basename(LEYKA_TOOLKIT_FILE));
             wp_die(
+                /* translators: %s: minimum required PHP version */
                 esc_html(sprintf(__('Leyka Toolkit requires PHP %s or higher.', 'leyka-boost'), LEYKA_TOOLKIT_MIN_PHP_VERSION)),
                 esc_html__('Leyka Toolkit activation error', 'leyka-boost'),
                 ['back_link' => true]
@@ -41,6 +38,7 @@ class Leyka_Toolkit {
         if (version_compare($wp_version, LEYKA_TOOLKIT_MIN_WP_VERSION, '<')) {
             deactivate_plugins(plugin_basename(LEYKA_TOOLKIT_FILE));
             wp_die(
+                /* translators: %s: minimum required WordPress version */
                 esc_html(sprintf(__('Leyka Toolkit requires WordPress %s or higher.', 'leyka-boost'), LEYKA_TOOLKIT_MIN_WP_VERSION)),
                 esc_html__('Leyka Toolkit activation error', 'leyka-boost'),
                 ['back_link' => true]
@@ -59,6 +57,7 @@ class Leyka_Toolkit {
         if (version_compare(LEYKA_VERSION, LEYKA_TOOLKIT_MIN_LEYKA_VERSION, '<')) {
             deactivate_plugins(plugin_basename(LEYKA_TOOLKIT_FILE));
             wp_die(
+                /* translators: %s: minimum required Leyka version */
                 esc_html(sprintf(__('Leyka Toolkit requires Leyka %s or higher.', 'leyka-boost'), LEYKA_TOOLKIT_MIN_LEYKA_VERSION)),
                 esc_html__('Leyka Toolkit activation error', 'leyka-boost'),
                 ['back_link' => true]
@@ -107,7 +106,6 @@ class Leyka_Toolkit {
     }
 
     private function __construct() {
-        add_action('plugins_loaded', [__CLASS__, 'load_textdomain']);
         add_action('admin_menu', [$this, 'register_menu']);
         add_action('admin_init', [$this, 'register_settings']);
         add_action('admin_notices', [$this, 'render_dependency_notice']);
@@ -174,6 +172,7 @@ class Leyka_Toolkit {
             $message = __('Leyka Toolkit is inactive because the Leyka plugin is not active.', 'leyka-boost');
         } else {
             $message = sprintf(
+                /* translators: 1: minimum required Leyka version, 2: current Leyka version */
                 __('Leyka Toolkit requires Leyka %1$s or higher. Current Leyka version: %2$s.', 'leyka-boost'),
                 LEYKA_TOOLKIT_MIN_LEYKA_VERSION,
                 LEYKA_VERSION
@@ -234,7 +233,11 @@ class Leyka_Toolkit {
         ?>
         <div class="wrap">
             <h1><?php esc_html_e('Leyka Toolkit', 'leyka-boost'); ?></h1>
-            <p><?php echo esc_html(sprintf(__('Version %s', 'leyka-boost'), LEYKA_TOOLKIT_VERSION)); ?></p>
+            <p><?php echo esc_html(sprintf(
+                /* translators: %s: Toolkit module version */
+                __('Version %s', 'leyka-boost'),
+                LEYKA_TOOLKIT_VERSION
+            )); ?></p>
 
             <form method="post" action="options.php">
                 <?php settings_fields('leyka_toolkit_group'); ?>
@@ -355,9 +358,10 @@ class Leyka_Toolkit {
         $checked = !empty($s['checked']) ? ' checked="checked"' : '';
 
         $block = '
-<div class="donor__oferta studioavp-leyka-addon-subscribe" aria-hidden="true">
-    <span class="studioavp-leyka-addon-subscribe-inner">
-        <input type="checkbox" name="leyka_donor_subscribed" id="' . esc_attr($field_id) . '" value="1"' . $checked . '>
+	<div class="donor__oferta studioavp-leyka-addon-subscribe" aria-hidden="true">
+	    <span class="studioavp-leyka-addon-subscribe-inner">
+	        ' . wp_nonce_field('leyka_toolkit_donation_action', 'leyka_toolkit_nonce', true, false) . '
+	        <input type="checkbox" name="leyka_donor_subscribed" id="' . esc_attr($field_id) . '" value="1"' . $checked . '>
         <label for="' . esc_attr($field_id) . '" class="studioavp-leyka-addon-subscribe-label">
             <svg class="svg-icon icon-checkbox-check"><use xlink:href="#icon-checkbox-check"></use></svg>
             ' . esc_html($s['label']) . '
@@ -394,9 +398,10 @@ class Leyka_Toolkit {
         }
 
         $block = '
-<div class="donor__oferta studioavp-lt-recurring-agree" aria-hidden="true" data-required="' . esc_attr($required) . '">
-    <span class="studioavp-lt-recurring-agree-inner">
-        <input type="checkbox" name="leyka_recurring_agreed" id="' . esc_attr($field_id) . '" value="1" class="leyka_agree">
+	<div class="donor__oferta studioavp-lt-recurring-agree" aria-hidden="true" data-required="' . esc_attr($required) . '">
+	    <span class="studioavp-lt-recurring-agree-inner">
+	        ' . wp_nonce_field('leyka_toolkit_donation_action', 'leyka_toolkit_nonce', true, false) . '
+	        <input type="checkbox" name="leyka_recurring_agreed" id="' . esc_attr($field_id) . '" value="1" class="leyka_agree">
         <label for="' . esc_attr($field_id) . '" class="studioavp-lt-recurring-agree-label">
             <svg class="svg-icon icon-checkbox-check"><use xlink:href="#icon-checkbox-check"></use></svg>
             ' . esc_html($s['recurring_agree_label']) . '
@@ -424,13 +429,13 @@ class Leyka_Toolkit {
         $js_parts = [];
 
         if (!empty($s['enabled'])) {
-            $js_parts[] = <<<'JS'
+            $js_parts[] = "
     var blocks = document.querySelectorAll('.studioavp-leyka-addon-subscribe');
     blocks.forEach(function (block) {
         var form = block.closest('form');
         if (!form) return;
 
-        var agreementSpan = form.querySelector('[data-leyka-boost-target="subscribe"]')
+        var agreementSpan = form.querySelector('[data-leyka-boost-target=\"subscribe\"]')
             || form.querySelector('.section__fields.agreements .donor__oferta span')
             || form.querySelector('.donor__oferta:not(.studioavp-leyka-addon-subscribe):not(.studioavp-lt-recurring-agree) span');
         var inner = block.querySelector('.studioavp-leyka-addon-subscribe-inner');
@@ -447,11 +452,11 @@ class Leyka_Toolkit {
 
         block.parentNode.removeChild(block);
     });
-JS;
+";
         }
 
         if (!empty($s['recurring_agree_enabled'])) {
-            $js_parts[] = <<<'JS'
+            $js_parts[] = "
     var recurringBlocks = document.querySelectorAll('.studioavp-lt-recurring-agree');
     recurringBlocks.forEach(function (block) {
         var form = block.closest('form');
@@ -459,13 +464,13 @@ JS;
 
         var holder = block;
         var holderDisplay = 'block';
-        var targetSpan = form.querySelector('[data-leyka-boost-target="recurring"]')
+        var targetSpan = form.querySelector('[data-leyka-boost-target=\"recurring\"]')
             || form.querySelector('.section__fields.agreements .donor__oferta span')
             || form.querySelector('.donor__oferta:not(.studioavp-lt-recurring-agree):not(.studioavp-leyka-addon-subscribe) span');
         var inner = block.querySelector('.studioavp-lt-recurring-agree-inner');
 
         if (targetSpan && inner) {
-            var subscribeInput = targetSpan.querySelector('[name="leyka_donor_subscribed"]');
+            var subscribeInput = targetSpan.querySelector('[name=\"leyka_donor_subscribed\"]');
             inner.style.display = 'contents';
             if (subscribeInput) {
                 targetSpan.insertBefore(inner, subscribeInput);
@@ -478,7 +483,7 @@ JS;
         }
 
         var isRequired = block.getAttribute('data-required') === '1';
-        var submitBtn = form.querySelector('input[type="submit"], button[type="submit"]');
+        var submitBtn = form.querySelector('input[type=\"submit\"], button[type=\"submit\"]');
 
         function showRecurringError() {
             if (holder.querySelector('.studioavp-lt-recurring-error')) {
@@ -510,7 +515,7 @@ JS;
         function shouldBlockRecurringSubmit() {
             if (!isRequired) return false;
 
-            var agreeInput = form.querySelector('[name="leyka_recurring_agreed"]');
+            var agreeInput = form.querySelector('[name=\"leyka_recurring_agreed\"]');
             if (!agreeInput) return false;
 
             var currentDisplay = holder.style.display;
@@ -530,7 +535,7 @@ JS;
         }
 
         function triggerLeykaValidation() {
-            var emailInput = form.querySelector('[name="leyka_donor_email"]');
+            var emailInput = form.querySelector('[name=\"leyka_donor_email\"]');
             if (!emailInput) return;
 
             emailInput.dispatchEvent(new Event('input', { bubbles: true }));
@@ -538,7 +543,7 @@ JS;
         }
 
         function syncRecurringAgree(checked) {
-            var agreeInput = form.querySelector('[name="leyka_recurring_agreed"]');
+            var agreeInput = form.querySelector('[name=\"leyka_recurring_agreed\"]');
             var hintBlock = form.querySelector('.studioavp-lt-recurring-hint');
             var agreeHolder = holder;
 
@@ -600,7 +605,7 @@ JS;
                 }
             }, true);
 
-            var agreeInputRef = form.querySelector('[name="leyka_recurring_agreed"]');
+            var agreeInputRef = form.querySelector('[name=\"leyka_recurring_agreed\"]');
             if (agreeInputRef) {
                 agreeInputRef.addEventListener('change', function () {
                     removeRecurringError();
@@ -634,7 +639,7 @@ JS;
             return;
         }
 
-        var recurringInput = form.querySelector('input[name="leyka_recurring"]');
+        var recurringInput = form.querySelector('input[name=\"leyka_recurring\"]');
         var periodicityLinks = form.querySelectorAll('[data-periodicity]');
 
         if (!recurringInput || !periodicityLinks.length) return;
@@ -649,7 +654,7 @@ JS;
             });
         });
     });
-JS;
+";
         }
 
         $js = "document.addEventListener('DOMContentLoaded', function () {\n";
@@ -663,39 +668,35 @@ JS;
         $css_parts = [];
 
         if (!empty($s['enabled'])) {
-            $css_parts[] = <<<CSS
-.studioavp-leyka-addon-subscribe{
-    display:none !important;
-}
-.studioavp-leyka-addon-subscribe-label,
-.leyka-tpl-star-form .section .section__fields .donor__oferta .studioavp-leyka-addon-subscribe-label,
-.leyka-screen-form .section .section__fields .donor__oferta .studioavp-leyka-addon-subscribe-label{
-    margin-top: 14px;
-    margin-bottom: 0;
-}
-CSS;
+            $css_parts[] = '.studioavp-leyka-addon-subscribe{' . "\n"
+                . '    display:none !important;' . "\n"
+                . '}' . "\n"
+                . '.studioavp-leyka-addon-subscribe-label,' . "\n"
+                . '.leyka-tpl-star-form .section .section__fields .donor__oferta .studioavp-leyka-addon-subscribe-label,' . "\n"
+                . '.leyka-screen-form .section .section__fields .donor__oferta .studioavp-leyka-addon-subscribe-label{' . "\n"
+                . '    margin-top: 14px;' . "\n"
+                . '    margin-bottom: 0;' . "\n"
+                . '}';
         }
 
         if (!empty($s['recurring_agree_enabled'])) {
-            $css_parts[] = <<<CSS
-.studioavp-lt-recurring-agree{
-    display: none !important;
-}
-.studioavp-lt-recurring-agree-label,
-.leyka-tpl-star-form .section .section__fields .donor__oferta .studioavp-lt-recurring-agree-label,
-.leyka-screen-form .section .section__fields .donor__oferta .studioavp-lt-recurring-agree-label{
-    margin-top: 14px;
-    margin-bottom: 0;
-}
-.studioavp-lt-recurring-hint{
-    display: none !important;
-    text-align: center;
-    font-size: 13px;
-    color: var(--leyka-need-help-color-text-light, #666666);
-    margin-top: 12px;
-    padding: 0;
-}
-CSS;
+            $css_parts[] = '.studioavp-lt-recurring-agree{' . "\n"
+                . '    display: none !important;' . "\n"
+                . '}' . "\n"
+                . '.studioavp-lt-recurring-agree-label,' . "\n"
+                . '.leyka-tpl-star-form .section .section__fields .donor__oferta .studioavp-lt-recurring-agree-label,' . "\n"
+                . '.leyka-screen-form .section .section__fields .donor__oferta .studioavp-lt-recurring-agree-label{' . "\n"
+                . '    margin-top: 14px;' . "\n"
+                . '    margin-bottom: 0;' . "\n"
+                . '}' . "\n"
+                . '.studioavp-lt-recurring-hint{' . "\n"
+                . '    display: none !important;' . "\n"
+                . '    text-align: center;' . "\n"
+                . '    font-size: 13px;' . "\n"
+                . '    color: var(--leyka-need-help-color-text-light, #666666);' . "\n"
+                . '    margin-top: 12px;' . "\n"
+                . '    padding: 0;' . "\n"
+                . '}';
         }
 
         $css = implode("\n", $css_parts);
@@ -704,6 +705,10 @@ CSS;
 
     public function handle_recurring_agree($donation_id) {
         if (!isset($_POST['leyka_recurring_agreed'])) {
+            return;
+        }
+
+        if (!isset($_POST['leyka_toolkit_nonce']) || !wp_verify_nonce(sanitize_text_field(wp_unslash($_POST['leyka_toolkit_nonce'])), 'leyka_toolkit_donation_action')) {
             return;
         }
 
@@ -746,6 +751,10 @@ CSS;
 
     public function handle_subscribe($donation_id) {
         if (!isset($_POST['leyka_donor_subscribed'])) {
+            return;
+        }
+
+        if (!isset($_POST['leyka_toolkit_nonce']) || !wp_verify_nonce(sanitize_text_field(wp_unslash($_POST['leyka_toolkit_nonce'])), 'leyka_toolkit_donation_action')) {
             return;
         }
 

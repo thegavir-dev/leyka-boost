@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: Leyka Boost 1.0.0\n"
+"Project-Id-Version: Leyka Boost 0.0.9.2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-05-12 10:24+0500\n"
+"POT-Creation-Date: 2026-05-12 15:48+0500\n"
 "PO-Revision-Date: 2026-05-10 07:11+0000\n"
 "Last-Translator: Leyka Boost Team\n"
 "Language-Team: Leyka Boost\n"
@@ -13,821 +13,325 @@ msgstr ""
 "X-Generator: Codex\n"
 "X-Domain: leyka-boost\n"
 
-#: for-github/leyka-boost/includes/class-admin-menu.php:36
-#: for-github/leyka-boost/includes/class-admin-menu.php:37
-#: for-github/leyka-boost/includes/class-admin-menu.php:124
-msgid "Leyka Boost"
-msgstr "Leyka Boost"
-
-#: for-github/leyka-boost/includes/class-admin-menu.php:47
-#: for-github/leyka-boost/includes/class-admin-menu.php:48
-#: for-github/leyka-boost/includes/class-admin-menu.php:216
-#: for-github/leyka-boost/includes/modules/close-campaign/class-admin.php:421
-#: for-github/leyka-boost/includes/modules/utm-tracker/class-admin.php:21
-#: for-github/leyka-boost/includes/modules/utm-tracker/class-admin.php:22
-#: for-github/leyka-boost/includes/modules/utm-tracker/class-admin.php:459
-msgid "Settings"
-msgstr "Settings"
-
-#: for-github/leyka-boost/includes/class-admin-menu.php:56
-#: for-github/leyka-boost/includes/class-admin-menu.php:57
-#: for-github/leyka-boost/includes/class-admin-menu.php:139
-#: for-github/leyka-boost/includes/modules/utm-tracker/class-admin.php:479
-msgid "Event log"
-msgstr "Event log"
-
-#: for-github/leyka-boost/includes/class-admin-menu.php:96
-msgid ""
-"Are you sure you want to clear the event log? This action cannot be undone."
-msgstr ""
-"Are you sure you want to clear the event log? This action cannot be undone."
-
-#: for-github/leyka-boost/includes/class-admin-menu.php:108
-#: for-github/leyka-boost/includes/class-admin-menu.php:229
-#: for-github/leyka-boost/includes/class-admin-menu.php:320
-#: for-github/leyka-boost/includes/class-admin-menu.php:337
-#: for-github/leyka-boost/includes/class-admin-menu.php:362
-msgid "Access denied."
-msgstr "Access denied."
-
-#: for-github/leyka-boost/includes/class-admin-menu.php:127
-msgid "Modules"
-msgstr "Modules"
-
-#: for-github/leyka-boost/includes/class-admin-menu.php:130
-msgid "UTM Tracker v1.5.1"
-msgstr "UTM Tracker v1.5.1"
-
-#: for-github/leyka-boost/includes/class-admin-menu.php:131
-msgid "Toolkit v1.0.0"
-msgstr "Toolkit v1.0.0"
-
-#: for-github/leyka-boost/includes/class-admin-menu.php:132
-#: for-github/leyka-boost/includes/class-admin-menu.php:240
-#: for-github/leyka-boost/includes/class-admin-menu.php:433
-#: for-github/leyka-boost/includes/modules/close-campaign/class-admin.php:63
-#: for-github/leyka-boost/includes/modules/close-campaign/class-admin.php:64
-msgid "Close Campaign"
-msgstr "Close Campaign"
-
-#: for-github/leyka-boost/includes/class-admin-menu.php:136
-msgid "Logging"
-msgstr "Logging"
-
-#: for-github/leyka-boost/includes/class-admin-menu.php:141
-#: for-github/leyka-boost/includes/class-admin-menu.php:215
-#: for-github/leyka-boost/includes/modules/close-campaign/class-admin.php:268
-#: for-github/leyka-boost/includes/modules/close-campaign/class-admin.php:370
-#: for-github/leyka-boost/includes/modules/close-campaign/class-admin.php:378
-#: for-github/leyka-boost/includes/modules/toolkit/class-toolkit.php:251
-#: for-github/leyka-boost/includes/modules/toolkit/class-toolkit.php:292
-#: for-github/leyka-boost/includes/modules/utm-tracker/class-admin.php:482
-msgid "Active"
-msgstr "Active"
-
-#: for-github/leyka-boost/includes/class-admin-menu.php:142
-msgid "Writes Leyka Boost and module events to the shared event log."
-msgstr "Writes Leyka Boost and module events to the shared event log."
-
-#: for-github/leyka-boost/includes/class-admin-menu.php:146
-#: for-github/leyka-boost/includes/class-admin-menu.php:282
-msgid "Level"
-msgstr "Level"
-
-#: for-github/leyka-boost/includes/class-admin-menu.php:153
-msgid ""
-"ERROR writes only errors, INFO adds regular events, DEBUG enables diagnostic "
-"entries."
-msgstr ""
-"ERROR writes only errors, INFO adds regular events, DEBUG enables diagnostic "
-"entries."
-
-#: for-github/leyka-boost/includes/class-admin-menu.php:157
-msgid "Retention period"
-msgstr "Retention period"
-
-#: for-github/leyka-boost/includes/class-admin-menu.php:160
-msgid "Number of days after which old entries are removed during rotation."
-msgstr "Number of days after which old entries are removed during rotation."
-
-#: for-github/leyka-boost/includes/class-admin-menu.php:165
-#: for-github/leyka-boost/includes/modules/close-campaign/class-admin.php:483
-#: for-github/leyka-boost/includes/modules/toolkit/class-toolkit.php:340
-#: for-github/leyka-boost/includes/modules/utm-tracker/class-admin.php:490
-msgid "Save settings"
-msgstr "Save settings"
-
-#: for-github/leyka-boost/includes/class-admin-menu.php:238
-#: for-github/leyka-boost/includes/class-admin-menu.php:431
-#: for-github/leyka-boost/includes/modules/utm-tracker/class-admin.php:12
-#: for-github/leyka-boost/includes/modules/utm-tracker/class-admin.php:13
-msgid "UTM Tracker"
-msgstr "UTM Tracker"
-
-#: for-github/leyka-boost/includes/class-admin-menu.php:239
-#: for-github/leyka-boost/includes/class-admin-menu.php:432
-#: for-github/leyka-boost/includes/modules/toolkit/class-toolkit.php:152
-#: for-github/leyka-boost/includes/modules/toolkit/class-toolkit.php:153
-msgid "Toolkit"
-msgstr "Toolkit"
-
-#: for-github/leyka-boost/includes/class-admin-menu.php:241
-#: for-github/leyka-boost/includes/class-admin-menu.php:434
-msgid "Core"
-msgstr "Core"
-
-#: for-github/leyka-boost/includes/class-admin-menu.php:245
-msgid "Leyka Boost event log"
-msgstr "Leyka Boost event log"
-
-#: for-github/leyka-boost/includes/class-admin-menu.php:249
-msgid "Total"
-msgstr "Total"
-
-#: for-github/leyka-boost/includes/class-admin-menu.php:256
-msgid "Search by message"
-msgstr "Search by message"
-
-#: for-github/leyka-boost/includes/class-admin-menu.php:258
-msgid "All modules"
-msgstr "All modules"
-
-#: for-github/leyka-boost/includes/class-admin-menu.php:264
-msgid "All levels"
-msgstr "All levels"
-
-#: for-github/leyka-boost/includes/class-admin-menu.php:269
-msgid "Clear event log"
-msgstr "Clear event log"
-
-#: for-github/leyka-boost/includes/class-admin-menu.php:270
-msgid "Download log"
-msgstr "Download log"
-
-#: for-github/leyka-boost/includes/class-admin-menu.php:274
-#, php-format
-msgid "Showing the latest 500 entries out of %d."
-msgstr "Showing the latest 500 entries out of %d."
-
-#: for-github/leyka-boost/includes/class-admin-menu.php:281
-msgid "Time"
-msgstr "Time"
-
-#: for-github/leyka-boost/includes/class-admin-menu.php:283
-msgid "Module"
-msgstr "Module"
-
-#: for-github/leyka-boost/includes/class-admin-menu.php:284
-msgid "Message"
-msgstr "Message"
-
-#: for-github/leyka-boost/includes/class-admin-menu.php:289
-msgid "The event log is empty."
-msgstr "The event log is empty."
-
-#: for-github/leyka-boost/includes/class-admin-menu.php:289
-msgid "Entries will appear here as the plugin runs."
-msgstr "Entries will appear here as the plugin runs."
-
-#: for-github/leyka-boost/includes/class-admin-menu.php:301
-msgid "No entries found for the selected filters."
-msgstr "No entries found for the selected filters."
-
-#: for-github/leyka-boost/includes/class-admin-menu.php:350
-#: for-github/leyka-boost/includes/modules/utm-tracker/class-admin.php:452
-msgid "Settings saved."
-msgstr "Settings saved."
-
-#: for-github/leyka-boost/includes/class-admin-menu.php:368
-msgid "Log file does not exist."
-msgstr "Log file does not exist."
-
-#: for-github/leyka-boost/includes/class-admin-menu.php:435
-msgid "Logger"
-msgstr "Logger"
-
-#: for-github/leyka-boost/includes/class-admin-menu.php:436
-msgid "Admin UI"
-msgstr "Admin UI"
-
-#: for-github/leyka-boost/includes/modules/close-campaign/class-admin.php:84
-msgid "Main settings"
-msgstr "Main settings"
-
-#: for-github/leyka-boost/includes/modules/close-campaign/class-admin.php:92
-msgid "Design"
-msgstr "Design"
-
-#: for-github/leyka-boost/includes/modules/close-campaign/class-admin.php:100
-msgid "Block border settings"
-msgstr "Block border settings"
-
-#: for-github/leyka-boost/includes/modules/close-campaign/class-admin.php:110
-msgid "Module status"
-msgstr "Module status"
-
-#: for-github/leyka-boost/includes/modules/close-campaign/class-admin.php:118
-msgid "Minimum amount to show (₽)"
-msgstr "Minimum amount to show (₽)"
-
-#: for-github/leyka-boost/includes/modules/close-campaign/class-admin.php:126
-msgid "Auto-enable threshold (₽)"
-msgstr "Auto-enable threshold (₽)"
-
-#: for-github/leyka-boost/includes/modules/close-campaign/class-admin.php:135
-msgid "Active color"
-msgstr "Active color"
-
-#: for-github/leyka-boost/includes/modules/close-campaign/class-admin.php:143
-msgid "Inactive color"
-msgstr "Inactive color"
-
-#: for-github/leyka-boost/includes/modules/close-campaign/class-admin.php:151
-msgid "Button text"
-msgstr "Button text"
-
-#: for-github/leyka-boost/includes/modules/close-campaign/class-admin.php:159
-#: for-github/leyka-boost/includes/modules/close-campaign/class-admin.php:315
-msgid "Show icon"
-msgstr "Show icon"
-
-#: for-github/leyka-boost/includes/modules/close-campaign/class-admin.php:168
-msgid "Border color"
-msgstr "Border color"
-
-#: for-github/leyka-boost/includes/modules/close-campaign/class-admin.php:176
-msgid "Border width (px)"
-msgstr "Border width (px)"
-
-#: for-github/leyka-boost/includes/modules/close-campaign/class-admin.php:198
-#: for-github/leyka-boost/includes/modules/close-campaign/class-admin.php:230
-#: for-github/leyka-boost/includes/modules/close-campaign/class-admin.php:301
-#: for-github/leyka-boost/includes/modules/close-campaign/class-frontend.php:84
-#: for-github/leyka-boost/includes/modules/close-campaign/class-frontend.php:193
-#: for-github/leyka-boost/includes/modules/close-campaign/class-module.php:64
-msgid "Close the whole campaign: {sum} ₽"
-msgstr "Close the whole campaign: {sum} ₽"
-
-#: for-github/leyka-boost/includes/modules/close-campaign/class-admin.php:242
-msgid "Main plugin behavior settings."
-msgstr "Main plugin behavior settings."
-
-#: for-github/leyka-boost/includes/modules/close-campaign/class-admin.php:246
-msgid "Toggle appearance."
-msgstr "Toggle appearance."
-
-#: for-github/leyka-boost/includes/modules/close-campaign/class-admin.php:250
-msgid "Configure the Close Campaign block border."
-msgstr "Configure the Close Campaign block border."
-
-#: for-github/leyka-boost/includes/modules/close-campaign/class-admin.php:275
-msgid "Hide the toggle when the remaining amount is less than this value."
-msgstr "Hide the toggle when the remaining amount is less than this value."
-
-#: for-github/leyka-boost/includes/modules/close-campaign/class-admin.php:282
-msgid ""
-"Automatically select the toggle when the remaining amount is less than this "
-"value."
-msgstr ""
-"Automatically select the toggle when the remaining amount is less than this "
-"value."
-
-#: for-github/leyka-boost/includes/modules/close-campaign/class-admin.php:289
-msgid "Active toggle color."
-msgstr "Active toggle color."
-
-#: for-github/leyka-boost/includes/modules/close-campaign/class-admin.php:296
-msgid "Inactive toggle color."
-msgstr "Inactive toggle color."
-
-#: for-github/leyka-boost/includes/modules/close-campaign/class-admin.php:303
-msgid "Use <code>{sum}</code> to insert the amount."
-msgstr "Use <code>{sum}</code> to insert the amount."
-
-#: for-github/leyka-boost/includes/modules/close-campaign/class-admin.php:323
-msgid "Close Campaign block border color."
-msgstr "Close Campaign block border color."
-
-#: for-github/leyka-boost/includes/modules/close-campaign/class-admin.php:330
-msgid "Border width in pixels (0 = no border)."
-msgstr "Border width in pixels (0 = no border)."
-
-#: for-github/leyka-boost/includes/modules/close-campaign/class-admin.php:353
-msgid "Never"
-msgstr "Never"
-
-#: for-github/leyka-boost/includes/modules/close-campaign/class-admin.php:360
-msgid "Close Campaign dashboard"
-msgstr "Close Campaign dashboard"
-
-#: for-github/leyka-boost/includes/modules/close-campaign/class-admin.php:364
-msgid "System status"
-msgstr "System status"
-
-#: for-github/leyka-boost/includes/modules/close-campaign/class-admin.php:367
-msgid "Plugin:"
-msgstr "Plugin:"
-
-#: for-github/leyka-boost/includes/modules/close-campaign/class-admin.php:370
-msgid "Inactive"
-msgstr "Inactive"
-
-#: for-github/leyka-boost/includes/modules/close-campaign/class-admin.php:378
-msgid "Not found"
-msgstr "Not found"
-
-#: for-github/leyka-boost/includes/modules/close-campaign/class-admin.php:383
-msgid "Log folder:"
-msgstr "Log folder:"
-
-#: for-github/leyka-boost/includes/modules/close-campaign/class-admin.php:386
-msgid "Writable"
-msgstr "Writable"
-
-#: for-github/leyka-boost/includes/modules/close-campaign/class-admin.php:386
-msgid "Not writable"
-msgstr "Not writable"
-
-#: for-github/leyka-boost/includes/modules/close-campaign/class-admin.php:395
-msgid "Statistics"
-msgstr "Statistics"
-
-#: for-github/leyka-boost/includes/modules/close-campaign/class-admin.php:398
-msgid "Total toggles:"
-msgstr "Total toggles:"
-
-#: for-github/leyka-boost/includes/modules/close-campaign/class-admin.php:402
-msgid "Activations:"
-msgstr "Activations:"
-
-#: for-github/leyka-boost/includes/modules/close-campaign/class-admin.php:406
-msgid "Deactivations:"
-msgstr "Deactivations:"
-
-#: for-github/leyka-boost/includes/modules/close-campaign/class-admin.php:410
-msgid "Campaigns with statistics:"
-msgstr "Campaigns with statistics:"
-
-#: for-github/leyka-boost/includes/modules/close-campaign/class-admin.php:414
-msgid "Last reset:"
-msgstr "Last reset:"
-
-#: for-github/leyka-boost/includes/modules/close-campaign/class-admin.php:422
-msgid ""
-"Are you sure you want to reset close statistics? This action cannot be "
-"undone."
-msgstr ""
-"Are you sure you want to reset close statistics? This action cannot be "
-"undone."
-
-#: for-github/leyka-boost/includes/modules/close-campaign/class-admin.php:425
-msgid "Reset statistics"
-msgstr "Reset statistics"
-
-#: for-github/leyka-boost/includes/modules/close-campaign/class-admin.php:433
-msgid "Top campaigns"
-msgstr "Top campaigns"
-
-#: for-github/leyka-boost/includes/modules/close-campaign/class-admin.php:437
-#: for-github/leyka-boost/includes/modules/utm-tracker/class-admin.php:225
-msgid "Campaign"
-msgstr "Campaign"
-
-#: for-github/leyka-boost/includes/modules/close-campaign/class-admin.php:438
-msgid "Toggles"
-msgstr "Toggles"
-
-#: for-github/leyka-boost/includes/modules/close-campaign/class-admin.php:439
-msgid "Activations"
-msgstr "Activations"
-
-#: for-github/leyka-boost/includes/modules/close-campaign/class-admin.php:440
-msgid "Deactivations"
-msgstr "Deactivations"
-
-#: for-github/leyka-boost/includes/modules/close-campaign/class-admin.php:450
-#, php-format
-msgid "Campaign #%d"
-msgstr "Campaign #%d"
-
-#: for-github/leyka-boost/includes/modules/close-campaign/class-admin.php:478
-msgid "Close Campaign settings"
-msgstr "Close Campaign settings"
-
-#: for-github/leyka-boost/includes/modules/close-campaign/class-admin.php:488
-msgid "Help"
-msgstr "Help"
-
-#: for-github/leyka-boost/includes/modules/close-campaign/class-admin.php:490
-msgid ""
-"<strong>Minimum amount to show:</strong> if the remaining amount is lower, "
-"the toggle is hidden."
-msgstr ""
-"<strong>Minimum amount to show:</strong> if the remaining amount is lower, "
-"the toggle is hidden."
-
-#: for-github/leyka-boost/includes/modules/close-campaign/class-admin.php:491
-msgid ""
-"<strong>Auto-enable threshold:</strong> if the remaining amount is lower, "
-"the toggle is selected automatically."
-msgstr ""
-"<strong>Auto-enable threshold:</strong> if the remaining amount is lower, "
-"the toggle is selected automatically."
-
-#: for-github/leyka-boost/includes/modules/close-campaign/class-admin.php:492
-msgid ""
-"<strong>Button text:</strong> use <code>{sum}</code> to insert the amount."
-msgstr ""
-"<strong>Button text:</strong> use <code>{sum}</code> to insert the amount."
-
-#: for-github/leyka-boost/includes/modules/close-campaign/class-admin.php:511
-msgid "Insufficient permissions."
-msgstr "Insufficient permissions."
-
-#: for-github/leyka-boost/includes/modules/close-campaign/class-admin.php:524
-msgid "Statistics reset from admin."
-msgstr "Statistics reset from admin."
-
-#: for-github/leyka-boost/includes/modules/close-campaign/class-admin.php:569
-msgid ""
-"Are you sure? All statistics will be permanently deleted. This action cannot "
-"be undone."
-msgstr ""
-"Are you sure? All statistics will be permanently deleted. This action cannot "
-"be undone."
-
-#: for-github/leyka-boost/includes/modules/close-campaign/class-admin.php:570
-msgid "Are you sure? All logs will be deleted. This action cannot be undone."
-msgstr "Are you sure? All logs will be deleted. This action cannot be undone."
-
-#: for-github/leyka-boost/includes/modules/close-campaign/class-admin.php:571
-msgid "Statistics reset successfully."
-msgstr "Statistics reset successfully."
-
-#: for-github/leyka-boost/includes/modules/close-campaign/class-admin.php:572
-msgid "Logs cleared successfully."
-msgstr "Logs cleared successfully."
-
-#: for-github/leyka-boost/includes/modules/close-campaign/class-admin.php:573
-msgid "Preview"
-msgstr "Preview"
-
-#: for-github/leyka-boost/includes/modules/close-campaign/class-admin.php:574
+#: leyka-boost/includes/class-core.php:204
+msgid "Leyka Boost requires the Leyka plugin to be active."
+msgstr "Leyka Boost requires the Leyka plugin to be active."
+
+#. translators: %s: comma-separated original plugin names.
+#: leyka-boost/includes/class-core.php:229
 #, php-format
 msgid ""
-"Warning! Auto-enable threshold (%1$s ₽) is lower than the minimum amount to "
-"show (%2$s ₽). This means auto-enable will never trigger. Continue?"
+"Leyka Boost detected active original plugins: %s. Disable them after "
+"verifying Leyka Boost migration to avoid duplicated behavior."
 msgstr ""
-"Warning! Auto-enable threshold (%1$s ₽) is lower than the minimum amount to "
-"show (%2$s ₽). This means auto-enable will never trigger. Continue?"
+"Leyka Boost detected active original plugins: %s. Disable them after "
+"verifying Leyka Boost migration to avoid duplicated behavior."
 
-#: for-github/leyka-boost/includes/modules/close-campaign/class-admin.php:575
-msgid "Error"
-msgstr "Error"
+#: leyka-boost/includes/class-core.php:246
+msgid "LeykaBoost_Core cannot be unserialized."
+msgstr "LeykaBoost_Core cannot be unserialized."
 
-#: for-github/leyka-boost/includes/modules/close-campaign/class-admin.php:576
-msgid "Unknown error"
-msgstr "Unknown error"
-
-#: for-github/leyka-boost/includes/modules/close-campaign/class-admin.php:577
-msgid "Connection error"
-msgstr "Connection error"
-
-#: for-github/leyka-boost/includes/modules/close-campaign/class-ajax.php:42
-#: for-github/leyka-boost/includes/modules/close-campaign/class-ajax.php:117
-msgid "Invalid nonce."
-msgstr "Invalid nonce."
-
-#: for-github/leyka-boost/includes/modules/close-campaign/class-ajax.php:49
-#: for-github/leyka-boost/includes/modules/close-campaign/class-ajax.php:126
-msgid "Campaign ID is missing."
-msgstr "Campaign ID is missing."
-
-#: for-github/leyka-boost/includes/modules/close-campaign/class-ajax.php:56
-msgid "Campaign not found."
-msgstr "Campaign not found."
-
-#: for-github/leyka-boost/includes/modules/close-campaign/class-ajax.php:63
-msgid "The campaign has no target amount."
-msgstr "The campaign has no target amount."
-
-#: for-github/leyka-boost/includes/modules/close-campaign/class-ajax.php:130
-msgid "Invalid action."
-msgstr "Invalid action."
-
-#: for-github/leyka-boost/includes/modules/toolkit/class-toolkit.php:35
+#: leyka-boost/includes/class-core.php:275
 #, php-format
-msgid "Leyka Toolkit requires PHP %s or higher."
-msgstr "Leyka Toolkit requires PHP %s or higher."
+msgid "Leyka Boost requires PHP %s or higher."
+msgstr "Leyka Boost requires PHP %s or higher."
 
-#: for-github/leyka-boost/includes/modules/toolkit/class-toolkit.php:36
-#: for-github/leyka-boost/includes/modules/toolkit/class-toolkit.php:45
-#: for-github/leyka-boost/includes/modules/toolkit/class-toolkit.php:54
-#: for-github/leyka-boost/includes/modules/toolkit/class-toolkit.php:63
-msgid "Leyka Toolkit activation error"
-msgstr "Leyka Toolkit activation error"
+#: leyka-boost/includes/class-core.php:276
+#: leyka-boost/includes/class-core.php:284
+#: leyka-boost/includes/class-core.php:292
+#: leyka-boost/includes/class-core.php:302
+msgid "Leyka Boost activation error"
+msgstr "Leyka Boost activation error"
 
-#: for-github/leyka-boost/includes/modules/toolkit/class-toolkit.php:44
+#: leyka-boost/includes/class-core.php:283
 #, php-format
-msgid "Leyka Toolkit requires WordPress %s or higher."
-msgstr "Leyka Toolkit requires WordPress %s or higher."
+msgid "Leyka Boost requires WordPress %s or higher."
+msgstr "Leyka Boost requires WordPress %s or higher."
 
-#: for-github/leyka-boost/includes/modules/toolkit/class-toolkit.php:53
-msgid "Leyka Toolkit requires the Leyka plugin to be installed and active."
-msgstr "Leyka Toolkit requires the Leyka plugin to be installed and active."
+#: leyka-boost/includes/class-core.php:291
+msgid "Leyka Boost requires the Leyka plugin to be installed and active."
+msgstr "Leyka Boost requires the Leyka plugin to be installed and active."
 
-#: for-github/leyka-boost/includes/modules/toolkit/class-toolkit.php:62
+#: leyka-boost/includes/class-core.php:301
 #, php-format
-msgid "Leyka Toolkit requires Leyka %s or higher."
-msgstr "Leyka Toolkit requires Leyka %s or higher."
+msgid "Leyka Boost requires Leyka %1$s or higher. Current version: %2$s."
+msgstr "Leyka Boost requires Leyka %1$s or higher. Current version: %2$s."
 
-#: for-github/leyka-boost/includes/modules/toolkit/class-toolkit.php:79
-msgid "Subscribe to news"
-msgstr "Subscribe to news"
-
-#: for-github/leyka-boost/includes/modules/toolkit/class-toolkit.php:84
-msgid "I agree to automatic monthly charges"
-msgstr "I agree to automatic monthly charges"
-
-#: for-github/leyka-boost/includes/modules/toolkit/class-toolkit.php:85
-msgid "You can cancel the recurring donation at any time"
-msgstr "You can cancel the recurring donation at any time"
-
-#: for-github/leyka-boost/includes/modules/toolkit/class-toolkit.php:174
-msgid "Leyka Toolkit is inactive because the Leyka plugin is not active."
-msgstr "Leyka Toolkit is inactive because the Leyka plugin is not active."
-
-#: for-github/leyka-boost/includes/modules/toolkit/class-toolkit.php:177
+#: leyka-boost/includes/modules/utm-tracker/class-tracker.php:183
 #, php-format
-msgid ""
-"Leyka Toolkit requires Leyka %1$s or higher. Current Leyka version: %2$s."
-msgstr ""
-"Leyka Toolkit requires Leyka %1$s or higher. Current Leyka version: %2$s."
+msgid "UPSERT OK ID=%d status=%s amount=%s first=%s/%s/%s last=%s/%s/%s"
+msgstr "UPSERT OK ID=%d status=%s amount=%s first=%s/%s/%s last=%s/%s/%s"
 
-#: for-github/leyka-boost/includes/modules/toolkit/class-toolkit.php:236
-msgid "Leyka Toolkit"
-msgstr "Leyka Toolkit"
-
-#: for-github/leyka-boost/includes/modules/toolkit/class-toolkit.php:237
+#: leyka-boost/includes/modules/utm-tracker/class-tracker.php:227
 #, php-format
-msgid "Version %s"
-msgstr "Version %s"
+msgid "STATUS: ID=%d type=%s %s → %s"
+msgstr "STATUS: ID=%d type=%s %s → %s"
 
-#: for-github/leyka-boost/includes/modules/toolkit/class-toolkit.php:242
-msgid "Newsletter subscription"
-msgstr "Newsletter subscription"
+#: leyka-boost/includes/modules/utm-tracker/class-generator.php:20
+msgid "UTM Link Generator"
+msgstr "UTM Link Generator"
 
-#: for-github/leyka-boost/includes/modules/toolkit/class-toolkit.php:247
-msgid "Subscription checkbox"
-msgstr "Subscription checkbox"
+#: leyka-boost/includes/modules/utm-tracker/class-generator.php:27
+msgid "Base URL *"
+msgstr "Base URL *"
 
-#: for-github/leyka-boost/includes/modules/toolkit/class-toolkit.php:257
-#: for-github/leyka-boost/includes/modules/toolkit/class-toolkit.php:309
-msgid "Checkbox text"
-msgstr "Checkbox text"
+#: leyka-boost/includes/modules/utm-tracker/class-generator.php:30
+msgid "utm_source *"
+msgstr "utm_source *"
 
-#: for-github/leyka-boost/includes/modules/toolkit/class-toolkit.php:264
-msgid "Checked by default"
-msgstr "Checked by default"
+#: leyka-boost/includes/modules/utm-tracker/class-generator.php:45
+msgid "Only source, medium and campaign are tracked by the plugin."
+msgstr "Only source, medium and campaign are tracked by the plugin."
 
-#: for-github/leyka-boost/includes/modules/toolkit/class-toolkit.php:268
-#: for-github/leyka-boost/includes/modules/toolkit/class-toolkit.php:302
-msgid "Yes"
-msgstr "Yes"
+#: leyka-boost/includes/modules/utm-tracker/class-generator.php:48
+msgid "Generate link"
+msgstr "Generate link"
 
-#: for-github/leyka-boost/includes/modules/toolkit/class-toolkit.php:274
-#: for-github/leyka-boost/includes/modules/toolkit/class-toolkit.php:331
-msgid "Donor tag"
-msgstr "Donor tag"
+#: leyka-boost/includes/modules/utm-tracker/class-generator.php:49
+msgid "Clear"
+msgstr "Clear"
 
-#: for-github/leyka-boost/includes/modules/toolkit/class-toolkit.php:277
-msgid ""
-"Added to the donor after a successful donation with the checkbox selected."
-msgstr ""
-"Added to the donor after a successful donation with the checkbox selected."
+#: leyka-boost/includes/modules/utm-tracker/class-generator.php:56
+msgid "Result"
+msgstr "Result"
 
-#: for-github/leyka-boost/includes/modules/toolkit/class-toolkit.php:283
-msgid "Monthly charge consent"
-msgstr "Monthly charge consent"
-
-#: for-github/leyka-boost/includes/modules/toolkit/class-toolkit.php:288
-msgid "Consent checkbox"
-msgstr "Consent checkbox"
-
-#: for-github/leyka-boost/includes/modules/toolkit/class-toolkit.php:298
-msgid "Required checkbox"
-msgstr "Required checkbox"
-
-#: for-github/leyka-boost/includes/modules/toolkit/class-toolkit.php:304
-msgid ""
-"If the checkbox is required, the donor cannot submit a recurring donation "
-"form without consent."
-msgstr ""
-"If the checkbox is required, the donor cannot submit a recurring donation "
-"form without consent."
-
-#: for-github/leyka-boost/includes/modules/toolkit/class-toolkit.php:316
-msgid "Hint text"
-msgstr "Hint text"
-
-#: for-github/leyka-boost/includes/modules/toolkit/class-toolkit.php:323
-msgid "Cancellation link"
-msgstr "Cancellation link"
-
-#: for-github/leyka-boost/includes/modules/toolkit/class-toolkit.php:326
-msgid "Leave the field empty to hide the link."
-msgstr "Leave the field empty to hide the link."
-
-#: for-github/leyka-boost/includes/modules/toolkit/class-toolkit.php:334
-msgid ""
-"Added to the donor after a successful donation with recurring charge consent."
-msgstr ""
-"Added to the donor after a successful donation with recurring charge consent."
-
-#: for-github/leyka-boost/includes/modules/toolkit/class-toolkit.php:389
-msgid "learn more"
-msgstr "learn more"
-
-#: for-github/leyka-boost/includes/modules/toolkit/class-toolkit.php:656
-msgid "Consent is required."
-msgstr "Consent is required."
-
-#: for-github/leyka-boost/includes/modules/utm-tracker/class-admin.php:30
-#: for-github/leyka-boost/includes/modules/utm-tracker/class-admin.php:31
-msgid "Generator"
-msgstr "Generator"
-
-#: for-github/leyka-boost/includes/modules/utm-tracker/class-admin.php:71
-msgid "Enter a URL"
-msgstr "Enter a URL"
-
-#: for-github/leyka-boost/includes/modules/utm-tracker/class-admin.php:72
-msgid "Invalid URL"
-msgstr "Invalid URL"
-
-#: for-github/leyka-boost/includes/modules/utm-tracker/class-admin.php:73
-msgid "Enter utm_source"
-msgstr "Enter utm_source"
-
-#: for-github/leyka-boost/includes/modules/utm-tracker/class-admin.php:74
-msgid ""
-"Are you sure you want to clear the generator history? This action cannot be "
-"undone."
-msgstr ""
-"Are you sure you want to clear the generator history? This action cannot be "
-"undone."
-
-#: for-github/leyka-boost/includes/modules/utm-tracker/class-admin.php:75
-msgid "History is empty."
-msgstr "History is empty."
-
-#: for-github/leyka-boost/includes/modules/utm-tracker/class-admin.php:76
-#: for-github/leyka-boost/includes/modules/utm-tracker/class-generator.php:61
+#: leyka-boost/includes/modules/utm-tracker/class-generator.php:58
+#: leyka-boost/includes/modules/utm-tracker/class-admin.php:76
 msgid "Copy"
 msgstr "Copy"
 
-#: for-github/leyka-boost/includes/modules/utm-tracker/class-admin.php:77
+#: leyka-boost/includes/modules/utm-tracker/class-generator.php:59
+msgid "Copied!"
+msgstr "Copied!"
+
+#: leyka-boost/includes/modules/utm-tracker/class-generator.php:65
+msgid "Link history"
+msgstr "Link history"
+
+#: leyka-boost/includes/modules/utm-tracker/class-generator.php:68
+msgid "Clear history"
+msgstr "Clear history"
+
+#: leyka-boost/includes/modules/utm-tracker/class-generator.php:73
+msgid "Link"
+msgstr "Link"
+
+#: leyka-boost/includes/modules/utm-tracker/class-generator.php:77
+msgid "Author"
+msgstr "Author"
+
+#: leyka-boost/includes/modules/utm-tracker/class-generator.php:78
+#: leyka-boost/includes/modules/utm-tracker/class-admin.php:375
+msgid "Date"
+msgstr "Date"
+
+#: leyka-boost/includes/modules/utm-tracker/class-generator.php:79
+msgid "Actions"
+msgstr "Actions"
+
+#: leyka-boost/includes/modules/utm-tracker/class-generator.php:82
+msgid "Loading..."
+msgstr "Loading…"
+
+#: leyka-boost/includes/modules/utm-tracker/class-admin.php:12
+#: leyka-boost/includes/modules/utm-tracker/class-admin.php:13
+#: leyka-boost/includes/class-admin-menu.php:238
+#: leyka-boost/includes/class-admin-menu.php:432
+msgid "UTM Tracker"
+msgstr "UTM Tracker"
+
+#: leyka-boost/includes/modules/utm-tracker/class-admin.php:21
+#: leyka-boost/includes/modules/utm-tracker/class-admin.php:22
+#: leyka-boost/includes/modules/utm-tracker/class-admin.php:468
+#: leyka-boost/includes/modules/close-campaign/class-admin.php:426
+#: leyka-boost/includes/class-admin-menu.php:47
+#: leyka-boost/includes/class-admin-menu.php:48
+#: leyka-boost/includes/class-admin-menu.php:216
+msgid "Settings"
+msgstr "Settings"
+
+#: leyka-boost/includes/modules/utm-tracker/class-admin.php:30
+#: leyka-boost/includes/modules/utm-tracker/class-admin.php:31
+msgid "Generator"
+msgstr "Generator"
+
+#: leyka-boost/includes/modules/utm-tracker/class-admin.php:71
+msgid "Enter a URL"
+msgstr "Enter a URL"
+
+#: leyka-boost/includes/modules/utm-tracker/class-admin.php:72
+msgid "Invalid URL"
+msgstr "Invalid URL"
+
+#: leyka-boost/includes/modules/utm-tracker/class-admin.php:73
+msgid "Enter utm_source"
+msgstr "Enter utm_source"
+
+#: leyka-boost/includes/modules/utm-tracker/class-admin.php:74
+msgid ""
+"Are you sure you want to clear the generator history? This action cannot be "
+"undone."
+msgstr ""
+"Are you sure you want to clear the generator history? This action cannot be "
+"undone."
+
+#: leyka-boost/includes/modules/utm-tracker/class-admin.php:75
+msgid "History is empty."
+msgstr "History is empty."
+
+#: leyka-boost/includes/modules/utm-tracker/class-admin.php:77
 msgid "Load"
 msgstr "Load"
 
-#: for-github/leyka-boost/includes/modules/utm-tracker/class-admin.php:95
-#: for-github/leyka-boost/includes/modules/utm-tracker/class-admin.php:179
+#: leyka-boost/includes/modules/utm-tracker/class-admin.php:95
+#: leyka-boost/includes/modules/utm-tracker/class-admin.php:183
 msgid "Success"
 msgstr "Success"
 
-#: for-github/leyka-boost/includes/modules/utm-tracker/class-admin.php:96
-#: for-github/leyka-boost/includes/modules/utm-tracker/class-admin.php:180
+#: leyka-boost/includes/modules/utm-tracker/class-admin.php:96
+#: leyka-boost/includes/modules/utm-tracker/class-admin.php:184
 msgid "Pending"
 msgstr "Pending"
 
-#: for-github/leyka-boost/includes/modules/utm-tracker/class-admin.php:97
-#: for-github/leyka-boost/includes/modules/utm-tracker/class-admin.php:181
+#: leyka-boost/includes/modules/utm-tracker/class-admin.php:97
+#: leyka-boost/includes/modules/utm-tracker/class-admin.php:185
 msgid "Fail"
 msgstr "Fail"
 
-#: for-github/leyka-boost/includes/modules/utm-tracker/class-admin.php:123
+#: leyka-boost/includes/modules/utm-tracker/class-admin.php:104
+#, php-format
+msgid "<span class=\"%1$s\">%2$s</span>"
+msgstr "<span class=\"%1$s\">%2$s</span>"
+
+#: leyka-boost/includes/modules/utm-tracker/class-admin.php:123
 msgid "Source:"
 msgstr "Source:"
 
-#: for-github/leyka-boost/includes/modules/utm-tracker/class-admin.php:124
+#: leyka-boost/includes/modules/utm-tracker/class-admin.php:124
 msgid "Medium:"
 msgstr "Medium:"
 
-#: for-github/leyka-boost/includes/modules/utm-tracker/class-admin.php:125
+#: leyka-boost/includes/modules/utm-tracker/class-admin.php:125
 msgid "Campaign:"
 msgstr "Campaign:"
 
-#: for-github/leyka-boost/includes/modules/utm-tracker/class-admin.php:157
+#: leyka-boost/includes/modules/utm-tracker/class-admin.php:161
 msgid "All sources"
 msgstr "All sources"
 
-#: for-github/leyka-boost/includes/modules/utm-tracker/class-admin.php:164
+#: leyka-boost/includes/modules/utm-tracker/class-admin.php:168
 msgid "All mediums"
 msgstr "All mediums"
 
-#: for-github/leyka-boost/includes/modules/utm-tracker/class-admin.php:171
+#: leyka-boost/includes/modules/utm-tracker/class-admin.php:175
 msgid "All campaigns"
 msgstr "All campaigns"
 
-#: for-github/leyka-boost/includes/modules/utm-tracker/class-admin.php:178
+#: leyka-boost/includes/modules/utm-tracker/class-admin.php:182
 msgid "All statuses"
 msgstr "All statuses"
 
-#: for-github/leyka-boost/includes/modules/utm-tracker/class-admin.php:184
+#: leyka-boost/includes/modules/utm-tracker/class-admin.php:188
 msgid "Date from"
 msgstr "Date from"
 
-#: for-github/leyka-boost/includes/modules/utm-tracker/class-admin.php:185
+#: leyka-boost/includes/modules/utm-tracker/class-admin.php:189
 msgid "Date to"
 msgstr "Date to"
 
-#: for-github/leyka-boost/includes/modules/utm-tracker/class-admin.php:187
+#: leyka-boost/includes/modules/utm-tracker/class-admin.php:191
 msgid "Apply"
 msgstr "Apply"
 
-#: for-github/leyka-boost/includes/modules/utm-tracker/class-admin.php:190
+#: leyka-boost/includes/modules/utm-tracker/class-admin.php:194
 msgid "Reset"
 msgstr "Reset"
 
-#: for-github/leyka-boost/includes/modules/utm-tracker/class-admin.php:203
+#: leyka-boost/includes/modules/utm-tracker/class-admin.php:207
 msgid "Export CSV"
 msgstr "Export CSV"
 
-#: for-github/leyka-boost/includes/modules/utm-tracker/class-admin.php:208
+#: leyka-boost/includes/modules/utm-tracker/class-admin.php:212
 msgid "last touch"
 msgstr "last touch"
 
-#: for-github/leyka-boost/includes/modules/utm-tracker/class-admin.php:209
+#: leyka-boost/includes/modules/utm-tracker/class-admin.php:213
 msgid "first touch"
 msgstr "first touch"
 
-#: for-github/leyka-boost/includes/modules/utm-tracker/class-admin.php:214
+#: leyka-boost/includes/modules/utm-tracker/class-admin.php:218
 msgid "Traffic sources"
 msgstr "Traffic sources"
 
-#: for-github/leyka-boost/includes/modules/utm-tracker/class-admin.php:216
+#: leyka-boost/includes/modules/utm-tracker/class-admin.php:220
 msgid "Source"
 msgstr "Source"
 
-#: for-github/leyka-boost/includes/modules/utm-tracker/class-admin.php:216
-#: for-github/leyka-boost/includes/modules/utm-tracker/class-admin.php:225
-#: for-github/leyka-boost/includes/modules/utm-tracker/class-admin.php:240
+#: leyka-boost/includes/modules/utm-tracker/class-admin.php:220
+#: leyka-boost/includes/modules/utm-tracker/class-admin.php:229
+#: leyka-boost/includes/modules/utm-tracker/class-admin.php:244
 msgid "Donations"
 msgstr "Donations"
 
-#: for-github/leyka-boost/includes/modules/utm-tracker/class-admin.php:216
-#: for-github/leyka-boost/includes/modules/utm-tracker/class-admin.php:225
-#: for-github/leyka-boost/includes/modules/utm-tracker/class-admin.php:241
-#: for-github/leyka-boost/includes/modules/utm-tracker/class-admin.php:366
+#: leyka-boost/includes/modules/utm-tracker/class-admin.php:220
+#: leyka-boost/includes/modules/utm-tracker/class-admin.php:229
+#: leyka-boost/includes/modules/utm-tracker/class-admin.php:245
+#: leyka-boost/includes/modules/utm-tracker/class-admin.php:373
 msgid "Amount"
 msgstr "Amount"
 
-#: for-github/leyka-boost/includes/modules/utm-tracker/class-admin.php:223
+#: leyka-boost/includes/modules/utm-tracker/class-admin.php:227
 msgid "Campaigns"
 msgstr "Campaigns"
 
-#: for-github/leyka-boost/includes/modules/utm-tracker/class-admin.php:235
-msgid "Path: First → Last touch"
+#: leyka-boost/includes/modules/utm-tracker/class-admin.php:229
+#: leyka-boost/includes/modules/close-campaign/class-admin.php:442
+msgid "Campaign"
+msgstr "Campaign"
+
+#: leyka-boost/includes/modules/utm-tracker/class-admin.php:239
+msgid "Path: First -> Last touch"
 msgstr "Path: First → Last touch"
 
-#: for-github/leyka-boost/includes/modules/utm-tracker/class-admin.php:238
+#: leyka-boost/includes/modules/utm-tracker/class-admin.php:242
 msgid "First source"
 msgstr "First source"
 
-#: for-github/leyka-boost/includes/modules/utm-tracker/class-admin.php:239
+#: leyka-boost/includes/modules/utm-tracker/class-admin.php:243
 msgid "Last source"
 msgstr "Last source"
 
-#: for-github/leyka-boost/includes/modules/utm-tracker/class-admin.php:265
+#: leyka-boost/includes/modules/utm-tracker/class-admin.php:269
 msgid "No data"
 msgstr "No data"
 
-#: for-github/leyka-boost/includes/modules/utm-tracker/class-admin.php:306
+#. translators: %d: number of deleted pending donation attempts
+#: leyka-boost/includes/modules/utm-tracker/class-admin.php:312
 #, php-format
 msgid "Deleted pending attempts: %d"
 msgstr "Deleted pending attempts: %d"
 
-#: for-github/leyka-boost/includes/modules/utm-tracker/class-admin.php:336
+#: leyka-boost/includes/modules/utm-tracker/class-admin.php:343
 msgid "Total donations"
 msgstr "Total donations"
 
-#: for-github/leyka-boost/includes/modules/utm-tracker/class-admin.php:337
+#: leyka-boost/includes/modules/utm-tracker/class-admin.php:344
 msgid "Successful"
 msgstr "Successful"
 
-#: for-github/leyka-boost/includes/modules/utm-tracker/class-admin.php:338
+#: leyka-boost/includes/modules/utm-tracker/class-admin.php:345
 msgid "Attempts"
 msgstr "Attempts"
 
-#: for-github/leyka-boost/includes/modules/utm-tracker/class-admin.php:339
+#: leyka-boost/includes/modules/utm-tracker/class-admin.php:346
 msgid "Successful amount"
 msgstr "Successful amount"
 
-#: for-github/leyka-boost/includes/modules/utm-tracker/class-admin.php:340
+#: leyka-boost/includes/modules/utm-tracker/class-admin.php:347
 msgid "Conversion"
 msgstr "Conversion"
 
-#: for-github/leyka-boost/includes/modules/utm-tracker/class-admin.php:348
+#: leyka-boost/includes/modules/utm-tracker/class-admin.php:355
 msgid ""
 "Are you sure you want to clear pending donation attempts? This action cannot "
 "be undone."
@@ -835,162 +339,751 @@ msgstr ""
 "Are you sure you want to clear pending donation attempts? This action cannot "
 "be undone."
 
-#: for-github/leyka-boost/includes/modules/utm-tracker/class-admin.php:350
+#: leyka-boost/includes/modules/utm-tracker/class-admin.php:357
 msgid "Clear pending"
 msgstr "Clear pending"
 
-#: for-github/leyka-boost/includes/modules/utm-tracker/class-admin.php:359
+#: leyka-boost/includes/modules/utm-tracker/class-admin.php:366
 msgid "All donations"
 msgstr "All donations"
 
-#: for-github/leyka-boost/includes/modules/utm-tracker/class-admin.php:363
+#: leyka-boost/includes/modules/utm-tracker/class-admin.php:370
 msgid "ID"
 msgstr "ID"
 
-#: for-github/leyka-boost/includes/modules/utm-tracker/class-admin.php:364
-#: for-github/leyka-boost/includes/modules/utm-tracker/class-admin.php:382
+#: leyka-boost/includes/modules/utm-tracker/class-admin.php:371
+#: leyka-boost/includes/modules/utm-tracker/class-admin.php:389
 msgid "First touch"
 msgstr "First touch"
 
-#: for-github/leyka-boost/includes/modules/utm-tracker/class-admin.php:365
-#: for-github/leyka-boost/includes/modules/utm-tracker/class-admin.php:388
-#: for-github/leyka-boost/includes/modules/utm-tracker/class-admin.php:472
+#: leyka-boost/includes/modules/utm-tracker/class-admin.php:372
+#: leyka-boost/includes/modules/utm-tracker/class-admin.php:395
+#: leyka-boost/includes/modules/utm-tracker/class-admin.php:481
 msgid "Last touch"
 msgstr "Last touch"
 
-#: for-github/leyka-boost/includes/modules/utm-tracker/class-admin.php:367
+#: leyka-boost/includes/modules/utm-tracker/class-admin.php:374
 msgid "Status"
 msgstr "Status"
 
-#: for-github/leyka-boost/includes/modules/utm-tracker/class-admin.php:368
-#: for-github/leyka-boost/includes/modules/utm-tracker/class-generator.php:81
-msgid "Date"
-msgstr "Date"
-
-#: for-github/leyka-boost/includes/modules/utm-tracker/class-admin.php:372
+#: leyka-boost/includes/modules/utm-tracker/class-admin.php:379
 msgid ""
 "UTM data is empty. Data will appear after the first donation with UTM marks."
 msgstr ""
 "UTM data is empty. Data will appear after the first donation with UTM marks."
 
-#: for-github/leyka-boost/includes/modules/utm-tracker/class-admin.php:411
+#: leyka-boost/includes/modules/utm-tracker/class-admin.php:418
 msgid "Prev"
 msgstr "Prev"
 
-#: for-github/leyka-boost/includes/modules/utm-tracker/class-admin.php:412
+#: leyka-boost/includes/modules/utm-tracker/class-admin.php:419
 msgid "Next"
 msgstr "Next"
 
-#: for-github/leyka-boost/includes/modules/utm-tracker/class-admin.php:419
+#. translators: %d: total number of UTM entries
+#: leyka-boost/includes/modules/utm-tracker/class-admin.php:427
 #, php-format
 msgid "%d entries"
 msgstr "%d entries"
 
-#: for-github/leyka-boost/includes/modules/utm-tracker/class-admin.php:425
+#. translators: 1: current page number, 2: total pages
+#: leyka-boost/includes/modules/utm-tracker/class-admin.php:434
 #, php-format
 msgid "Page %1$d of %2$d"
 msgstr "Page %1$d of %2$d"
 
-#: for-github/leyka-boost/includes/modules/utm-tracker/class-admin.php:466
+#: leyka-boost/includes/modules/utm-tracker/class-admin.php:461
+#: leyka-boost/includes/class-admin-menu.php:351
+msgid "Settings saved."
+msgstr "Settings saved."
+
+#: leyka-boost/includes/modules/utm-tracker/class-admin.php:475
 msgid "Analytics by"
 msgstr "Analytics by"
 
-#: for-github/leyka-boost/includes/modules/utm-tracker/class-admin.php:469
+#: leyka-boost/includes/modules/utm-tracker/class-admin.php:478
 msgid "First touch (recommended)"
 msgstr "First touch (recommended)"
 
-#: for-github/leyka-boost/includes/modules/utm-tracker/class-admin.php:474
+#: leyka-boost/includes/modules/utm-tracker/class-admin.php:483
 msgid "Determines which touch is used for summaries and filters."
 msgstr "Determines which touch is used for summaries and filters."
 
-#: for-github/leyka-boost/includes/modules/utm-tracker/class-admin.php:484
+#: leyka-boost/includes/modules/utm-tracker/class-admin.php:488
+#: leyka-boost/includes/class-admin-menu.php:56
+#: leyka-boost/includes/class-admin-menu.php:57
+#: leyka-boost/includes/class-admin-menu.php:139
+msgid "Event log"
+msgstr "Event log"
+
+#: leyka-boost/includes/modules/utm-tracker/class-admin.php:491
+#: leyka-boost/includes/modules/toolkit/class-toolkit.php:254
+#: leyka-boost/includes/modules/toolkit/class-toolkit.php:295
+#: leyka-boost/includes/modules/close-campaign/class-admin.php:268
+#: leyka-boost/includes/modules/close-campaign/class-admin.php:375
+#: leyka-boost/includes/modules/close-campaign/class-admin.php:383
+#: leyka-boost/includes/class-admin-menu.php:141
+#: leyka-boost/includes/class-admin-menu.php:215
+msgid "Active"
+msgstr "Active"
+
+#: leyka-boost/includes/modules/utm-tracker/class-admin.php:493
 msgid "Inactive by default. Use only for diagnostics."
 msgstr "Inactive by default. Use only for diagnostics."
 
-#: for-github/leyka-boost/includes/modules/utm-tracker/class-admin.php:499
+#: leyka-boost/includes/modules/utm-tracker/class-admin.php:499
+#: leyka-boost/includes/modules/toolkit/class-toolkit.php:343
+#: leyka-boost/includes/modules/close-campaign/class-admin.php:489
+#: leyka-boost/includes/class-admin-menu.php:165
+msgid "Save settings"
+msgstr "Save settings"
+
+#: leyka-boost/includes/modules/utm-tracker/class-admin.php:508
 msgid "Insufficient permissions"
 msgstr "Insufficient permissions"
 
-#: for-github/leyka-boost/includes/modules/utm-tracker/class-generator.php:20
-msgid "UTM Link Generator"
-msgstr "UTM Link Generator"
+#. translators: %s: minimum required PHP version
+#: leyka-boost/includes/modules/toolkit/class-toolkit.php:32
+#, php-format
+msgid "Leyka Toolkit requires PHP %s or higher."
+msgstr "Leyka Toolkit requires PHP %s or higher."
 
-#: for-github/leyka-boost/includes/modules/utm-tracker/class-generator.php:27
-msgid "Base URL *"
-msgstr "Base URL *"
+#: leyka-boost/includes/modules/toolkit/class-toolkit.php:33
+#: leyka-boost/includes/modules/toolkit/class-toolkit.php:43
+#: leyka-boost/includes/modules/toolkit/class-toolkit.php:52
+#: leyka-boost/includes/modules/toolkit/class-toolkit.php:62
+msgid "Leyka Toolkit activation error"
+msgstr "Leyka Toolkit activation error"
 
-#: for-github/leyka-boost/includes/modules/utm-tracker/class-generator.php:30
-msgid "utm_source *"
-msgstr "utm_source *"
+#. translators: %s: minimum required WordPress version
+#: leyka-boost/includes/modules/toolkit/class-toolkit.php:42
+#, php-format
+msgid "Leyka Toolkit requires WordPress %s or higher."
+msgstr "Leyka Toolkit requires WordPress %s or higher."
 
-#: for-github/leyka-boost/includes/modules/utm-tracker/class-generator.php:47
-msgid "Only source, medium and campaign are tracked by the plugin."
-msgstr "Only source, medium and campaign are tracked by the plugin."
+#: leyka-boost/includes/modules/toolkit/class-toolkit.php:51
+msgid "Leyka Toolkit requires the Leyka plugin to be installed and active."
+msgstr "Leyka Toolkit requires the Leyka plugin to be installed and active."
 
-#: for-github/leyka-boost/includes/modules/utm-tracker/class-generator.php:51
-msgid "Generate link"
-msgstr "Generate link"
+#. translators: %s: minimum required Leyka version
+#: leyka-boost/includes/modules/toolkit/class-toolkit.php:61
+#, php-format
+msgid "Leyka Toolkit requires Leyka %s or higher."
+msgstr "Leyka Toolkit requires Leyka %s or higher."
 
-#: for-github/leyka-boost/includes/modules/utm-tracker/class-generator.php:52
-msgid "Clear"
-msgstr "Clear"
+#: leyka-boost/includes/modules/toolkit/class-toolkit.php:78
+msgid "Subscribe to news"
+msgstr "Subscribe to news"
 
-#: for-github/leyka-boost/includes/modules/utm-tracker/class-generator.php:59
-msgid "Result"
-msgstr "Result"
+#: leyka-boost/includes/modules/toolkit/class-toolkit.php:83
+msgid "I agree to automatic monthly charges"
+msgstr "I agree to automatic monthly charges"
 
-#: for-github/leyka-boost/includes/modules/utm-tracker/class-generator.php:62
-msgid "Copied!"
-msgstr "Copied!"
+#: leyka-boost/includes/modules/toolkit/class-toolkit.php:84
+msgid "You can cancel the recurring donation at any time"
+msgstr "You can cancel the recurring donation at any time"
 
-#: for-github/leyka-boost/includes/modules/utm-tracker/class-generator.php:68
-msgid "Link history"
-msgstr "Link history"
+#: leyka-boost/includes/modules/toolkit/class-toolkit.php:150
+#: leyka-boost/includes/modules/toolkit/class-toolkit.php:151
+#: leyka-boost/includes/class-admin-menu.php:239
+#: leyka-boost/includes/class-admin-menu.php:433
+msgid "Toolkit"
+msgstr "Toolkit"
 
-#: for-github/leyka-boost/includes/modules/utm-tracker/class-generator.php:71
-msgid "Clear history"
-msgstr "Clear history"
+#: leyka-boost/includes/modules/toolkit/class-toolkit.php:172
+msgid "Leyka Toolkit is inactive because the Leyka plugin is not active."
+msgstr "Leyka Toolkit is inactive because the Leyka plugin is not active."
 
-#: for-github/leyka-boost/includes/modules/utm-tracker/class-generator.php:76
-msgid "Link"
-msgstr "Link"
-
-#: for-github/leyka-boost/includes/modules/utm-tracker/class-generator.php:80
-msgid "Author"
-msgstr "Author"
-
-#: for-github/leyka-boost/includes/modules/utm-tracker/class-generator.php:82
-msgid "Actions"
-msgstr "Actions"
-
-#: for-github/leyka-boost/includes/modules/utm-tracker/class-generator.php:85
-msgid "Loading…"
-msgstr "Loading…"
-
-#: for-github/leyka-boost/includes/class-core.php:214
-msgid "Leyka Boost requires the Leyka plugin to be active."
-msgstr "Leyka Boost requires the Leyka plugin to be active."
-
-#: for-github/leyka-boost/includes/class-core.php:239
+#. translators: 1: minimum required Leyka version, 2: current Leyka version
+#: leyka-boost/includes/modules/toolkit/class-toolkit.php:176
 #, php-format
 msgid ""
-"Leyka Boost detected active original plugins: %s. Disable them after "
-"verifying Leyka Boost migration to avoid duplicated behavior."
+"Leyka Toolkit requires Leyka %1$s or higher. Current Leyka version: %2$s."
 msgstr ""
-"Leyka Boost detected active original plugins: %s. Disable them after "
-"verifying Leyka Boost migration to avoid duplicated behavior."
+"Leyka Toolkit requires Leyka %1$s or higher. Current Leyka version: %2$s."
 
-#: for-github/leyka-boost/includes/class-core.php:256
-msgid "LeykaBoost_Core cannot be unserialized."
-msgstr "LeykaBoost_Core cannot be unserialized."
+#: leyka-boost/includes/modules/toolkit/class-toolkit.php:235
+msgid "Leyka Toolkit"
+msgstr "Leyka Toolkit"
 
-#: for-github/leyka-boost/includes/class-core.php:286
-#: for-github/leyka-boost/includes/class-core.php:294
-#: for-github/leyka-boost/includes/class-core.php:302
-#: for-github/leyka-boost/includes/class-core.php:312
-msgid "Leyka Boost activation error"
-msgstr "Leyka Boost activation error"
+#. translators: %s: Toolkit module version
+#: leyka-boost/includes/modules/toolkit/class-toolkit.php:238
+#, php-format
+msgid "Version %s"
+msgstr "Version %s"
 
-#: for-github/leyka-boost/includes/class-core.php:301
-msgid "Leyka Boost requires the Leyka plugin to be installed and active."
-msgstr "Leyka Boost requires the Leyka plugin to be installed and active."
+#: leyka-boost/includes/modules/toolkit/class-toolkit.php:245
+msgid "Newsletter subscription"
+msgstr "Newsletter subscription"
+
+#: leyka-boost/includes/modules/toolkit/class-toolkit.php:250
+msgid "Subscription checkbox"
+msgstr "Subscription checkbox"
+
+#: leyka-boost/includes/modules/toolkit/class-toolkit.php:260
+#: leyka-boost/includes/modules/toolkit/class-toolkit.php:312
+msgid "Checkbox text"
+msgstr "Checkbox text"
+
+#: leyka-boost/includes/modules/toolkit/class-toolkit.php:267
+msgid "Checked by default"
+msgstr "Checked by default"
+
+#: leyka-boost/includes/modules/toolkit/class-toolkit.php:271
+#: leyka-boost/includes/modules/toolkit/class-toolkit.php:305
+msgid "Yes"
+msgstr "Yes"
+
+#: leyka-boost/includes/modules/toolkit/class-toolkit.php:277
+#: leyka-boost/includes/modules/toolkit/class-toolkit.php:334
+msgid "Donor tag"
+msgstr "Donor tag"
+
+#: leyka-boost/includes/modules/toolkit/class-toolkit.php:280
+msgid ""
+"Added to the donor after a successful donation with the checkbox selected."
+msgstr ""
+"Added to the donor after a successful donation with the checkbox selected."
+
+#: leyka-boost/includes/modules/toolkit/class-toolkit.php:286
+msgid "Monthly charge consent"
+msgstr "Monthly charge consent"
+
+#: leyka-boost/includes/modules/toolkit/class-toolkit.php:291
+msgid "Consent checkbox"
+msgstr "Consent checkbox"
+
+#: leyka-boost/includes/modules/toolkit/class-toolkit.php:301
+msgid "Required checkbox"
+msgstr "Required checkbox"
+
+#: leyka-boost/includes/modules/toolkit/class-toolkit.php:307
+msgid ""
+"If the checkbox is required, the donor cannot submit a recurring donation "
+"form without consent."
+msgstr ""
+"If the checkbox is required, the donor cannot submit a recurring donation "
+"form without consent."
+
+#: leyka-boost/includes/modules/toolkit/class-toolkit.php:319
+msgid "Hint text"
+msgstr "Hint text"
+
+#: leyka-boost/includes/modules/toolkit/class-toolkit.php:326
+msgid "Cancellation link"
+msgstr "Cancellation link"
+
+#: leyka-boost/includes/modules/toolkit/class-toolkit.php:329
+msgid "Leave the field empty to hide the link."
+msgstr "Leave the field empty to hide the link."
+
+#: leyka-boost/includes/modules/toolkit/class-toolkit.php:337
+msgid ""
+"Added to the donor after a successful donation with recurring charge consent."
+msgstr ""
+"Added to the donor after a successful donation with recurring charge consent."
+
+#: leyka-boost/includes/modules/toolkit/class-toolkit.php:393
+msgid "learn more"
+msgstr "learn more"
+
+#: leyka-boost/includes/modules/toolkit/class-toolkit.php:661
+msgid "Consent is required."
+msgstr "Consent is required."
+
+#: leyka-boost/includes/modules/close-campaign/class-module.php:64
+#: leyka-boost/includes/modules/close-campaign/class-frontend.php:84
+#: leyka-boost/includes/modules/close-campaign/class-frontend.php:197
+#: leyka-boost/includes/modules/close-campaign/class-admin.php:198
+#: leyka-boost/includes/modules/close-campaign/class-admin.php:230
+#: leyka-boost/includes/modules/close-campaign/class-admin.php:301
+msgid "Close the whole campaign: {sum} ₽"
+msgstr "Close the whole campaign: {sum} ₽"
+
+#: leyka-boost/includes/modules/close-campaign/class-ajax.php:42
+#: leyka-boost/includes/modules/close-campaign/class-ajax.php:117
+msgid "Invalid nonce."
+msgstr "Invalid nonce."
+
+#: leyka-boost/includes/modules/close-campaign/class-ajax.php:49
+#: leyka-boost/includes/modules/close-campaign/class-ajax.php:126
+msgid "Campaign ID is missing."
+msgstr "Campaign ID is missing."
+
+#: leyka-boost/includes/modules/close-campaign/class-ajax.php:56
+msgid "Campaign not found."
+msgstr "Campaign not found."
+
+#: leyka-boost/includes/modules/close-campaign/class-ajax.php:63
+msgid "The campaign has no target amount."
+msgstr "The campaign has no target amount."
+
+#: leyka-boost/includes/modules/close-campaign/class-ajax.php:130
+msgid "Invalid action."
+msgstr "Invalid action."
+
+#: leyka-boost/includes/modules/close-campaign/class-admin.php:63
+#: leyka-boost/includes/modules/close-campaign/class-admin.php:64
+#: leyka-boost/includes/class-admin-menu.php:132
+#: leyka-boost/includes/class-admin-menu.php:240
+#: leyka-boost/includes/class-admin-menu.php:434
+msgid "Close Campaign"
+msgstr "Close Campaign"
+
+#: leyka-boost/includes/modules/close-campaign/class-admin.php:84
+msgid "Main settings"
+msgstr "Main settings"
+
+#: leyka-boost/includes/modules/close-campaign/class-admin.php:92
+msgid "Design"
+msgstr "Design"
+
+#: leyka-boost/includes/modules/close-campaign/class-admin.php:100
+msgid "Block border settings"
+msgstr "Block border settings"
+
+#: leyka-boost/includes/modules/close-campaign/class-admin.php:110
+msgid "Module status"
+msgstr "Module status"
+
+#: leyka-boost/includes/modules/close-campaign/class-admin.php:118
+msgid "Minimum amount to show (₽)"
+msgstr "Minimum amount to show (₽)"
+
+#: leyka-boost/includes/modules/close-campaign/class-admin.php:126
+msgid "Auto-enable threshold (₽)"
+msgstr "Auto-enable threshold (₽)"
+
+#: leyka-boost/includes/modules/close-campaign/class-admin.php:135
+msgid "Active color"
+msgstr "Active color"
+
+#: leyka-boost/includes/modules/close-campaign/class-admin.php:143
+msgid "Inactive color"
+msgstr "Inactive color"
+
+#: leyka-boost/includes/modules/close-campaign/class-admin.php:151
+msgid "Button text"
+msgstr "Button text"
+
+#: leyka-boost/includes/modules/close-campaign/class-admin.php:159
+#: leyka-boost/includes/modules/close-campaign/class-admin.php:315
+msgid "Show icon"
+msgstr "Show icon"
+
+#: leyka-boost/includes/modules/close-campaign/class-admin.php:168
+msgid "Border color"
+msgstr "Border color"
+
+#: leyka-boost/includes/modules/close-campaign/class-admin.php:176
+msgid "Border width (px)"
+msgstr "Border width (px)"
+
+#: leyka-boost/includes/modules/close-campaign/class-admin.php:242
+msgid "Main plugin behavior settings."
+msgstr "Main plugin behavior settings."
+
+#: leyka-boost/includes/modules/close-campaign/class-admin.php:246
+msgid "Toggle appearance."
+msgstr "Toggle appearance."
+
+#: leyka-boost/includes/modules/close-campaign/class-admin.php:250
+msgid "Configure the Close Campaign block border."
+msgstr "Configure the Close Campaign block border."
+
+#: leyka-boost/includes/modules/close-campaign/class-admin.php:275
+msgid "Hide the toggle when the remaining amount is less than this value."
+msgstr "Hide the toggle when the remaining amount is less than this value."
+
+#: leyka-boost/includes/modules/close-campaign/class-admin.php:282
+msgid ""
+"Automatically select the toggle when the remaining amount is less than this "
+"value."
+msgstr ""
+"Automatically select the toggle when the remaining amount is less than this "
+"value."
+
+#: leyka-boost/includes/modules/close-campaign/class-admin.php:289
+msgid "Active toggle color."
+msgstr "Active toggle color."
+
+#: leyka-boost/includes/modules/close-campaign/class-admin.php:296
+msgid "Inactive toggle color."
+msgstr "Inactive toggle color."
+
+#: leyka-boost/includes/modules/close-campaign/class-admin.php:303
+msgid "Use <code>{sum}</code> to insert the amount."
+msgstr "Use <code>{sum}</code> to insert the amount."
+
+#: leyka-boost/includes/modules/close-campaign/class-admin.php:323
+msgid "Close Campaign block border color."
+msgstr "Close Campaign block border color."
+
+#: leyka-boost/includes/modules/close-campaign/class-admin.php:330
+msgid "Border width in pixels (0 = no border)."
+msgstr "Border width in pixels (0 = no border)."
+
+#: leyka-boost/includes/modules/close-campaign/class-admin.php:353
+msgid "Never"
+msgstr "Never"
+
+#: leyka-boost/includes/modules/close-campaign/class-admin.php:365
+msgid "Close Campaign dashboard"
+msgstr "Close Campaign dashboard"
+
+#: leyka-boost/includes/modules/close-campaign/class-admin.php:369
+msgid "System status"
+msgstr "System status"
+
+#: leyka-boost/includes/modules/close-campaign/class-admin.php:372
+msgid "Plugin:"
+msgstr "Plugin:"
+
+#: leyka-boost/includes/modules/close-campaign/class-admin.php:375
+msgid "Inactive"
+msgstr "Inactive"
+
+#: leyka-boost/includes/modules/close-campaign/class-admin.php:383
+msgid "Not found"
+msgstr "Not found"
+
+#: leyka-boost/includes/modules/close-campaign/class-admin.php:388
+msgid "Log folder:"
+msgstr "Log folder:"
+
+#: leyka-boost/includes/modules/close-campaign/class-admin.php:391
+msgid "Writable"
+msgstr "Writable"
+
+#: leyka-boost/includes/modules/close-campaign/class-admin.php:391
+msgid "Not writable"
+msgstr "Not writable"
+
+#: leyka-boost/includes/modules/close-campaign/class-admin.php:400
+msgid "Statistics"
+msgstr "Statistics"
+
+#: leyka-boost/includes/modules/close-campaign/class-admin.php:403
+msgid "Total toggles:"
+msgstr "Total toggles:"
+
+#: leyka-boost/includes/modules/close-campaign/class-admin.php:407
+msgid "Activations:"
+msgstr "Activations:"
+
+#: leyka-boost/includes/modules/close-campaign/class-admin.php:411
+msgid "Deactivations:"
+msgstr "Deactivations:"
+
+#: leyka-boost/includes/modules/close-campaign/class-admin.php:415
+msgid "Campaigns with statistics:"
+msgstr "Campaigns with statistics:"
+
+#: leyka-boost/includes/modules/close-campaign/class-admin.php:419
+msgid "Last reset:"
+msgstr "Last reset:"
+
+#: leyka-boost/includes/modules/close-campaign/class-admin.php:427
+msgid ""
+"Are you sure you want to reset close statistics? This action cannot be "
+"undone."
+msgstr ""
+"Are you sure you want to reset close statistics? This action cannot be "
+"undone."
+
+#: leyka-boost/includes/modules/close-campaign/class-admin.php:430
+msgid "Reset statistics"
+msgstr "Reset statistics"
+
+#: leyka-boost/includes/modules/close-campaign/class-admin.php:438
+msgid "Top campaigns"
+msgstr "Top campaigns"
+
+#: leyka-boost/includes/modules/close-campaign/class-admin.php:443
+msgid "Toggles"
+msgstr "Toggles"
+
+#: leyka-boost/includes/modules/close-campaign/class-admin.php:444
+msgid "Activations"
+msgstr "Activations"
+
+#: leyka-boost/includes/modules/close-campaign/class-admin.php:445
+msgid "Deactivations"
+msgstr "Deactivations"
+
+#. translators: %d: campaign ID
+#: leyka-boost/includes/modules/close-campaign/class-admin.php:456
+#, php-format
+msgid "Campaign #%d"
+msgstr "Campaign #%d"
+
+#: leyka-boost/includes/modules/close-campaign/class-admin.php:484
+msgid "Close Campaign settings"
+msgstr "Close Campaign settings"
+
+#: leyka-boost/includes/modules/close-campaign/class-admin.php:494
+msgid "Help"
+msgstr "Help"
+
+#: leyka-boost/includes/modules/close-campaign/class-admin.php:496
+msgid ""
+"<strong>Minimum amount to show:</strong> if the remaining amount is lower, "
+"the toggle is hidden."
+msgstr ""
+"<strong>Minimum amount to show:</strong> if the remaining amount is lower, "
+"the toggle is hidden."
+
+#: leyka-boost/includes/modules/close-campaign/class-admin.php:497
+msgid ""
+"<strong>Auto-enable threshold:</strong> if the remaining amount is lower, "
+"the toggle is selected automatically."
+msgstr ""
+"<strong>Auto-enable threshold:</strong> if the remaining amount is lower, "
+"the toggle is selected automatically."
+
+#: leyka-boost/includes/modules/close-campaign/class-admin.php:498
+msgid ""
+"<strong>Button text:</strong> use <code>{sum}</code> to insert the amount."
+msgstr ""
+"<strong>Button text:</strong> use <code>{sum}</code> to insert the amount."
+
+#: leyka-boost/includes/modules/close-campaign/class-admin.php:499
+msgid "<strong>Browser console:</strong> use only for debugging problems."
+msgstr "<strong>Browser console:</strong> use only for debugging problems."
+
+#: leyka-boost/includes/modules/close-campaign/class-admin.php:518
+msgid "Insufficient permissions."
+msgstr "Insufficient permissions."
+
+#: leyka-boost/includes/modules/close-campaign/class-admin.php:531
+msgid "Statistics reset from admin."
+msgstr "Statistics reset from admin."
+
+#: leyka-boost/includes/modules/close-campaign/class-admin.php:576
+msgid ""
+"Are you sure? All statistics will be permanently deleted. This action cannot "
+"be undone."
+msgstr ""
+"Are you sure? All statistics will be permanently deleted. This action cannot "
+"be undone."
+
+#: leyka-boost/includes/modules/close-campaign/class-admin.php:577
+msgid "Are you sure? All logs will be deleted. This action cannot be undone."
+msgstr "Are you sure? All logs will be deleted. This action cannot be undone."
+
+#: leyka-boost/includes/modules/close-campaign/class-admin.php:578
+msgid "Statistics reset successfully."
+msgstr "Statistics reset successfully."
+
+#: leyka-boost/includes/modules/close-campaign/class-admin.php:579
+msgid "Logs cleared successfully."
+msgstr "Logs cleared successfully."
+
+#: leyka-boost/includes/modules/close-campaign/class-admin.php:580
+msgid "Preview"
+msgstr "Preview"
+
+#. translators: 1: auto-enable threshold amount, 2: minimum amount to show
+#: leyka-boost/includes/modules/close-campaign/class-admin.php:582
+#, php-format
+msgid ""
+"Warning! Auto-enable threshold (%1$s ₽) is lower than the minimum amount to "
+"show (%2$s ₽). This means auto-enable will never trigger. Continue?"
+msgstr ""
+"Warning! Auto-enable threshold (%1$s ₽) is lower than the minimum amount to "
+"show (%2$s ₽). This means auto-enable will never trigger. Continue?"
+
+#: leyka-boost/includes/modules/close-campaign/class-admin.php:583
+msgid "Error"
+msgstr "Error"
+
+#: leyka-boost/includes/modules/close-campaign/class-admin.php:584
+msgid "Unknown error"
+msgstr "Unknown error"
+
+#: leyka-boost/includes/modules/close-campaign/class-admin.php:585
+msgid "Connection error"
+msgstr "Connection error"
+
+#: leyka-boost/includes/class-logger.php:47
+#, php-format
+msgid "[%s] [%s] [%s] %s\n"
+msgstr "[%s] [%s] [%s] %s\n"
+
+#: leyka-boost/includes/class-admin-menu.php:36
+#: leyka-boost/includes/class-admin-menu.php:37
+#: leyka-boost/includes/class-admin-menu.php:124
+msgid "Leyka Boost"
+msgstr "Leyka Boost"
+
+#: leyka-boost/includes/class-admin-menu.php:96
+msgid ""
+"Are you sure you want to clear the event log? This action cannot be undone."
+msgstr ""
+"Are you sure you want to clear the event log? This action cannot be undone."
+
+#: leyka-boost/includes/class-admin-menu.php:108
+#: leyka-boost/includes/class-admin-menu.php:229
+#: leyka-boost/includes/class-admin-menu.php:321
+#: leyka-boost/includes/class-admin-menu.php:338
+#: leyka-boost/includes/class-admin-menu.php:363
+msgid "Access denied."
+msgstr "Access denied."
+
+#: leyka-boost/includes/class-admin-menu.php:127
+msgid "Modules"
+msgstr "Modules"
+
+#: leyka-boost/includes/class-admin-menu.php:130
+msgid "UTM Tracker v1.5.1"
+msgstr "UTM Tracker v1.5.1"
+
+#: leyka-boost/includes/class-admin-menu.php:131
+msgid "Toolkit v1.0.0"
+msgstr "Toolkit v1.0.0"
+
+#: leyka-boost/includes/class-admin-menu.php:132
+#, php-format
+msgid "%s v1.1.4"
+msgstr "%s v1.1.4"
+
+#: leyka-boost/includes/class-admin-menu.php:136
+msgid "Logging"
+msgstr "Logging"
+
+#: leyka-boost/includes/class-admin-menu.php:142
+msgid "Writes Leyka Boost and module events to the shared event log."
+msgstr "Writes Leyka Boost and module events to the shared event log."
+
+#: leyka-boost/includes/class-admin-menu.php:146
+#: leyka-boost/includes/class-admin-menu.php:283
+msgid "Level"
+msgstr "Level"
+
+#: leyka-boost/includes/class-admin-menu.php:153
+msgid ""
+"ERROR writes only errors, INFO adds regular events, DEBUG enables diagnostic "
+"entries."
+msgstr ""
+"ERROR writes only errors, INFO adds regular events, DEBUG enables diagnostic "
+"entries."
+
+#: leyka-boost/includes/class-admin-menu.php:157
+msgid "Retention period"
+msgstr "Retention period"
+
+#: leyka-boost/includes/class-admin-menu.php:160
+msgid "Number of days after which old entries are removed during rotation."
+msgstr "Number of days after which old entries are removed during rotation."
+
+#: leyka-boost/includes/class-admin-menu.php:241
+#: leyka-boost/includes/class-admin-menu.php:435
+msgid "Core"
+msgstr "Core"
+
+#: leyka-boost/includes/class-admin-menu.php:245
+msgid "Leyka Boost event log"
+msgstr "Leyka Boost event log"
+
+#: leyka-boost/includes/class-admin-menu.php:249
+msgid "Total"
+msgstr "Total"
+
+#: leyka-boost/includes/class-admin-menu.php:256
+msgid "Search by message"
+msgstr "Search by message"
+
+#: leyka-boost/includes/class-admin-menu.php:258
+msgid "All modules"
+msgstr "All modules"
+
+#: leyka-boost/includes/class-admin-menu.php:264
+msgid "All levels"
+msgstr "All levels"
+
+#: leyka-boost/includes/class-admin-menu.php:269
+msgid "Clear event log"
+msgstr "Clear event log"
+
+#: leyka-boost/includes/class-admin-menu.php:270
+msgid "Download log"
+msgstr "Download log"
+
+#. translators: %d: total number of log entries
+#: leyka-boost/includes/class-admin-menu.php:275
+#, php-format
+msgid "Showing the latest 500 entries out of %d."
+msgstr "Showing the latest 500 entries out of %d."
+
+#: leyka-boost/includes/class-admin-menu.php:282
+msgid "Time"
+msgstr "Time"
+
+#: leyka-boost/includes/class-admin-menu.php:284
+msgid "Module"
+msgstr "Module"
+
+#: leyka-boost/includes/class-admin-menu.php:285
+msgid "Message"
+msgstr "Message"
+
+#: leyka-boost/includes/class-admin-menu.php:290
+msgid "The event log is empty."
+msgstr "The event log is empty."
+
+#: leyka-boost/includes/class-admin-menu.php:290
+msgid "Entries will appear here as the plugin runs."
+msgstr "Entries will appear here as the plugin runs."
+
+#: leyka-boost/includes/class-admin-menu.php:302
+msgid "No entries found for the selected filters."
+msgstr "No entries found for the selected filters."
+
+#: leyka-boost/includes/class-admin-menu.php:369
+msgid "Log file does not exist."
+msgstr "Log file does not exist."
+
+#: leyka-boost/includes/class-admin-menu.php:436
+msgid "Logger"
+msgstr "Logger"
+
+#: leyka-boost/includes/class-admin-menu.php:437
+msgid "Admin UI"
+msgstr "Admin UI"
+
+#~ msgid "Entry retention period"
+#~ msgstr "Entry retention period"
+
+#~ msgid "Browser console"
+#~ msgstr "Browser console"
+
+#~ msgid "Event log settings."
+#~ msgstr "Event log settings."
+
+#~ msgid "ERROR (errors only)"
+#~ msgstr "ERROR (errors only)"
+
+#~ msgid "INFO (errors and actions)"
+#~ msgstr "INFO (errors and actions)"
+
+#~ msgid "DEBUG (detailed diagnostics)"
+#~ msgstr "DEBUG (detailed diagnostics)"
+
+#~ msgid ""
+#~ "Number of days after which old event log entries are removed "
+#~ "automatically."
+#~ msgstr ""
+#~ "Number of days after which old event log entries are removed "
+#~ "automatically."
+
+#~ msgid ""
+#~ "Outputs diagnostic entries to the browser console. Use only for debugging."
+#~ msgstr ""
+#~ "Outputs diagnostic entries to the browser console. Use only for debugging."
+
+#~ msgid ""
+#~ "Warning! DEBUG logging can create very large log files. Recommended only "
+#~ "for debugging. Continue?"
+#~ msgstr ""
+#~ "Warning! DEBUG logging can create very large log files. Recommended only "
+#~ "for debugging. Continue?"
