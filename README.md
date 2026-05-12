@@ -46,9 +46,3 @@ UI-улучшения форм Leyka: чекбокс подписки на но�
 - Runtime-проверка выводит admin notice, если Leyka выключена.
 - Logger пишет в `wp-content/uploads/leyka-boost/logs/`.
 - `uninstall.php` удаляет опции Leyka Boost и модулей, таблицу `{prefix}leyka_utm_tracker` и папку логов.
-
-## Ограничения / Примечания
-
-- Фазы 1–8 из `PLAN.md` реализованы; следующая фаза — ручное тестирование в WordPress.
-- Правила проекта описаны в `AGENTS.md`.
-- Техническое задание находится в `leyka-boost-tz.md`.
